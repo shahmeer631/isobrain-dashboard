@@ -3,14 +3,15 @@
 import React from "react";
 import { Camera, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ApiUser, useUpdateProfileMutation } from "@/lib/redux/api/userApi";
+import { useUpdateProfileMutation } from "@/lib/redux/api/userApi";
+import { UserProfile } from "@/types/userTypes";
 import { useFileUpload } from "@/hooks/useFileUpload";
 import { useFormContext } from "react-hook-form";
 import { toast } from "sonner";
 import NextImage from "next/image";
 
 interface ProfilePictureProps {
-  user?: ApiUser;
+  user?: UserProfile;
 }
 
 export function ProfilePicture({ user }: ProfilePictureProps) {

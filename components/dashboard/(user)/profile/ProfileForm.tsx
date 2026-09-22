@@ -11,7 +11,8 @@ import { ProfilePicture } from "@/components/dashboard/(user)/profile/ProfilePic
 import { PersonalInformation } from "@/components/dashboard/(user)/profile/PersonalInformation";
 import { Preferences } from "@/components/dashboard/(user)/profile/Preferences";
 import { EmailNotifications } from "@/components/dashboard/(user)/profile/EmailNotifications";
-import { ApiUser, useUpdateProfileMutation } from "@/lib/redux/api/userApi";
+import { useUpdateProfileMutation } from "@/lib/redux/api/userApi";
+import { UserProfile } from "@/types/userTypes";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -31,7 +32,7 @@ const profileSchema = z.object({
 type ProfileFormValues = z.infer<typeof profileSchema>;
 
 interface ProfileFormProps {
-  user?: ApiUser;
+  user?: UserProfile;
   isLoading?: boolean;
 }
 
