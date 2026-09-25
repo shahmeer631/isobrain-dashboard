@@ -179,6 +179,14 @@ export function ManageGroupMembersModal({
                         <p className="text-[12px] text-slate-500 truncate">
                           {user.email}
                         </p>
+                        <p className="text-[11px] text-slate-400 mt-0.5">
+                          Subscription:{" "}
+                          {user.subscribed === "SUBSCRIBED" && user.currentPlan
+                            ? user.currentPlan
+                            : user.currentPlan && user.currentPlan !== "FREE"
+                              ? user.currentPlan
+                              : "None"}
+                        </p>
                       </div>
                       <Button
                         type="button"
@@ -251,6 +259,10 @@ export function ManageGroupMembersModal({
                       </p>
                       <p className="text-[11px] text-slate-400 mt-0.5">
                         {m.user.status}
+                        {" · Subscription: "}
+                        {m.user.currentPlan && m.user.currentPlan !== "FREE"
+                          ? m.user.currentPlan
+                          : "None"}
                         {m.dateAdded
                           ? ` · Added ${new Date(m.dateAdded).toLocaleDateString()}`
                           : ""}
