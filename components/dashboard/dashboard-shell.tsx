@@ -1,11 +1,10 @@
+"use client";
 
-"use client"
-
-import React from 'react'
-import { Sidebar } from '@/components/dashboard/Sidebar'
-import { Header } from '@/components/dashboard/Header'
-import { useDashboard } from '@/components/dashboard/dashboard-context'
-import { cn } from "@/lib/utils"
+import React from "react";
+import { Sidebar } from "@/components/dashboard/Sidebar";
+import { Header } from "@/components/dashboard/Header";
+import { useDashboard } from "@/components/dashboard/dashboard-context";
+import { cn } from "@/lib/utils";
 
 export default function DashboardShell({
   children,
@@ -13,52 +12,49 @@ export default function DashboardShell({
   enrollments,
   topCourses,
 }: {
-  children: React.ReactNode
-  stats: React.ReactNode
-  enrollments: React.ReactNode
-  topCourses: React.ReactNode
+  children: React.ReactNode;
+  stats: React.ReactNode;
+  enrollments: React.ReactNode;
+  topCourses: React.ReactNode;
 }) {
-  const { isCollapsed } = useDashboard()
+  const { isCollapsed } = useDashboard();
 
   return (
-    <div className="flex min-h-screen w-full bg-slate-50 font-sans text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-50">
-      {/* Sidebar for Desktop - Hidden on Mobile via CSS */}
-      <aside 
+    <div className="flex min-h-screen w-full bg-[var(--ib-bg)] font-sans text-[var(--ib-ink)] antialiased">
+      <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 hidden border-r border-slate-800 bg-[#0F172A] transition-all duration-300 ease-in-out md:block",
-          isCollapsed ? "w-[80px]" : "w-64"
+          "fixed inset-y-0 left-0 z-40 hidden border-r border-[var(--ib-line)] bg-[var(--ib-side)] transition-all duration-300 ease-in-out min-[981px]:block",
+          isCollapsed ? "w-[80px]" : "w-[240px]"
         )}
       >
         <Sidebar />
       </aside>
 
-      {/* Main Content Wrapper */}
-      <div 
+      <div
         className={cn(
           "flex min-h-screen flex-1 flex-col transition-all duration-300 ease-in-out pl-0",
-          isCollapsed ? "md:pl-[80px]" : "md:pl-64"
+          isCollapsed ? "min-[981px]:pl-[80px]" : "min-[981px]:pl-[240px]"
         )}
       >
         <Header />
-        
-        {/* Scrollable Content Area */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50/50 p-6 dark:bg-slate-900/50 [scrollbar-gutter:stable]">
-          <div className="mx-auto max-w-8xl animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-          {/* <div className="mx-auto max-w-7xl animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8"> */}
-            {/* Page Content */}
+
+        {/* HTML reference: .pg padding 32px desktop / 20px ≤980px */}
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-[var(--ib-bg)] p-5 [scrollbar-gutter:stable] min-[981px]:p-8">
+          <div className="ib-reveal mx-auto max-w-[1280px] space-y-6 motion-reduce:animate-none">
             {children}
-            
-            {/* Dashboard Widgets */}
-            <div className="space-y-6">
-               {stats}
-               <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                 {enrollments}
-                 {topCourses}
-               </div>
-            </div>
+
+            {(stats || enrollments || topCourses) && (
+              <div className="space-y-6">
+                {stats}
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                  {enrollments}
+                  {topCourses}
+                </div>
+              </div>
+            )}
           </div>
         </main>
       </div>
     </div>
-  )
+  );
 }

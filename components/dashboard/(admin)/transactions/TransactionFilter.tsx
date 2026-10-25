@@ -22,14 +22,14 @@ export const TransactionFilter = React.memo(({ search, setSearch, status, setSta
   ];
 
   return (
-    <div className="bg-white p-4 rounded-xl border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm shadow-slate-100/50">
+    <div className="bg-white p-4 rounded-xl border border-[var(--ib-line)] flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm shadow-[var(--ib-line)]/50">
       <div className="relative w-full md:max-w-md">
-        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--ib-mute)]" />
         <Input
           placeholder="Search by user, transaction ID, or email..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="pl-11 bg-slate-50 border border-slate-100 h-12 rounded-xl focus:bg-white transition-all text-[15px] placeholder:text-slate-400"
+          className="pl-11 bg-[var(--ib-bg)] border border-[var(--ib-line)] h-12 rounded-xl focus:bg-white transition-all text-[15px] placeholder:text-[var(--ib-mute)]"
         />
       </div>
 
@@ -43,7 +43,7 @@ export const TransactionFilter = React.memo(({ search, setSearch, status, setSta
               "h-11 px-6 rounded-xl text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all duration-300",
               status === s.value
                 ? "shadow-lg shadow-blue-100 ring-2 ring-blue-500/10"
-                : "border-slate-200 text-slate-500 hover:bg-slate-50 hover:border-slate-300 shadow-sm"
+                : "border-[var(--ib-line)] text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] hover:border-[var(--ib-line)] shadow-sm"
             )}
           >
             {s.label === "All Status" && <Filter className="h-4 w-4" />}

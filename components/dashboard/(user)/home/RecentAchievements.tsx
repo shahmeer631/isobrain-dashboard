@@ -1,18 +1,23 @@
 import React from "react";
-import { ChevronRight, Award, TrendingUp, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Award, TrendingUp, CheckCircle } from "lucide-react";
 import { IRecentAchievement } from "@/types/userDashboardTypes";
 import { RecentAchievementsSkeleton } from "./UserDashboardSkeleton";
 
 const getAchievementStyle = (title: string) => {
   const t = title.toLowerCase();
   if (t.includes("course")) {
-    return { icon: CheckCircle, color: "bg-amber-500 text-white shadow-amber-500/20" };
+    return {
+      icon: CheckCircle,
+      color: "bg-[var(--ib-acc)] text-[var(--ib-on)]",
+    };
   }
   if (t.includes("iso") || t.includes("cert")) {
-    return { icon: Award, color: "bg-orange-500 text-white shadow-orange-500/20" };
+    return {
+      icon: Award,
+      color: "bg-[var(--ib-ok)] text-white",
+    };
   }
-  return { icon: TrendingUp, color: "bg-indigo-600 text-white shadow-indigo-600/20" };
+  return { icon: TrendingUp, color: "bg-[var(--ib-acc)] text-[var(--ib-on)]" };
 };
 
 interface RecentAchievementsProps {
@@ -20,52 +25,51 @@ interface RecentAchievementsProps {
   isLoading?: boolean;
 }
 
-export function RecentAchievements({ achievements = [], isLoading }: RecentAchievementsProps) {
+export function RecentAchievements({
+  achievements = [],
+  isLoading,
+}: RecentAchievementsProps) {
   if (isLoading) {
     return <RecentAchievementsSkeleton />;
   }
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 h-full">
-      <div className="flex items-center justify-between mb-8">
-        <h3 className="text-[18px] font-black text-slate-900 dark:text-white">
+    <div className="ib-card h-full p-5 sm:p-6">
+      <div className="mb-5 flex items-center justify-between">
+        <h2 className="text-[15px] font-semibold tracking-[-0.01em] text-[var(--ib-ink)]">
           Recent Achievements
-        </h3>
-        {/* <Button
-          variant="ghost"
-          size="sm"
-          className="text-slate-500 hover:text-indigo-600 font-bold flex items-center gap-1 group transition-all"
-        >
-          View All{" "}
-          <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-        </Button> */}
+        </h2>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {achievements.length === 0 ? (
-          <div className="py-10 text-center text-slate-400">
-            <Award className="w-12 h-12 mx-auto mb-3 opacity-20" />
-            <p>No recent achievements</p>
+          <div className="py-10 text-center text-[var(--ib-mute)]">
+            <Award className="mx-auto mb-3 h-10 w-10 opacity-20" />
+            <p className="text-sm">No recent achievements</p>
           </div>
         ) : (
-          achievements.map((achievement) => {
+          achievements.map((achievement, index) => {
             const { icon: Icon, color } = getAchievementStyle(achievement.title);
+            const key =
+              achievement.id != null && String(achievement.id) !== ""
+                ? String(achievement.id)
+                : `achievement-${index}-${achievement.title || "item"}`;
             return (
               <div
-                key={achievement.id}
-                className="flex items-center gap-5 relative group"
+                key={key}
+                className="group flex items-center gap-4"
               >
                 <div
-                  className={`h-11 w-11 shrink-0 flex items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110 ${color}`}
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] ${color}`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="h-4.5 w-4.5" />
                 </div>
 
-                <div className="flex-1">
-                  <h4 className="text-[15px] font-black text-slate-900 dark:text-white leading-tight">
+                <div className="min-w-0 flex-1">
+                  <h4 className="truncate text-[14px] font-semibold text-[var(--ib-ink)]">
                     {achievement.title}
                   </h4>
-                  <p className="text-[12px] font-medium text-slate-400 mt-0.5">
+                  <p className="mt-0.5 text-[12px] text-[var(--ib-mute)]">
                     {achievement.date}
                   </p>
                 </div>

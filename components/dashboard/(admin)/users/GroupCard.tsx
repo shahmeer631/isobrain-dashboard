@@ -59,18 +59,18 @@ export function GroupCard({
   const plans = group.planAccess || group.permissions || [];
 
   return (
-    <div className="flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all group h-full">
+    <div className="flex flex-col bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-6 shadow-sm hover:shadow-md transition-all group h-full">
       <div className="flex justify-between items-start mb-6">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-600">
+          <div className="w-12 h-12 rounded-2xl bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 flex items-center justify-center text-[var(--ib-acc)]">
             <Users className="w-6 h-6" />
           </div>
           <div className="space-y-1">
-            <h3 className="text-[17px] font-bold text-slate-900 dark:text-white leading-none">
+            <h3 className="text-[17px] font-bold text-[var(--ib-ink)] dark:text-white leading-none">
               {group.name}
             </h3>
             <div className="flex items-center gap-2">
-              <Badge className="bg-indigo-600 text-white hover:bg-indigo-700 border-none px-2 py-0 h-5 text-[10px] font-bold rounded-md">
+              <Badge className="bg-[var(--ib-acc)] text-white hover:bg-[var(--ib-acc)] border-none px-2 py-0 h-5 text-[10px] font-bold rounded-md">
                 {group.status}
               </Badge>
             </div>
@@ -78,23 +78,23 @@ export function GroupCard({
         </div>
       </div>
 
-      <p className="text-[14px] text-slate-500 font-medium mb-6 line-clamp-2 min-h-[40px]">
+      <p className="text-[14px] text-[var(--ib-mute)] font-medium mb-6 line-clamp-2 min-h-[40px]">
         {group.description || "No description"}
       </p>
 
-      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 mb-6">
+      <div className="bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-2xl p-4 mb-6">
         <div className="flex flex-col">
-          <span className="text-[28px] font-bold text-indigo-600 leading-none mb-1">
+          <span className="text-[28px] font-bold text-[var(--ib-acc)] leading-none mb-1">
             {(group.memberCount ?? group.totalMembers ?? 0).toLocaleString()}
           </span>
-          <span className="text-[13px] font-bold text-slate-500">
+          <span className="text-[13px] font-bold text-[var(--ib-mute)]">
             Total Members
           </span>
         </div>
       </div>
 
       <div className="mb-6">
-        <p className="text-[13px] font-bold text-slate-900 dark:text-white mb-3">
+        <p className="text-[13px] font-bold text-[var(--ib-ink)] dark:text-white mb-3">
           Plan Access
         </p>
         <div className="flex flex-wrap gap-1.5">
@@ -102,20 +102,20 @@ export function GroupCard({
             <Badge
               key={index}
               variant="secondary"
-              className="bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400 border-none px-2.5 py-1 text-[11px] font-bold rounded-lg"
+              className="bg-[var(--ib-accbg)] text-[var(--ib-acc)] dark:bg-[var(--ib-acc)]/20 dark:text-[var(--ib-acc)] border-none px-2.5 py-1 text-[11px] font-bold rounded-lg"
             >
               {planAccessLabel(plan)}
             </Badge>
           ))}
           {plans.length === 0 && (
-            <span className="text-[12px] text-slate-400 italic">
+            <span className="text-[12px] text-[var(--ib-mute)] italic">
               No plans assigned
             </span>
           )}
         </div>
       </div>
 
-      <div className="mt-auto flex flex-col gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
+      <div className="mt-auto flex flex-col gap-2 pt-4 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
         <Button
           variant="primary"
           className="w-full h-11 rounded-xl font-bold flex items-center justify-center gap-2"
@@ -127,7 +127,7 @@ export function GroupCard({
         <div className="flex items-center gap-3">
           <Button
             variant="outline"
-            className="flex-1 h-11 rounded-xl border-slate-200 dark:border-slate-800 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-center gap-2 transition-all"
+            className="flex-1 h-11 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] font-bold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] flex items-center justify-center gap-2 transition-all"
             onClick={() => onEdit(group)}
           >
             <Edit className="w-4 h-4" />
@@ -136,7 +136,7 @@ export function GroupCard({
           <Button
             variant="outline"
             size="icon"
-            className="h-11 w-11 rounded-xl border-slate-200 dark:border-slate-800 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center justify-center transition-all"
+            className="h-11 w-11 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center justify-center transition-all"
             onClick={() => onDelete(group.id)}
           >
             <Trash2 className="w-4 h-4 text-red-500" />

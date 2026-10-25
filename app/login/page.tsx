@@ -58,9 +58,9 @@ export default function LoginPage() {
   const errorMessage = getErrorMessage()
 
   return (
-    <div className="min-h-screen bg-[#f8f4ff] flex flex-col justify-center items-center p-4 selection:bg-purple-200 relative overflow-hidden">
+    <div className="min-h-screen bg-[var(--ib-bg)] flex flex-col justify-center items-center p-4 selection:bg-[var(--ib-accbg)] relative overflow-hidden">
       
-      {/* Moveable Floating Background Shapes */}
+      {/* Subtle background atmosphere */}
       <style jsx>{`
         @keyframes horizontal {
           0%, 100% { transform: translateX(-10%) translateY(0); }
@@ -91,64 +91,50 @@ export default function LoginPage() {
         .animate-random-path { animation: random-path 40s ease-in-out infinite; }
       `}</style>
 
-      {/* Multiple Directional Gradient Shapes with Randomized Start */}
       <div 
-        className="absolute w-[40%] h-[40%] bg-linear-to-r from-purple-500/30 to-blue-500/20 rounded-full blur-[100px] animate-horizontal" 
+        className="absolute w-[40%] h-[40%] bg-[var(--ib-acc)]/10 rounded-full blur-[100px] animate-horizontal" 
         style={{ top: '15%', left: '-20%', animationDelay: '-5s' }} 
       />
       <div 
-        className="absolute w-[35%] h-[35%] bg-linear-to-b from-blue-400/30 to-indigo-500/20 rounded-full blur-[100px] animate-vertical px-10" 
+        className="absolute w-[35%] h-[35%] bg-[var(--ib-acc)]/8 rounded-full blur-[100px] animate-vertical" 
         style={{ top: '-25%', left: '45%', animationDelay: '-12s' }} 
       />
       <div 
-        className="absolute w-[45%] h-[45%] bg-linear-to-br from-indigo-500/20 via-purple-500/20 to-transparent rounded-full blur-[120px] animate-diagonal-1" 
+        className="absolute w-[45%] h-[45%] bg-[var(--ib-accbg)] rounded-full blur-[120px] animate-diagonal-1" 
         style={{ top: '-15%', left: '-15%', animationDelay: '-8s' }} 
       />
       <div 
-        className="absolute w-[40%] h-[40%] bg-linear-to-bl from-blue-600/20 to-transparent rounded-full blur-[120px] animate-diagonal-2" 
+        className="absolute w-[40%] h-[40%] bg-[var(--ib-acc)]/5 rounded-full blur-[120px] animate-diagonal-2" 
         style={{ top: '-15%', right: '-15%', animationDelay: '-20s' }} 
-      />
-      <div 
-        className="absolute w-[50%] h-[50%] bg-linear-to-tr from-purple-500/10 via-blue-400/20 to-transparent rounded-full blur-[150px] animate-random-path" 
-        style={{ bottom: '-20%', left: '25%', animationDelay: '-3s' }} 
-      />
-
-      {/* Small Floating Details */}
-      <div 
-        className="absolute w-24 h-24 bg-purple-400/30 rounded-full blur-[140px] animate-horizontal" 
-        style={{ top: '20%', left: '10%', animationDelay: '-2s' }} 
-      />
-      <div 
-        className="absolute w-32 h-32 bg-blue-400/20 rounded-full blur-[50px] animate-vertical px-10" 
-        style={{ bottom: '20%', right: '15%', animationDelay: '-15s' }} 
-      />
-      <div 
-        className="absolute w-20 h-20 bg-indigo-500/30 rounded-full blur-[30px] animate-diagonal-1" 
-        style={{ top: '60%', left: '40%', animationDelay: '-7s' }} 
-      />
-      <div 
-        className="absolute w-28 h-28 bg-purple-500/20 rounded-full blur-[40px] animate-diagonal-2" 
-        style={{ top: '10%', right: '30%', animationDelay: '-11s' }} 
-      />
-      <div 
-        className="absolute w-16 h-16 bg-blue-300/40 rounded-full blur-[20px] animate-random-path" 
-        style={{ bottom: '40%', left: '10%', animationDelay: '-19s' }} 
       />
 
       <div className="w-full max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
-        {/* High-Fidelity Blurry Glass Card */}
-        <div className="bg-white/10 dark:bg-slate-900/10 backdrop-blur-3xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] sm:p-12 p-8 border border-white/20 dark:border-slate-800/50 relative z-10 overflow-hidden">
+        {/* Form card */}
+        <div className="bg-[var(--ib-card)] rounded-2xl shadow-[0_20px_50px_rgba(11,18,32,0.06)] sm:p-12 p-8 border border-[var(--ib-line)] relative z-10 overflow-hidden">
           
-          {/* Subtle inner shadow/glow */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent opacity-50" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--ib-acc)]/30 to-transparent" />
 
           <div className="relative z-10">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-gradient-to-br from-purple-100 to-blue-100 mb-6 shadow-sm border border-white">
-                <Lock className="w-7 h-7 text-slate-800" />
+            <div className="mb-10 text-center">
+              <div className="mb-6 inline-flex items-center justify-center overflow-hidden rounded-2xl shadow-[0_8px_24px_-12px_color-mix(in_srgb,var(--ib-acc)_45%,transparent)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand-mark.png"
+                  alt="ISOBrain.AI"
+                  width={64}
+                  height={64}
+                  className="size-16 object-cover"
+                />
               </div>
-              <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-2">Welcome Back</h1>
-              <p className="text-slate-500 text-sm font-medium">Please enter your details to continue</p>
+              <p className="mb-2 text-[13px] font-bold tracking-[-0.02em] text-[var(--ib-ink)]">
+                ISOBrain<span className="text-[var(--ib-acc)]">.AI</span>
+              </p>
+              <h1 className="mb-2 text-3xl font-bold tracking-tight text-[var(--ib-ink)]">
+                Welcome Back
+              </h1>
+              <p className="text-sm font-medium text-[var(--ib-mute)]">
+                Please enter your details to continue
+              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -160,9 +146,9 @@ export default function LoginPage() {
               )}
 
               <div className="space-y-2">
-                <label className="text-[14px] font-bold text-slate-500 ml-1  " htmlFor="email">Email Address</label>
+                <label className="text-[14px] font-bold text-[var(--ib-mute)] ml-1" htmlFor="email">Email Address</label>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-purple-500 transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[var(--ib-mute)] group-focus-within:text-[var(--ib-acc)] transition-colors">
                     <Mail className="h-5 w-5" />
                   </div>
                   <input
@@ -170,7 +156,7 @@ export default function LoginPage() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="block w-full pl-12 pr-4 py-4 mt-2 bg-slate-100/50 dark:bg-slate-800/50 border border-transparent rounded-xl text-sm font-medium focus:bg-white dark:focus:bg-slate-800 outline-none ring-offset-0 focus:ring-4 focus:ring-purple-500/5 focus:border-purple-200 transition-all placeholder:text-slate-400"
+                    className="block w-full pl-12 pr-4 py-4 mt-2 bg-[var(--ib-bg)] border border-[var(--ib-line)] rounded-[10px] text-sm font-medium text-[var(--ib-ink)] focus:bg-[var(--ib-card)] outline-none ring-offset-0 focus:ring-4 focus:ring-[var(--ib-acc)]/10 focus:border-[var(--ib-acc)] transition-all placeholder:text-[var(--ib-mute)]"
                     placeholder="Enter your email"
                     required
                   />
@@ -179,10 +165,10 @@ export default function LoginPage() {
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between ml-1">
-                  <label className="text-[14px] font-bold text-slate-500 " htmlFor="password">Password</label>
+                  <label className="text-[14px] font-bold text-[var(--ib-mute)]" htmlFor="password">Password</label>
                 </div>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-500 transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[var(--ib-mute)] group-focus-within:text-[var(--ib-acc)] transition-colors">
                     <Lock className="h-5 w-5" />
                   </div>
                   <input
@@ -190,14 +176,14 @@ export default function LoginPage() {
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full pl-12 pr-12 py-4 bg-slate-100/50 dark:bg-slate-800/50 border border-transparent rounded-xl text-sm font-medium focus:bg-white dark:focus:bg-slate-800 outline-none ring-offset-0 focus:ring-4 focus:ring-blue-500/5 focus:border-blue-200 transition-all placeholder:text-slate-400"
+                    className="block w-full pl-12 pr-12 py-4 bg-[var(--ib-bg)] border border-[var(--ib-line)] rounded-[10px] text-sm font-medium text-[var(--ib-ink)] focus:bg-[var(--ib-card)] outline-none ring-offset-0 focus:ring-4 focus:ring-[var(--ib-acc)]/10 focus:border-[var(--ib-acc)] transition-all placeholder:text-[var(--ib-mute)]"
                     placeholder="••••••••"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-[var(--ib-mute)] hover:text-[var(--ib-ink)] transition-colors"
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
@@ -207,9 +193,8 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-slate-900 transition-all hover:translate-y-[-2px] hover:shadow-xl hover:shadow-slate-200 active:translate-y-[0px] disabled:opacity-70 disabled:cursor-not-allowed mt-4 overflow-hidden"
+                className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-[10px] text-white bg-[var(--ib-acc)] transition-all hover:translate-y-[-2px] hover:opacity-95 hover:shadow-lg hover:shadow-[var(--ib-acc)]/20 active:translate-y-[0px] disabled:opacity-70 disabled:cursor-not-allowed mt-4 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative flex items-center gap-2">
                   {isLoading ? (
                     <Loader2 className="h-5 w-5 animate-spin" />
@@ -224,12 +209,12 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-10 text-center">
-              <p className="text-sm font-medium text-slate-400">
+              <p className="text-sm font-medium text-[var(--ib-mute)]">
                 Don&apos;t have an account?{' '}
                 <a 
                   href="https://www.isobrain.ai/auth/sign-up"
                   target='_blank' 
-                  className="text-slate-900 dark:text-white font-bold hover:underline underline-offset-4"
+                  className="text-[var(--ib-acc)] font-bold hover:underline underline-offset-4"
                 >
                   Sign up free
                 </a>
@@ -240,7 +225,7 @@ export default function LoginPage() {
         
         {/* Footer Link */}
         <div className="mt-8 text-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
-           <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">© 2026 ISO BRAIN AI • PREMIER ACCESS</p>
+           <p className="text-xs font-bold text-[var(--ib-mute)] uppercase tracking-widest">© 2026 ISO BRAIN AI • PREMIER ACCESS</p>
         </div>
       </div>
     </div>

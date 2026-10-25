@@ -16,54 +16,54 @@ export function BillingSettings({
   isSaving: boolean;
 }) {
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-sm space-y-8">
-      <h3 className="text-[18px] font-bold text-slate-900 dark:text-white mb-6">
+    <div className="bg-white dark:bg-[var(--ib-dk)] rounded-3xl p-8 shadow-sm space-y-8">
+      <h3 className="text-[18px] font-bold text-[var(--ib-ink)] dark:text-white mb-6">
         Billing Information
       </h3>
 
       <div className="space-y-8">
         {/* Tier/Plan Card */}
-        <div className="p-8 rounded-2xl bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100/50 dark:border-indigo-900/20 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-8 rounded-2xl bg-[var(--ib-accbg)]/50 dark:bg-[var(--ib-acc)]/10 border border-[var(--ib-accbg)]/50 dark:border-[var(--ib-acc)]/20 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
-            <p className="text-[12px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest">
+            <p className="text-[12px] font-bold text-[var(--ib-acc)] uppercase tracking-widest">
               Current Plan
             </p>
-            <h4 className="text-2xl font-black text-slate-900 dark:text-white leading-none">
+            <h4 className="text-2xl font-black text-[var(--ib-ink)] dark:text-white leading-none">
               Enterprise Plan
             </h4>
           </div>
-          <Button className="h-11 px-8 rounded-xl font-bold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm transition-all active:scale-95">
+          <Button className="h-11 px-8 rounded-xl font-bold bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-ink)] dark:text-white hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] shadow-sm transition-all active:scale-95">
             Upgrade
           </Button>
         </div>
 
         <div className="space-y-6">
           <div className="space-y-2">
-            <Label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <Label className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
               Billing Email
             </Label>
             <Input
               defaultValue="billing@isobrain.com"
-              className="h-12 bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 rounded-xl focus:ring-indigo-500 font-medium"
+              className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl focus:ring-[var(--ib-acc)] font-medium"
             />
           </div>
 
           <div className="space-y-2">
-            <Label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <Label className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
               Company Name
             </Label>
             <Input
               defaultValue="ISO Brain Ltd."
-              className="h-12 bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 rounded-xl focus:ring-indigo-500 font-medium"
+              className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl focus:ring-[var(--ib-acc)] font-medium"
             />
           </div>
 
           <div className="space-y-2">
-            <Label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <Label className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
               Billing Address
             </Label>
             <Textarea
-              className="min-h-[120px] bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 rounded-xl focus:ring-indigo-500 font-medium resize-none p-4"
+              className="min-h-[120px] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl focus:ring-[var(--ib-acc)] font-medium resize-none p-4"
               placeholder="Enter your billing address"
             />
           </div>

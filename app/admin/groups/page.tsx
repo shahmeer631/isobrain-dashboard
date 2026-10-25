@@ -109,7 +109,7 @@ export default function UserGroupsPage() {
       {[1, 2, 3].map((i) => (
         <div
           key={i}
-          className="flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm h-full"
+          className="flex flex-col bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-6 shadow-sm h-full"
         >
           <div className="flex items-center gap-4 mb-6">
             <Skeleton className="w-12 h-12 rounded-2xl" />
@@ -119,7 +119,7 @@ export default function UserGroupsPage() {
             </div>
           </div>
           <Skeleton className="h-10 w-full mb-6" />
-          <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 mb-6">
+          <div className="bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-2xl p-4 mb-6">
             <Skeleton className="h-8 w-16 mb-2" />
             <Skeleton className="h-4 w-24" />
           </div>
@@ -130,7 +130,7 @@ export default function UserGroupsPage() {
               <Skeleton className="h-6 w-24" />
             </div>
           </div>
-          <div className="mt-auto flex gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <div className="mt-auto flex gap-3 pt-4 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
             <Skeleton className="h-11 flex-1" />
             <Skeleton className="h-11 w-11 shrink-0" />
           </div>
@@ -155,8 +155,8 @@ export default function UserGroupsPage() {
       {isLoading ? (
         renderSkeleton()
       ) : isError ? (
-        <div className="flex flex-col items-center justify-center py-20 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
-          <p className="text-slate-400 font-bold text-lg">
+        <div className="flex flex-col items-center justify-center py-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-3xl border-2 border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+          <p className="text-[var(--ib-mute)] font-bold text-lg">
             Failed to load groups
           </p>
           <Button
@@ -180,8 +180,8 @@ export default function UserGroupsPage() {
           ))}
 
           {groups?.length === 0 && (
-            <div className="col-span-full py-20 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
-              <p className="text-slate-500 font-medium">
+            <div className="col-span-full py-20 text-center bg-white dark:bg-[var(--ib-dk)] border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl">
+              <p className="text-[var(--ib-mute)] font-medium">
                 No user groups have been created yet.
               </p>
             </div>

@@ -26,7 +26,7 @@ export function OrderStats({ stats }: OrderStatsProps) {
     {
       label: "Avg Order Value",
       value: `$${stats?.avgOrderValue?.toFixed(2) || 0}`,
-      valueColor: "text-purple-600",
+      valueColor: "text-[var(--ib-acc)]",
     },
     {
       label: "Pending",

@@ -189,18 +189,18 @@ export function EditVideoModal({
           {/* Media Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-3">
-              <FormLabel className="text-sm font-black text-slate-900 uppercase tracking-widest">
+              <FormLabel className="text-sm font-black text-[var(--ib-ink)] uppercase tracking-widest">
                 Video Content
               </FormLabel>
-              <div className="relative aspect-video rounded-3xl overflow-hidden bg-black shadow-xl border border-slate-100 group">
+              <div className="relative aspect-video rounded-3xl overflow-hidden bg-black shadow-xl border border-[var(--ib-line)] group">
                 <video
                   src={selectedVideoConfig?.preview || video?.videoUrl || ""}
                   className="w-full h-full object-contain"
                   controls={!!(selectedVideoConfig?.preview || video?.videoUrl)}
                   poster={selectedThumbConfig?.preview || video?.thumbnail || ""}
                 />
-                <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                  <div className="bg-white/90 backdrop-blur-xl px-4 py-2 rounded-2xl flex items-center gap-2 text-xs font-bold text-slate-900 shadow-2xl">
+                <div className="absolute inset-0 bg-[var(--ib-dk)]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                  <div className="bg-white/90 backdrop-blur-xl px-4 py-2 rounded-2xl flex items-center gap-2 text-xs font-bold text-[var(--ib-ink)] shadow-2xl">
                     <Upload className="w-4 h-4" />
                     Click &quot;update&quot; to change
                   </div>
@@ -209,7 +209,7 @@ export function EditVideoModal({
               <Button
                 type="button"
                 variant="outline"
-                className="w-full h-11 rounded-xl border-slate-200 font-bold text-xs"
+                className="w-full h-11 rounded-xl border-[var(--ib-line)] font-bold text-xs"
                 onClick={() => videoInputRef.current?.click()}
                 disabled={isUploading}
               >
@@ -218,10 +218,10 @@ export function EditVideoModal({
             </div>
 
             <div className="space-y-3">
-              <FormLabel className="text-sm font-black text-slate-900 uppercase tracking-widest">
+              <FormLabel className="text-sm font-black text-[var(--ib-ink)] uppercase tracking-widest">
                 Thumbnail Image
               </FormLabel>
-              <div className="relative aspect-video rounded-3xl overflow-hidden bg-slate-50 shadow-inner border border-slate-100 group flex items-center justify-center">
+              <div className="relative aspect-video rounded-3xl overflow-hidden bg-[var(--ib-bg)] shadow-inner border border-[var(--ib-line)] group flex items-center justify-center">
                 {(selectedThumbConfig?.preview || video?.thumbnail) ? (
                   <img
                     src={selectedThumbConfig?.preview || video?.thumbnail || ""}
@@ -229,13 +229,13 @@ export function EditVideoModal({
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="text-slate-300 flex flex-col items-center gap-2">
+                  <div className="text-[var(--ib-mute)] flex flex-col items-center gap-2">
                     <Upload className="w-8 h-8 opacity-20" />
                     <span className="text-[10px] font-black uppercase">No Media</span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                  <div className="bg-white/90 backdrop-blur-xl px-4 py-2 rounded-2xl flex items-center gap-2 text-xs font-bold text-slate-900 shadow-2xl">
+                <div className="absolute inset-0 bg-[var(--ib-dk)]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                  <div className="bg-white/90 backdrop-blur-xl px-4 py-2 rounded-2xl flex items-center gap-2 text-xs font-bold text-[var(--ib-ink)] shadow-2xl">
                     <Upload className="w-4 h-4" />
                     Click &quot;update&quot; to change
                   </div>
@@ -244,7 +244,7 @@ export function EditVideoModal({
               <Button
                 type="button"
                 variant="outline"
-                className="w-full h-11 rounded-xl border-slate-200 font-bold text-xs"
+                className="w-full h-11 rounded-xl border-[var(--ib-line)] font-bold text-xs"
                 onClick={() => thumbInputRef.current?.click()}
                 disabled={isUploading}
               >
@@ -259,14 +259,14 @@ export function EditVideoModal({
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Video Title *
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., ISO 9001 Introduction"
                       {...field}
-                      className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-1 focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -280,19 +280,19 @@ export function EditVideoModal({
                 name="courseId"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Course *
                     </FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                           <SelectValue placeholder="Select Course" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                         {isCoursesLoading ? (
                           <div className="flex items-center justify-center p-4">
-                            <Loader2 className="w-5 h-5 animate-spin text-slate-400" />
+                            <Loader2 className="w-5 h-5 animate-spin text-[var(--ib-mute)]" />
                           </div>
                         ) : courses.length > 0 ? (
                           courses.map((course) => (
@@ -315,16 +315,16 @@ export function EditVideoModal({
                 name="status"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Status
                     </FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                           <SelectValue placeholder="Status" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                         <SelectItem value="PUBLISHED">Published</SelectItem>
                         <SelectItem value="DRAFT">Draft</SelectItem>
                       </SelectContent>
@@ -340,14 +340,14 @@ export function EditVideoModal({
               name="duration"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Duration (mm:ss)
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., 15:30"
                       {...field}
-                      className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-1 focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -360,14 +360,14 @@ export function EditVideoModal({
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Description
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Brief description of the video..."
                       {...field}
-                      className="bg-slate-50 border-none min-h-[90px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none min-h-[90px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -377,19 +377,19 @@ export function EditVideoModal({
 
             {/* Read Only Stats */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-50 rounded-xl p-4">
-                <p className="text-[12px] font-bold text-slate-400 uppercase tracking-tight mb-0.5">
+              <div className="bg-[var(--ib-bg)] rounded-xl p-4">
+                <p className="text-[12px] font-bold text-[var(--ib-mute)] uppercase tracking-tight mb-0.5">
                   Views
                 </p>
-                <p className="text-[16px] font-bold text-slate-900">
+                <p className="text-[16px] font-bold text-[var(--ib-ink)]">
                   {video?.views || "0"}
                 </p>
               </div>
-              <div className="bg-slate-50 rounded-xl p-4">
-                <p className="text-[12px] font-bold text-slate-400 uppercase tracking-tight mb-0.5">
+              <div className="bg-[var(--ib-bg)] rounded-xl p-4">
+                <p className="text-[12px] font-bold text-[var(--ib-mute)] uppercase tracking-tight mb-0.5">
                   Uploaded
                 </p>
-                <p className="text-[16px] font-bold text-slate-900">
+                <p className="text-[16px] font-bold text-[var(--ib-ink)]">
                   {video ? new Date(video.createdAt).toLocaleDateString() : "Just now"}
                 </p>
               </div>
@@ -401,7 +401,7 @@ export function EditVideoModal({
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="w-full sm:flex-1 h-14 rounded-2xl border-slate-100 font-bold hover:bg-slate-50 text-[16px]"
+              className="w-full sm:flex-1 h-14 rounded-2xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] text-[16px]"
             >
               Cancel
             </Button>

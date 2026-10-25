@@ -101,13 +101,13 @@ export default function UserCertificatesPage() {
 
   return (
     <Container>
-      <div className="space-y-8 pb-10 ">
+      <div className="space-y-6 pb-8">
         <PageHeader
           title="My Certificates"
           subtitle="View and download your earned course certificates"
           actions={
-            <Button variant="primary">
-              <span className="bg-white/20 rounded-full h-5 w-5 flex items-center justify-center text-[10px]">
+            <Button className="ib-btn gap-2 border-0">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[10px]">
                 {mappedCertificates.length}
               </span>
               Certificates
@@ -122,12 +122,12 @@ export default function UserCertificatesPage() {
           isLoading={isLoading}
         />
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {isLoading ? (
             [1, 2, 3].map((i) => <UserCertificateCardSkeleton key={i} />)
           ) : mappedCertificates.length === 0 ? (
-            <div className="text-center py-20 bg-slate-50 dark:bg-slate-900 shadow-sm rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
-              <p className="text-slate-500 font-bold">
+            <div className="ib-card border-dashed py-16 text-center">
+              <p className="font-semibold text-[var(--ib-mute)]">
                 No certificates earned yet.
               </p>
             </div>

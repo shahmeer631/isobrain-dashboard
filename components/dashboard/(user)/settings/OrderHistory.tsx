@@ -45,11 +45,11 @@ const MOCK_ORDERS: OrderData[] = [
 
 export function OrderHistory() {
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-2xl p-6 shadow-sm overflow-hidden flex flex-col">
       <div className="flex items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-2">
-          <FileText className="h-5 w-5 text-slate-800 dark:text-slate-200" />
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+          <FileText className="h-5 w-5 text-[var(--ib-ink)] dark:text-[var(--ib-mute)]" />
+          <h2 className="text-lg font-bold text-[var(--ib-ink)] dark:text-white">
             Order History
           </h2>
         </div>
@@ -63,40 +63,40 @@ export function OrderHistory() {
         <div className="inline-block min-w-full align-middle">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-y border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20">
-                <th className="px-6 py-3 text-xs font-bold text-slate-900 dark:text-white whitespace-nowrap">
+              <tr className="border-y border-[var(--ib-line)] dark:border-[var(--ib-line)] bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/20">
+                <th className="px-6 py-3 text-xs font-bold text-[var(--ib-ink)] dark:text-white whitespace-nowrap">
                   Invoice ID
                 </th>
-                <th className="px-6 py-3 text-xs font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                <th className="px-6 py-3 text-xs font-bold text-[var(--ib-ink)] dark:text-white whitespace-nowrap">
                   Date
                 </th>
-                <th className="px-6 py-3 text-xs font-bold text-slate-900 dark:text-white">
+                <th className="px-6 py-3 text-xs font-bold text-[var(--ib-ink)] dark:text-white">
                   Item
                 </th>
-                <th className="px-6 py-3 text-xs font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                <th className="px-6 py-3 text-xs font-bold text-[var(--ib-ink)] dark:text-white whitespace-nowrap">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-xs font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                <th className="px-6 py-3 text-xs font-bold text-[var(--ib-ink)] dark:text-white whitespace-nowrap">
                   Status
                 </th>
-                <th className="px-6 py-3 text-xs font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                <th className="px-6 py-3 text-xs font-bold text-[var(--ib-ink)] dark:text-white whitespace-nowrap">
                   Invoice
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+            <tbody className="divide-y divide-[var(--ib-line)] dark:divide-[var(--ib-line)]">
               {MOCK_ORDERS.map((order, i) => (
                 <tr
                    key={i}
-                   className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors"
+                   className="hover:bg-[var(--ib-bg)]/50 dark:hover:bg-[var(--ib-dk)]/20 transition-colors"
                 >
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
                     {order.id}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
                     {order.date}
                   </td>
-                  <td className="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-300">
+                  <td className="px-6 py-4 text-sm font-medium text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     {order.item}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-green-600 dark:text-green-500">
@@ -111,7 +111,7 @@ export function OrderHistory() {
                     </Badge>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm">
-                    <button className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-medium">
+                    <button className="flex items-center gap-1.5 text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:text-[var(--ib-ink)] dark:hover:text-white transition-colors font-medium">
                       <Download className="h-4 w-4" />
                       Download
                     </button>
@@ -123,8 +123,8 @@ export function OrderHistory() {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+        <p className="text-xs text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
           Showing 4 of 24 orders
         </p>
         <div className="flex items-center gap-2">

@@ -121,8 +121,8 @@ export function UploadStandardModal({
         className={cn(
           "group border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer mb-6",
           fileName
-            ? "border-indigo-200 bg-indigo-50/30 dark:bg-indigo-900/10"
-            : "border-slate-200 dark:border-slate-800 hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800/50",
+            ? "border-[var(--ib-line)] bg-[var(--ib-accbg)]/30 dark:bg-[var(--ib-acc)]/10"
+            : "border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:border-[var(--ib-acc)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50",
         )}
       >
         <input
@@ -132,12 +132,12 @@ export function UploadStandardModal({
           ref={fileInputRef}
           onChange={handleFileChange}
         />
-        <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-full mb-4 text-indigo-600 group-hover:scale-110 transition-transform">
+        <div className="bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 p-4 rounded-full mb-4 text-[var(--ib-acc)] group-hover:scale-110 transition-transform">
           <UploadCloud className="w-8 h-8" />
         </div>
         {fileName ? (
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1 max-w-[300px]">
+            <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white line-clamp-1 max-w-[300px]">
               {fileName}
             </span>
             <button
@@ -146,17 +146,17 @@ export function UploadStandardModal({
                 setFileName(null);
                 form.resetField("file");
               }}
-              className="text-slate-400 hover:text-red-500"
+              className="text-[var(--ib-mute)] hover:text-red-500"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
         ) : (
           <>
-            <p className="text-[15px] font-bold text-slate-900 dark:text-white mb-1">
+            <p className="text-[15px] font-bold text-[var(--ib-ink)] dark:text-white mb-1">
               Click to upload or drag and drop
             </p>
-            <p className="text-[13px] text-slate-500 font-medium">
+            <p className="text-[13px] text-[var(--ib-mute)] font-medium">
               PDF files up to 10MB
             </p>
           </>
@@ -170,13 +170,13 @@ export function UploadStandardModal({
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   Title <span className="text-red-500">*</span>
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="e.g., Quality Management Systems"
-                    className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]"
+                    className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
                     {...field}
                   />
                 </FormControl>
@@ -190,7 +190,7 @@ export function UploadStandardModal({
             name="categoryId"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   Category
                 </FormLabel>
                 <Select
@@ -199,7 +199,7 @@ export function UploadStandardModal({
                   value={field.value}
                 >
                   <FormControl>
-                    <SelectTrigger className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]">
+                    <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]">
                       <SelectValue placeholder={isLoadingCategories ? "Loading..." : "Select category"} />
                     </SelectTrigger>
                   </FormControl>
@@ -220,7 +220,7 @@ export function UploadStandardModal({
             <Button
               type="button"
               variant="outline"
-              className="w-full sm:flex-1 h-12 rounded-xl text-slate-600 font-bold border-slate-200 dark:border-slate-800"
+              className="w-full sm:flex-1 h-12 rounded-xl text-[var(--ib-mute)] font-bold border-[var(--ib-line)] dark:border-[var(--ib-line)]"
               onClick={() => onOpenChange(false)}
             >
               Cancel

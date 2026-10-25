@@ -115,13 +115,13 @@
 //               name="name"
 //               render={({ field }) => (
 //                 <FormItem>
-//                   <FormLabel className="text-[14px] font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1">
+//                   <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] flex items-center gap-1">
 //                     Community Name <span className="text-rose-500">*</span>
 //                   </FormLabel>
 //                   <FormControl>
 //                     <Input
 //                       placeholder="e.g., ISO 9001 Quality Professionals"
-//                       className="h-12 bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-indigo-500/20 transition-all"
+//                       className="h-12 bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl focus:ring-2 focus:ring-[var(--ib-acc)]/20 transition-all"
 //                       {...field}
 //                     />
 //                   </FormControl>
@@ -136,13 +136,13 @@
 //               name="description"
 //               render={({ field }) => (
 //                 <FormItem>
-//                   <FormLabel className="text-[14px] font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1">
+//                   <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] flex items-center gap-1">
 //                     Description <span className="text-rose-500">*</span>
 //                   </FormLabel>
 //                   <FormControl>
 //                     <Textarea
 //                       placeholder="Brief description of the community purpose..."
-//                       className="min-h-[100px] bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl resize-none focus:ring-1 focus:ring-indigo-500"
+//                       className="min-h-[100px] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl resize-none focus:ring-1 focus:ring-[var(--ib-acc)]"
 //                       {...field}
 //                     />
 //                   </FormControl>
@@ -158,7 +158,7 @@
 //                 name="category"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+//                     <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
 //                       Category
 //                     </FormLabel>
 //                     <Select
@@ -166,11 +166,11 @@
 //                       defaultValue={field.value}
 //                     >
 //                       <FormControl>
-//                         <SelectTrigger className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl">
+//                         <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl">
 //                           <SelectValue placeholder="Select Category" />
 //                         </SelectTrigger>
 //                       </FormControl>
-//                       <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl">
+//                       <SelectContent className="rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] shadow-xl">
 //                         {[
 //                           "Quality Management",
 //                           "Information Security",
@@ -183,7 +183,7 @@
 //                           <SelectItem
 //                             key={cat}
 //                             value={cat}
-//                             className="rounded-lg py-3 focus:bg-indigo-50"
+//                             className="rounded-lg py-3 focus:bg-[var(--ib-accbg)]"
 //                           >
 //                             {cat}
 //                           </SelectItem>
@@ -201,7 +201,7 @@
 //                 name="visibility"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+//                     <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
 //                       Visibility
 //                     </FormLabel>
 //                     <Select
@@ -209,16 +209,16 @@
 //                       defaultValue={field.value}
 //                     >
 //                       <FormControl>
-//                         <SelectTrigger className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl">
+//                         <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl">
 //                           <SelectValue placeholder="Select Visibility" />
 //                         </SelectTrigger>
 //                       </FormControl>
-//                       <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl">
+//                       <SelectContent className="rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] shadow-xl">
 //                         {["Public (Active)", "private", "Archived"].map((v) => (
 //                           <SelectItem
 //                             key={v}
 //                             value={v}
-//                             className="rounded-lg py-3 focus:bg-indigo-50"
+//                             className="rounded-lg py-3 focus:bg-[var(--ib-accbg)]"
 //                           >
 //                             {v}
 //                           </SelectItem>
@@ -233,17 +233,17 @@
 
 //             {/* Icon Upload Area */}
 //             <div className="space-y-3">
-//               <p className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+//               <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
 //                 Community Icon
 //               </p>
 //               <div className="flex items-center gap-4">
-//                 <div className="w-16 h-16 rounded-full bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+//                 <div className="w-16 h-16 rounded-full bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 flex items-center justify-center text-[var(--ib-acc)]">
 //                   <Users className="w-8 h-8" />
 //                 </div>
 //                 <Button
 //                   type="button"
 //                   variant="outline"
-//                   className="rounded-xl h-10 border-slate-200 dark:border-slate-800 font-bold px-6"
+//                   className="rounded-xl h-10 border-[var(--ib-line)] dark:border-[var(--ib-line)] font-bold px-6"
 //                 >
 //                   <Upload className="w-4 h-4 mr-2" />
 //                   Upload Custom Icon
@@ -253,10 +253,10 @@
 
 //             {/* Community Settings */}
 //             <div className="space-y-4 pt-2">
-//               <p className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+//               <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
 //                 Community Settings
 //               </p>
-//               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 bg-slate-50 dark:bg-slate-800/50 p-8 rounded-[24px] border border-slate-100 dark:border-slate-800/50">
+//               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 p-8 rounded-[24px] border border-[var(--ib-line)] dark:border-[var(--ib-line)]/50">
 //                 <FormField
 //                   control={form.control}
 //                   name="allowMemberPosts"
@@ -266,10 +266,10 @@
 //                         <Checkbox
 //                           checked={field.value}
 //                           onCheckedChange={field.onChange}
-//                           className="h-5 w-5 rounded-md border-slate-300 data-[state=checked]:bg-indigo-600 data-[state=checked]:border-indigo-600"
+//                           className="h-5 w-5 rounded-md border-[var(--ib-line)] data-[state=checked]:bg-[var(--ib-acc)] data-[state=checked]:border-[var(--ib-acc)]"
 //                         />
 //                       </FormControl>
-//                       <FormLabel className="text-[13px] font-semibold text-slate-600 dark:text-slate-400 cursor-pointer">
+//                       <FormLabel className="text-[13px] font-semibold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] cursor-pointer">
 //                         Allow members to create posts
 //                       </FormLabel>
 //                     </FormItem>
@@ -284,10 +284,10 @@
 //                         <Checkbox
 //                           checked={field.value}
 //                           onCheckedChange={field.onChange}
-//                           className="h-5 w-5 rounded-md border-slate-300 data-[state=checked]:bg-indigo-600 data-[state=checked]:border-indigo-600"
+//                           className="h-5 w-5 rounded-md border-[var(--ib-line)] data-[state=checked]:bg-[var(--ib-acc)] data-[state=checked]:border-[var(--ib-acc)]"
 //                         />
 //                       </FormControl>
-//                       <FormLabel className="text-[13px] font-semibold text-slate-600 dark:text-slate-400 cursor-pointer">
+//                       <FormLabel className="text-[13px] font-semibold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] cursor-pointer">
 //                         Require moderator approval for posts
 //                       </FormLabel>
 //                     </FormItem>
@@ -302,10 +302,10 @@
 //                         <Checkbox
 //                           checked={field.value}
 //                           onCheckedChange={field.onChange}
-//                           className="h-5 w-5 rounded-md border-slate-300 data-[state=checked]:bg-indigo-600 data-[state=checked]:border-indigo-600"
+//                           className="h-5 w-5 rounded-md border-[var(--ib-line)] data-[state=checked]:bg-[var(--ib-acc)] data-[state=checked]:border-[var(--ib-acc)]"
 //                         />
 //                       </FormControl>
-//                       <FormLabel className="text-[13px] font-semibold text-slate-600 dark:text-slate-400 cursor-pointer">
+//                       <FormLabel className="text-[13px] font-semibold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] cursor-pointer">
 //                         Allow file attachments
 //                       </FormLabel>
 //                     </FormItem>
@@ -320,10 +320,10 @@
 //                         <Checkbox
 //                           checked={field.value}
 //                           onCheckedChange={field.onChange}
-//                           className="h-5 w-5 rounded-md border-slate-300 data-[state=checked]:bg-indigo-600 data-[state=checked]:border-indigo-600"
+//                           className="h-5 w-5 rounded-md border-[var(--ib-line)] data-[state=checked]:bg-[var(--ib-acc)] data-[state=checked]:border-[var(--ib-acc)]"
 //                         />
 //                       </FormControl>
-//                       <FormLabel className="text-[13px] font-semibold text-slate-600 dark:text-slate-400 cursor-pointer">
+//                       <FormLabel className="text-[13px] font-semibold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] cursor-pointer">
 //                         Send email notifications to members
 //                       </FormLabel>
 //                     </FormItem>
@@ -339,13 +339,13 @@
 //                 name="moderators"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+//                     <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
 //                       Moderators
 //                     </FormLabel>
 //                     <FormControl>
 //                       <Input
 //                         placeholder="Add moderator emails..."
-//                         className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl"
+//                         className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl"
 //                         {...field}
 //                       />
 //                     </FormControl>
@@ -360,13 +360,13 @@
 //                 name="memberLimit"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+//                     <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
 //                       Member Limit
 //                     </FormLabel>
 //                     <FormControl>
 //                       <Input
 //                         placeholder="Unlimited"
-//                         className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl"
+//                         className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl"
 //                         {...field}
 //                       />
 //                     </FormControl>
@@ -382,13 +382,13 @@
 //               name="rules"
 //               render={({ field }) => (
 //                 <FormItem>
-//                   <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+//                   <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
 //                     Community Rules
 //                   </FormLabel>
 //                   <FormControl>
 //                     <Textarea
 //                       placeholder="List community guidelines and rules..."
-//                       className="min-h-[100px] bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl resize-none focus:ring-1 focus:ring-indigo-500"
+//                       className="min-h-[100px] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl resize-none focus:ring-1 focus:ring-[var(--ib-acc)]"
 //                       {...field}
 //                     />
 //                   </FormControl>
@@ -402,7 +402,7 @@
 //             <Button
 //               type="button"
 //               variant="outline"
-//               className="flex-1 h-12 rounded-xl border-slate-200 dark:border-slate-800 font-bold text-[15px] hover:bg-slate-50"
+//               className="flex-1 h-12 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] font-bold text-[15px] hover:bg-[var(--ib-bg)]"
 //               onClick={() => onOpenChange(false)}
 //             >
 //               Cancel
@@ -410,7 +410,7 @@
 //             <Button
 //               type="submit"
 //               variant="primary"
-//               className="flex-1 h-12 rounded-xl font-bold text-[15px] shadow-lg shadow-indigo-100 transition-all hover:scale-[1.01] active:scale-[0.99]"
+//               className="flex-1 h-12 rounded-xl font-bold text-[15px] shadow-lg shadow-[var(--ib-accbg)] transition-all hover:scale-[1.01] active:scale-[0.99]"
 //             >
 //               Create Community
 //             </Button>
@@ -541,13 +541,13 @@ export function CreateCommunityModal({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[14px] font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1">
+                  <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] flex items-center gap-1">
                     Community Name <span className="text-rose-500">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., ISO 9001 Quality Professionals"
-                      className="h-12 bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-indigo-500/20"
+                      className="h-12 bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl focus:ring-2 focus:ring-[var(--ib-acc)]/20"
                       {...field}
                     />
                   </FormControl>
@@ -562,13 +562,13 @@ export function CreateCommunityModal({
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[14px] font-bold text-slate-800 dark:text-slate-200">
+                  <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Description <span className="text-rose-500">*</span>
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Brief description of the community purpose..."
-                      className="min-h-[100px] bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl resize-none"
+                      className="min-h-[100px] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl resize-none"
                       {...field}
                     />
                   </FormControl>
@@ -584,7 +584,7 @@ export function CreateCommunityModal({
                 name="category"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+                    <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Category
                     </FormLabel>
                     <Select
@@ -593,7 +593,7 @@ export function CreateCommunityModal({
                       disabled={isLoadingCats}
                     >
                       <FormControl>
-                        <SelectTrigger className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl">
+                        <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl">
                           <SelectValue
                             placeholder={
                               isLoadingCats
@@ -603,12 +603,12 @@ export function CreateCommunityModal({
                           />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] shadow-xl">
                         {categories.map((cat: any) => (
                           <SelectItem
                             key={cat.id}
                             value={cat.id} // Sending ID to the form state
-                            className="rounded-lg py-3 focus:bg-indigo-50"
+                            className="rounded-lg py-3 focus:bg-[var(--ib-accbg)]"
                           >
                             {cat.name}
                           </SelectItem>
@@ -626,7 +626,7 @@ export function CreateCommunityModal({
                 name="visibility"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+                    <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Visibility
                     </FormLabel>
                     <Select
@@ -634,7 +634,7 @@ export function CreateCommunityModal({
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 dark:border-slate-800 rounded-xl">
+                        <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl">
                           <SelectValue placeholder="Select Visibility" />
                         </SelectTrigger>
                       </FormControl>
@@ -658,12 +658,12 @@ export function CreateCommunityModal({
 
             {/* Icon Upload Area */}
             <div className="space-y-3">
-              <p className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+              <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                 Community Icon
               </p>
               <div className="flex items-center gap-4">
                 <div
-                  className="w-16 h-16 rounded-full bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 overflow-hidden cursor-pointer border-2 border-dashed border-indigo-200 dark:border-indigo-800 hover:border-indigo-400 transition-colors"
+                  className="w-16 h-16 rounded-full bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 flex items-center justify-center text-[var(--ib-acc)] overflow-hidden cursor-pointer border-2 border-dashed border-[var(--ib-line)] dark:border-[var(--ib-acc)] hover:border-[var(--ib-acc)] transition-colors"
                   onClick={() => iconInputRef.current?.click()}
                 >
                   {iconPreview ? (
@@ -684,7 +684,7 @@ export function CreateCommunityModal({
                   <Button
                     type="button"
                     variant="outline"
-                    className="rounded-xl h-10 border-slate-200 font-bold px-6"
+                    className="rounded-xl h-10 border-[var(--ib-line)] font-bold px-6"
                     onClick={() => iconInputRef.current?.click()}
                   >
                     <Upload className="w-4 h-4 mr-2" />
@@ -702,17 +702,17 @@ export function CreateCommunityModal({
                       Remove
                     </button>
                   )}
-                  <p className="text-xs text-slate-400">PNG, JPG, GIF up to 2MB</p>
+                  <p className="text-xs text-[var(--ib-mute)]">PNG, JPG, GIF up to 2MB</p>
                 </div>
               </div>
             </div>
 
             {/* Settings Toggles */}
             <div className="space-y-4 pt-2">
-              <p className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+              <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                 Community Settings
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 bg-slate-50 dark:bg-slate-800/50 p-8 rounded-[24px] border border-slate-100 dark:border-slate-800/50">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 p-8 rounded-[24px] border border-[var(--ib-line)] dark:border-[var(--ib-line)]/50">
                 {[
                   {
                     id: "allowMemberPosts",
@@ -738,10 +738,10 @@ export function CreateCommunityModal({
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            className="h-5 w-5 rounded-md border-slate-300 data-[state=checked]:bg-indigo-600"
+                            className="h-5 w-5 rounded-md border-[var(--ib-line)] data-[state=checked]:bg-[var(--ib-acc)]"
                           />
                         </FormControl>
-                        <FormLabel className="text-[13px] font-semibold text-slate-600 dark:text-slate-400 cursor-pointer">
+                        <FormLabel className="text-[13px] font-semibold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] cursor-pointer">
                           {item.label}
                         </FormLabel>
                       </FormItem>
@@ -757,13 +757,13 @@ export function CreateCommunityModal({
                 name="moderators"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+                    <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Moderators (Comma separated)
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="email@example.com, user@test.com"
-                        className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 rounded-xl"
+                        className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] rounded-xl"
                         {...field}
                       />
                     </FormControl>
@@ -776,14 +776,14 @@ export function CreateCommunityModal({
                 name="memberLimit"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+                    <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Member Limit
                     </FormLabel>
                     <FormControl>
                       <Input
                         type="number"
                         placeholder="Unlimited"
-                        className="h-12 bg-slate-50 dark:bg-slate-800 border-slate-100 rounded-xl"
+                        className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] rounded-xl"
                         {...field}
                       />
                     </FormControl>
@@ -797,13 +797,13 @@ export function CreateCommunityModal({
               name="rules"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+                  <FormLabel className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Community Rules
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="List community guidelines..."
-                      className="min-h-[100px] bg-slate-50 dark:bg-slate-800 border-slate-100 rounded-xl resize-none"
+                      className="min-h-[100px] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-[var(--ib-line)] rounded-xl resize-none"
                       {...field}
                     />
                   </FormControl>
@@ -824,7 +824,7 @@ export function CreateCommunityModal({
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 h-12 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-100 transition-all"
+              className="flex-1 h-12 rounded-xl font-bold bg-[var(--ib-acc)] hover:bg-[var(--ib-acc)]/90 text-white shadow-lg shadow-[var(--ib-accbg)] transition-all"
             >
               {isSubmitting ? (
                 <>

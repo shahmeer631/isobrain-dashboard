@@ -60,7 +60,7 @@ const OrdersPage = () => {
   const renderStatsSkeleton = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       {Array.from({ length: 4 }).map((_, i) => (
-        <Card key={i} className="border-none bg-white dark:bg-slate-900 shadow-sm rounded-xl">
+        <Card key={i} className="border-none bg-white dark:bg-[var(--ib-dk)] shadow-sm rounded-xl">
           <CardContent className="p-6">
             <div className="space-y-2">
               <Skeleton className="h-9 w-24" />
@@ -73,11 +73,11 @@ const OrdersPage = () => {
   );
 
   const renderTableSkeleton = () => (
-    <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+    <div className="bg-white dark:bg-[var(--ib-dk)] rounded-xl shadow-sm border border-[var(--ib-line)] dark:border-[var(--ib-line)] overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[900px]">
           <thead>
-            <tr className="border-b border-slate-50 dark:border-slate-800">
+            <tr className="border-b border-[var(--ib-line)] dark:border-[var(--ib-line)]">
               {Array.from({ length: 8 }).map((_, i) => (
                 <th key={i} className="px-6 py-4">
                   <Skeleton className="h-4 w-16" />
@@ -85,7 +85,7 @@ const OrdersPage = () => {
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-50 dark:divide-slate-800">
+          <tbody className="divide-y divide-[var(--ib-line)] dark:divide-[var(--ib-line)]">
             {Array.from({ length: 5 }).map((_, i) => (
               <tr key={i}>
                 <td className="px-6 py-4"><Skeleton className="h-4 w-16" /></td>

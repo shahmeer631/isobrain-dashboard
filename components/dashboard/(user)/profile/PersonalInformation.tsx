@@ -16,18 +16,23 @@ export function PersonalInformation() {
   const { control } = useFormContext();
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">
-        Personal Information
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div className="ib-card p-6 sm:p-7">
+      <div className="mb-6">
+        <h2 className="text-[16px] font-semibold tracking-[-0.01em] text-[var(--ib-ink)]">
+          Personal Information
+        </h2>
+        <p className="mt-1 text-[13px] text-[var(--ib-mute)]">
+          Update the details associated with your ISOBrain.AI account.
+        </p>
+      </div>
+      <div className="mb-6 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
         <FormField
           control={control}
           name="firstName"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="flex items-center gap-2">
-                <User className="h-4 w-4 text-slate-400" />
+                <User className="h-4 w-4 text-[var(--ib-mute)]" />
                 First Name *
               </FormLabel>
               <FormControl>
@@ -43,7 +48,7 @@ export function PersonalInformation() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="flex items-center gap-2">
-                <User className="h-4 w-4 text-slate-400" />
+                <User className="h-4 w-4 text-[var(--ib-mute)]" />
                 Last Name *
               </FormLabel>
               <FormControl>
@@ -59,7 +64,7 @@ export function PersonalInformation() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-slate-400" />
+                <Mail className="h-4 w-4 text-[var(--ib-mute)]" />
                 Email Address *
               </FormLabel>
               <FormControl>
@@ -79,7 +84,7 @@ export function PersonalInformation() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-slate-400" />
+                <Phone className="h-4 w-4 text-[var(--ib-mute)]" />
                 Phone Number
               </FormLabel>
               <FormControl>

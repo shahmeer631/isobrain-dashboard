@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { TrendingUp, BookOpen, Award, Clock } from "lucide-react";
-import { DashboardStatCard } from "@/components/dashboard/DashboardStatCard";
-
+import { TrendingUp, BookOpen, Award, Clock, LucideIcon } from "lucide-react";
 import { ProgressStatsSkeleton } from "./ProgressSkeleton";
+import { GlanceStat } from "@/components/dashboard/design-system";
 
 interface ProgressStatsProps {
   avgProgress: number;
@@ -25,44 +24,59 @@ export function ProgressStats({
     return <ProgressStatsSkeleton />;
   }
 
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {/* Hero Stat Card */}
-      <div className="bg-linear-to-br from-indigo-600 to-purple-600 rounded-3xl p-6 space-y-4 shadow-xl shadow-indigo-500/20 text-white">
-        <div className="h-10 w-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md">
-          <TrendingUp className="h-5 w-5 text-white" />
-        </div>
-        <div className="space-y-1">
-          <p className="text-3xl font-black tracking-tight">
-            {avgProgress}%
-          </p>
-          <p className="text-[12px] font-bold opacity-80 uppercase tracking-wider">
-            Average Progress
-          </p>
-        </div>
-      </div>
+  const cards: {
+    label: string;
+    value: string;
+    icon: LucideIcon;
+    hero?: boolean;
+  }[] = [
+    {
+      label: "Average progress",
+      value: `${avgProgress}%`,
+      icon: TrendingUp,
+      hero: true,
+    },
+    {
+      label: "Active courses",
+      value: activeCourses.toString(),
+      icon: BookOpen,
+    },
+    {
+      label: "Completed",
+      value: completedCourses.toString(),
+      icon: Award,
+    },
+    {
+      label: "Total time",
+      value: totalTime,
+      icon: Clock,
+    },
+  ];
 
-      <DashboardStatCard
-        label="Active Courses"
-        value={activeCourses.toString()}
-        icon={BookOpen}
-        iconColor="bg-emerald-50 text-emerald-500 shadow-none border-emerald-100"
-        className="rounded-3xl border-slate-100 dark:border-slate-800"
-      />
-      <DashboardStatCard
-        label="Completed"
-        value={completedCourses.toString()}
-        icon={Award}
-        iconColor="bg-purple-50 text-purple-500 shadow-none border-purple-100"
-        className="rounded-3xl border-slate-100 dark:border-slate-800"
-      />
-      <DashboardStatCard
-        label="Total Time"
-        value={totalTime}
-        icon={Clock}
-        iconColor="bg-orange-50 text-orange-500 shadow-none border-orange-100"
-        className="rounded-3xl border-slate-100 dark:border-slate-800"
-      />
+  return (
+    <div className="grid grid-cols-2 gap-3.5 lg:grid-cols-4">
+      {cards.map(({ label, value, icon: Icon, hero }) =>
+        hero ? (
+          <div
+            key={label}
+            className="relative overflow-hidden rounded-[14px] bg-[var(--ib-acc)] p-[18px] text-[var(--ib-on)] shadow-[0_12px_28px_-14px_color-mix(in_srgb,var(--ib-acc)_55%,transparent)]"
+          >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-6 -top-6 size-24 rounded-full bg-white/10"
+            />
+            <div className="relative flex size-9 items-center justify-center rounded-xl bg-white/15">
+              <Icon className="h-[17px] w-[17px]" strokeWidth={1.9} aria-hidden />
+            </div>
+            <b className="relative mt-3.5 block text-[26px] font-bold leading-[1.1] tracking-[-0.02em]">
+              {value}
+            </b>
+            <span className="relative text-[13px] opacity-90">{label}</span>
+          </div>
+        ) : (
+          <GlanceStat key={label} label={label} value={value} icon={Icon} />
+        )
+      )}
     </div>
   );
 }

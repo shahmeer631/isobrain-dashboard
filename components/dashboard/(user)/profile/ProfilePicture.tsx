@@ -55,14 +55,14 @@ export function ProfilePicture({ user }: ProfilePictureProps) {
   const initials = user ? `${user.firstName?.[0] || ""}${user.lastName?.[0] || ""}`.toUpperCase() : "FN";
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">
+    <div className="ib-card p-6 shadow-sm">
+      <h2 className="text-lg font-semibold text-[var(--ib-ink)] dark:text-white mb-6">
         Profile Picture
       </h2>
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
         {/* Avatar with Camera Icon */}
         <div className="relative group">
-          <div className="h-32 w-32 rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800 ring-4 ring-white dark:ring-slate-900 shadow-md relative">
+          <div className="h-32 w-32 rounded-[14px] overflow-hidden bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] ring-4 ring-white dark:ring-[var(--ib-line)] shadow-md relative">
             {profileImage ? (
               <NextImage 
                 src={profileImage} 
@@ -72,7 +72,7 @@ export function ProfilePicture({ user }: ProfilePictureProps) {
                 className="object-cover"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-3xl font-bold">
+              <div className="w-full h-full flex items-center justify-center bg-[var(--ib-accbg)] text-[var(--ib-acc)] text-3xl font-bold">
                 {initials}
               </div>
             )}
@@ -86,7 +86,7 @@ export function ProfilePicture({ user }: ProfilePictureProps) {
           
           <label 
             htmlFor="user-profile-upload" 
-            className="absolute -bottom-3 -right-3 h-10 w-10 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl flex items-center justify-center shadow-lg transition-all transform hover:scale-110 active:scale-95 cursor-pointer border-4 border-white dark:border-slate-900"
+            className="absolute -bottom-3 -right-3 h-10 w-10 bg-[var(--ib-acc)] hover:bg-[var(--ib-acc)]/90 text-white rounded-2xl flex items-center justify-center shadow-lg transition-all transform hover:scale-110 active:scale-95 cursor-pointer border-4 border-white dark:border-[var(--ib-line)]"
           >
             <Camera className="h-5 w-5" />
             <input 
@@ -103,10 +103,10 @@ export function ProfilePicture({ user }: ProfilePictureProps) {
         {/* Info & Button */}
         <div className="space-y-4">
           <div>
-            <h3 className="text-base font-bold text-slate-900 dark:text-white">
+            <h3 className="text-base font-bold text-[var(--ib-ink)] dark:text-white">
               Profile Image
             </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-[200px] mt-1">
+            <p className="text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)] max-w-[200px] mt-1">
               For best results, use an image at least 256x256 pixels in .jpg or .png format.
             </p>
           </div>
@@ -114,7 +114,7 @@ export function ProfilePicture({ user }: ProfilePictureProps) {
             variant="outline" 
             size="sm" 
             type="button" 
-            className="h-10 px-6 font-bold rounded-xl border-slate-200 dark:border-slate-800"
+            className="h-10 px-6 font-bold rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)]"
             disabled={isUploading || isUpdatingProfile}
             onClick={() => document.getElementById('user-profile-upload')?.click()}
           >

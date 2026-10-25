@@ -195,7 +195,7 @@ export function EditCourseModal({
     >
       {isFetching ? (
         <div className="flex items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 animate-spin text-indigo-600" />
+          <Loader2 className="w-8 h-8 animate-spin text-[var(--ib-acc)]" />
         </div>
       ) : (
         <Form {...form}>
@@ -215,7 +215,7 @@ export function EditCourseModal({
                   <FormControl>
                     <Input
                       placeholder="e.g., ISO 9001:2015 Complete Guide"
-                      className="h-11 rounded-xl bg-slate-50/50 dark:bg-slate-800/50"
+                      className="h-11 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50"
                       {...field}
                     />
                   </FormControl>
@@ -240,7 +240,7 @@ export function EditCourseModal({
                     <FormControl>
                       <Input
                         placeholder="Instructor name"
-                        className="h-11 rounded-xl bg-slate-50/50 dark:bg-slate-800/50"
+                        className="h-11 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50"
                         {...field}
                       />
                     </FormControl>
@@ -263,7 +263,7 @@ export function EditCourseModal({
                     </FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger className="h-11 rounded-xl bg-slate-50/50 dark:bg-slate-800/50">
+                        <SelectTrigger className="h-11 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50">
                           <SelectValue placeholder="Select Status" />
                         </SelectTrigger>
                       </FormControl>
@@ -294,7 +294,7 @@ export function EditCourseModal({
                   <FormControl>
                     <Textarea
                       placeholder="Course description..."
-                      className="h-32 resize-none rounded-xl bg-slate-50/50 dark:bg-slate-800/50"
+                      className="h-32 resize-none rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50"
                       {...field}
                     />
                   </FormControl>
@@ -321,14 +321,14 @@ export function EditCourseModal({
                       value={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="h-11 rounded-xl bg-slate-50/50 dark:bg-slate-800/50">
+                        <SelectTrigger className="h-11 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50">
                           <SelectValue placeholder="Select Category" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="max-h-60">
                         {isCategoriesLoading ? (
                           <div className="flex items-center justify-center py-4">
-                            <Loader2 className="w-5 h-5 animate-spin text-slate-400" />
+                            <Loader2 className="w-5 h-5 animate-spin text-[var(--ib-mute)]" />
                           </div>
                         ) : (
                           categories.map((cat) => (
@@ -359,7 +359,7 @@ export function EditCourseModal({
                     <FormControl>
                       <Input
                         placeholder="e.g., 12"
-                        className="h-11 rounded-xl bg-slate-50/50 dark:bg-slate-800/50"
+                        className="h-11 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50"
                         {...field}
                       />
                     </FormControl>
@@ -385,8 +385,8 @@ export function EditCourseModal({
                 className={cn(
                   "mt-2 border-2 border-dashed rounded-xl transition-all duration-200 overflow-hidden relative group",
                   previewImage
-                    ? "border-indigo-200 bg-slate-50 dark:bg-slate-800/20 p-2"
-                    : "border-slate-200 dark:border-slate-700 p-8 flex flex-col items-center justify-center text-slate-500 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-indigo-300",
+                    ? "border-[var(--ib-line)] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/20 p-2"
+                    : "border-[var(--ib-line)] dark:border-[var(--ib-line)] p-8 flex flex-col items-center justify-center text-[var(--ib-mute)] cursor-pointer hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50 hover:border-[var(--ib-acc)]",
                 )}
               >
                 {previewImage ? (
@@ -406,7 +406,7 @@ export function EditCourseModal({
                           e.stopPropagation();
                           fileInputRef.current?.click();
                         }}
-                        className="h-8 bg-white/90 hover:bg-white text-slate-900 border-none"
+                        className="h-8 bg-white/90 hover:bg-white text-[var(--ib-ink)] border-none"
                       >
                         <ImageIcon className="w-4 h-4 mr-1" />
                         Change
@@ -428,13 +428,13 @@ export function EditCourseModal({
                   </div>
                 ) : (
                   <>
-                    <div className="bg-indigo-50 dark:bg-indigo-900/20 p-3 rounded-full mb-3 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-200">
+                    <div className="bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 p-3 rounded-full mb-3 text-[var(--ib-acc)] group-hover:scale-110 transition-transform duration-200">
                       <UploadCloud className="w-8 h-8" />
                     </div>
-                    <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                    <p className="text-sm font-semibold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Click to upload or drag and drop
                     </p>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-[var(--ib-mute)] mt-1">
                       PNG, JPG or WebP (max. 800x400px)
                     </p>
                   </>
@@ -442,7 +442,7 @@ export function EditCourseModal({
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
               <Button
                 type="button"
                 variant="outline"

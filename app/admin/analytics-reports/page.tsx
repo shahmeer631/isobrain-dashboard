@@ -25,7 +25,7 @@ export default function AnalyticsReportsPage() {
       {/* Stats Skeleton */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm space-y-3">
+          <div key={i} className="bg-white dark:bg-[var(--ib-dk)] p-6 rounded-xl shadow-sm space-y-3">
             <Skeleton className="h-4 w-24" />
             <Skeleton className="h-8 w-20" />
             <Skeleton className="h-4 w-16" />
@@ -35,7 +35,7 @@ export default function AnalyticsReportsPage() {
 
       {/* Charts Skeleton */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm space-y-6">
+        <div className="bg-white dark:bg-[var(--ib-dk)] p-8 rounded-3xl shadow-sm space-y-6">
           <Skeleton className="h-6 w-32 mb-8" />
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="space-y-2">
@@ -47,7 +47,7 @@ export default function AnalyticsReportsPage() {
             </div>
           ))}
         </div>
-        <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm space-y-4">
+        <div className="bg-white dark:bg-[var(--ib-dk)] p-8 rounded-3xl shadow-sm space-y-4">
           <Skeleton className="h-6 w-40 mb-8" />
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="flex justify-between items-center p-4">
@@ -62,7 +62,7 @@ export default function AnalyticsReportsPage() {
       </div>
 
       {/* Traffic Skeleton */}
-      <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-sm">
+      <div className="bg-white dark:bg-[var(--ib-dk)] p-8 rounded-3xl shadow-sm">
         <Skeleton className="h-6 w-40 mb-10" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[1, 2, 3, 4].map((i) => (
@@ -85,7 +85,7 @@ export default function AnalyticsReportsPage() {
         title="Analytics Dashboard"
         subtitle="Track platform performance and user engagement"
         actions={
-          <div className=" hidden items-center p-1 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm">
+          <div className=" hidden items-center p-1 bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl shadow-sm">
             {FILTERS.map((filter) => (
               <Button
                 key={filter}
@@ -95,8 +95,8 @@ export default function AnalyticsReportsPage() {
                 className={cn(
                   "rounded-lg px-4 font-bold transition-all",
                   activeFilter === filter
-                    ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950 shadow-md"
-                    : "text-slate-500 hover:text-slate-900 dark:hover:text-white",
+                    ? "bg-[var(--ib-bg)] text-white dark:bg-white dark:text-[var(--ib-mute)] shadow-md"
+                    : "text-[var(--ib-mute)] hover:text-[var(--ib-ink)] dark:hover:text-white",
                 )}
               >
                 {filter}
@@ -109,7 +109,7 @@ export default function AnalyticsReportsPage() {
       {isLoading ? (
         renderSkeleton()
       ) : isError ? (
-        <div className="flex flex-col items-center justify-center py-20 bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
+        <div className="flex flex-col items-center justify-center py-20 bg-white dark:bg-[var(--ib-dk)] rounded-3xl border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)]">
           <p className="text-rose-500 font-bold">Failed to load analytics data.</p>
           <Button variant="link" onClick={() => window.location.reload()}>Try Refreshing</Button>
         </div>

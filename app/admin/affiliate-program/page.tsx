@@ -37,7 +37,7 @@ const AffiliateProgramPage = () => {
       label: "Total Commissions",
       value: `$${statsData?.data?.totalCommission?.toLocaleString() || "0"}`,
       icon: DollarSign,
-      iconColor: "text-purple-500 bg-purple-300/20",
+      iconColor: "text-[var(--ib-acc)] bg-[var(--ib-accbg)]",
       trend: "down" as const,
       trendValue: "5.8%",
     },

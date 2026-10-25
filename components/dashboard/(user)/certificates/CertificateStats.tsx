@@ -1,6 +1,6 @@
-import { Award, Calendar, Share2 } from "lucide-react";
-
+import { Award, Calendar, Share2, LucideIcon } from "lucide-react";
 import { UserCertificateStatsSkeleton } from "./UserCertificateSkeleton";
+import { GlanceStat } from "@/components/dashboard/design-system";
 
 interface CertificateStatsProps {
   totalCertificates: number;
@@ -18,53 +18,55 @@ export function CertificateStats({
   if (isLoading) {
     return <UserCertificateStatsSkeleton />;
   }
+
+  const cards: {
+    label: string;
+    value: string;
+    icon: LucideIcon;
+    hero?: boolean;
+  }[] = [
+    {
+      label: "Total certificates",
+      value: totalCertificates.toString(),
+      icon: Award,
+      hero: true,
+    },
+    {
+      label: "This month",
+      value: thisMonth.toString(),
+      icon: Calendar,
+    },
+    {
+      label: "Profile views",
+      value: profileViews.toString(),
+      icon: Share2,
+    },
+  ];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Total Certificates (Hero Blue) */}
-      <div className="bg-[#6B4BFF] hover:bg-[#5a3ae6] transition-colors duration-300 rounded-3xl p-8 flex flex-col justify-between text-white shadow-lg overflow-hidden relative group min-h-[140px]">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-500" />
-        <div className="h-12 w-12 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-md mb-4 shadow-sm border border-white/10 shrink-0 relative z-10">
-          <Award className="h-6 w-6 text-white" />
-        </div>
-        <div className="space-y-1 relative z-10">
-          <p className="text-4xl font-black tracking-tight leading-none mb-2">
-            {totalCertificates}
-          </p>
-          <p className="text-xs font-bold opacity-90 uppercase tracking-widest text-indigo-50">
-            Total Certificates
-          </p>
-        </div>
-      </div>
-
-      {/* This Month */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 flex flex-col justify-between shadow-sm min-h-[140px] hover:border-emerald-500/30 transition-colors duration-300">
-        <div className="h-12 w-12 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-500 flex items-center justify-center mb-4 shrink-0 border border-emerald-100 dark:border-emerald-800">
-          <Calendar className="h-6 w-6" />
-        </div>
-        <div className="space-y-1">
-          <p className="text-4xl font-black tracking-tight text-slate-900 dark:text-white leading-none mb-2">
-            {thisMonth}
-          </p>
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-            This Month
-          </p>
-        </div>
-      </div>
-
-      {/* Profile Views */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 flex flex-col justify-between shadow-sm min-h-[140px] hover:border-purple-500/30 transition-colors duration-300">
-        <div className="h-12 w-12 rounded-2xl bg-purple-50 dark:bg-purple-900/20 text-purple-500 flex items-center justify-center mb-4 shrink-0 border border-purple-100 dark:border-purple-800">
-          <Share2 className="h-6 w-6" />
-        </div>
-        <div className="space-y-1">
-          <p className="text-4xl font-black tracking-tight text-slate-900 dark:text-white leading-none mb-2">
-            {profileViews}
-          </p>
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-            Profile Views
-          </p>
-        </div>
-      </div>
+    <div className="grid grid-cols-1 gap-3.5 md:grid-cols-3">
+      {cards.map(({ label, value, icon: Icon, hero }) =>
+        hero ? (
+          <div
+            key={label}
+            className="relative overflow-hidden rounded-[14px] bg-[var(--ib-acc)] p-[18px] text-[var(--ib-on)] shadow-[0_12px_28px_-14px_color-mix(in_srgb,var(--ib-acc)_55%,transparent)]"
+          >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-6 -top-6 size-24 rounded-full bg-white/10"
+            />
+            <div className="relative flex size-9 items-center justify-center rounded-xl bg-white/15">
+              <Icon className="h-[17px] w-[17px]" strokeWidth={1.9} aria-hidden />
+            </div>
+            <b className="relative mt-3.5 block text-[26px] font-bold leading-[1.1] tracking-[-0.02em]">
+              {value}
+            </b>
+            <span className="relative text-[13px] opacity-90">{label}</span>
+          </div>
+        ) : (
+          <GlanceStat key={label} label={label} value={value} icon={Icon} />
+        )
+      )}
     </div>
   );
 }

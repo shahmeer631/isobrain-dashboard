@@ -133,7 +133,7 @@ export function GroupModal({
           <div className="space-y-2">
             <Label
               htmlFor="name"
-              className="text-[14px] font-bold text-slate-700 dark:text-slate-300"
+              className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]"
             >
               Group Name
             </Label>
@@ -144,7 +144,7 @@ export function GroupModal({
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
-              className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--ib-acc)]"
               required
               disabled={busy}
             />
@@ -153,10 +153,10 @@ export function GroupModal({
           <div className="space-y-2">
             <Label
               htmlFor="description"
-              className="text-[14px] font-bold text-slate-700 dark:text-slate-300"
+              className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]"
             >
               Description{" "}
-              <span className="font-medium text-slate-400">(optional)</span>
+              <span className="font-medium text-[var(--ib-mute)]">(optional)</span>
             </Label>
             <Textarea
               id="description"
@@ -165,16 +165,16 @@ export function GroupModal({
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
               }
-              className="min-h-[80px] bg-slate-50 dark:bg-slate-800 border-none rounded-xl focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="min-h-[80px] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl focus-visible:ring-2 focus-visible:ring-[var(--ib-acc)]"
               disabled={busy}
             />
           </div>
 
           <div className="space-y-3">
-            <Label className="text-[14px] font-bold text-slate-700 dark:text-slate-300">
+            <Label className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
               Plan Access
             </Label>
-            <p className="text-[13px] text-slate-500">
+            <p className="text-[13px] text-[var(--ib-mute)]">
               Members of this group receive access to the selected ISO Brain
               plans. Access is additive with any normal subscription.
             </p>
@@ -190,26 +190,26 @@ export function GroupModal({
                     className={cn(
                       "w-full flex items-start gap-3 text-left px-4 py-3 rounded-xl border transition-all",
                       isSelected
-                        ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20"
-                        : "border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 hover:border-slate-300",
+                        ? "border-[var(--ib-acc)] bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20"
+                        : "border-[var(--ib-line)] dark:border-[var(--ib-line)] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 hover:border-[var(--ib-line)]",
                     )}
                   >
                     <span
                       className={cn(
                         "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border text-[11px] font-bold",
                         isSelected
-                          ? "border-indigo-600 bg-indigo-600 text-white"
-                          : "border-slate-300 dark:border-slate-600 text-transparent",
+                          ? "border-[var(--ib-acc)] bg-[var(--ib-acc)] text-white"
+                          : "border-[var(--ib-line)] dark:border-[var(--ib-line)] text-transparent",
                       )}
                       aria-hidden
                     >
                       ✓
                     </span>
                     <span>
-                      <span className="block text-[14px] font-bold text-slate-900 dark:text-white">
+                      <span className="block text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
                         {plan.label}
                       </span>
-                      <span className="block text-[12px] text-slate-500">
+                      <span className="block text-[12px] text-[var(--ib-mute)]">
                         {plan.description}
                       </span>
                     </span>

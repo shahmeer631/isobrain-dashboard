@@ -72,12 +72,19 @@ export function ChangePassword() {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
-      <div className="flex items-center gap-2 mb-6">
-        <Lock className="h-5 w-5 text-slate-800 dark:text-slate-200" />
-        <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-          Change Password
-        </h2>
+    <div className="ib-card p-6 sm:p-7">
+      <div className="mb-6 flex items-start gap-3">
+        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--ib-acc)_16%,var(--ib-line))] bg-[var(--ib-accbg)] text-[var(--ib-acc)]">
+          <Lock className="size-4" aria-hidden />
+        </div>
+        <div>
+          <h2 className="text-[16px] font-semibold tracking-[-0.01em] text-[var(--ib-ink)]">
+            Change Password
+          </h2>
+          <p className="mt-0.5 text-[13px] text-[var(--ib-mute)]">
+            Keep your account secure with a strong, unique password.
+          </p>
+        </div>
       </div>
 
       <Form {...form}>
@@ -90,7 +97,7 @@ export function ChangePassword() {
             name="currentPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   Current Password
                 </FormLabel>
                 <FormControl>
@@ -98,13 +105,13 @@ export function ChangePassword() {
                     <Input
                       type={showPasswords.current ? "text" : "password"}
                       placeholder="Enter your current password"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20 pr-10"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20 pr-10"
                       {...field}
                     />
                     <button
                       type="button"
                       onClick={() => togglePassword("current")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--ib-mute)] hover:text-[var(--ib-ink)] dark:hover:text-[var(--ib-mute)] transition-colors"
                     >
                       {showPasswords.current ? (
                         <EyeOff className="h-4 w-4" />
@@ -124,7 +131,7 @@ export function ChangePassword() {
             name="newPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   New Password
                 </FormLabel>
                 <FormControl>
@@ -132,13 +139,13 @@ export function ChangePassword() {
                     <Input
                       type={showPasswords.new ? "text" : "password"}
                       placeholder="Enter new password"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20 pr-10"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20 pr-10"
                       {...field}
                     />
                     <button
                       type="button"
                       onClick={() => togglePassword("new")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--ib-mute)] hover:text-[var(--ib-ink)] dark:hover:text-[var(--ib-mute)] transition-colors"
                     >
                       {showPasswords.new ? (
                         <EyeOff className="h-4 w-4" />
@@ -162,7 +169,7 @@ export function ChangePassword() {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   Confirm New Password
                 </FormLabel>
                 <FormControl>
@@ -170,13 +177,13 @@ export function ChangePassword() {
                     <Input
                       type={showPasswords.confirm ? "text" : "password"}
                       placeholder="Confirm new password"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20 pr-10"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20 pr-10"
                       {...field}
                     />
                     <button
                       type="button"
                       onClick={() => togglePassword("confirm")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--ib-mute)] hover:text-[var(--ib-ink)] dark:hover:text-[var(--ib-mute)] transition-colors"
                     >
                       {showPasswords.confirm ? (
                         <EyeOff className="h-4 w-4" />

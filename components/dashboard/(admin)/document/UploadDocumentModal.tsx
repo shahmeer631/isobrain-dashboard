@@ -116,8 +116,8 @@
 //           className={cn(
 //             "group border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer",
 //             fileName
-//               ? "border-indigo-200 bg-indigo-50/30 dark:bg-indigo-900/10"
-//               : "border-slate-200 dark:border-slate-800 hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800/50",
+//               ? "border-[var(--ib-line)] bg-[var(--ib-accbg)]/30 dark:bg-[var(--ib-acc)]/10"
+//               : "border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:border-[var(--ib-acc)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50",
 //           )}
 //         >
 //           <input
@@ -126,12 +126,12 @@
 //             ref={fileInputRef}
 //             onChange={handleFileChange}
 //           />
-//           <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-full mb-4 text-indigo-600 group-hover:scale-110 transition-transform">
+//           <div className="bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 p-4 rounded-full mb-4 text-[var(--ib-acc)] group-hover:scale-110 transition-transform">
 //             <UploadCloud className="w-8 h-8" />
 //           </div>
 //           {fileName ? (
 //             <div className="flex items-center gap-2">
-//               <span className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1 max-w-[300px]">
+//               <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white line-clamp-1 max-w-[300px]">
 //                 {fileName}
 //               </span>
 //               <button
@@ -139,17 +139,17 @@
 //                   e.stopPropagation();
 //                   setFileName(null);
 //                 }}
-//                 className="text-slate-400 hover:text-red-500"
+//                 className="text-[var(--ib-mute)] hover:text-red-500"
 //               >
 //                 <X className="w-4 h-4" />
 //               </button>
 //             </div>
 //           ) : (
 //             <>
-//               <p className="text-[15px] font-bold text-slate-900 dark:text-white mb-1 text-center">
+//               <p className="text-[15px] font-bold text-[var(--ib-ink)] dark:text-white mb-1 text-center">
 //                 Click to upload or drag and drop
 //               </p>
-//               <p className="text-[13px] text-slate-500 font-medium text-center">
+//               <p className="text-[13px] text-[var(--ib-mute)] font-medium text-center">
 //                 PDF, DOCX, XLSX, PPT files up to 50MB
 //               </p>
 //             </>
@@ -166,14 +166,14 @@
 //               name="title"
 //               render={({ field }) => (
 //                 <FormItem>
-//                   <FormLabel className="text-sm font-bold text-slate-900">
+//                   <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                     Document Title *
 //                   </FormLabel>
 //                   <FormControl>
 //                     <Input
 //                       placeholder="e.g., Quality Manual Template"
 //                       {...field}
-//                       className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+//                       className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
 //                     />
 //                   </FormControl>
 //                   <FormMessage />
@@ -187,7 +187,7 @@
 //                 name="category"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-sm font-bold text-slate-900">
+//                     <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                       Category
 //                     </FormLabel>
 //                     <Select
@@ -195,11 +195,11 @@
 //                       defaultValue={field.value}
 //                     >
 //                       <FormControl>
-//                         <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+//                         <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
 //                           <SelectValue placeholder="Select category" />
 //                         </SelectTrigger>
 //                       </FormControl>
-//                       <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+//                       <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
 //                         <SelectItem value="Templates">Templates</SelectItem>
 //                         <SelectItem value="Checklists">Checklists</SelectItem>
 //                         <SelectItem value="Forms">Forms</SelectItem>
@@ -218,7 +218,7 @@
 //                 name="status"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-sm font-bold text-slate-900">
+//                     <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                       Status
 //                     </FormLabel>
 //                     <Select
@@ -226,11 +226,11 @@
 //                       defaultValue={field.value}
 //                     >
 //                       <FormControl>
-//                         <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+//                         <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
 //                           <SelectValue placeholder="Select status" />
 //                         </SelectTrigger>
 //                       </FormControl>
-//                       <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+//                       <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
 //                         <SelectItem value="Active">Active</SelectItem>
 //                         <SelectItem value="Draft">Draft</SelectItem>
 //                       </SelectContent>
@@ -246,7 +246,7 @@
 //               name="type"
 //               render={({ field }) => (
 //                 <FormItem>
-//                   <FormLabel className="text-sm font-bold text-slate-900">
+//                   <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                     Document Type
 //                   </FormLabel>
 //                   <Select
@@ -254,11 +254,11 @@
 //                     defaultValue={field.value}
 //                   >
 //                     <FormControl>
-//                       <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+//                       <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
 //                         <SelectValue placeholder="Select type" />
 //                       </SelectTrigger>
 //                     </FormControl>
-//                     <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+//                     <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
 //                       <SelectItem value="PDF">PDF</SelectItem>
 //                       <SelectItem value="DOCX">DOCX</SelectItem>
 //                       <SelectItem value="XLSX">XLSX</SelectItem>
@@ -276,14 +276,14 @@
 //               name="description"
 //               render={({ field }) => (
 //                 <FormItem>
-//                   <FormLabel className="text-sm font-bold text-slate-900">
+//                   <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                     Description
 //                   </FormLabel>
 //                   <FormControl>
 //                     <Textarea
 //                       placeholder="Brief description of the document..."
 //                       {...field}
-//                       className="bg-slate-50 border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+//                       className="bg-[var(--ib-bg)] border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
 //                     />
 //                   </FormControl>
 //                   <FormMessage />
@@ -297,14 +297,14 @@
 //                 name="version"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-sm font-bold text-slate-900">
+//                     <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                       Version
 //                     </FormLabel>
 //                     <FormControl>
 //                       <Input
 //                         placeholder="e.g., 1.0"
 //                         {...field}
-//                         className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+//                         className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
 //                       />
 //                     </FormControl>
 //                     <FormMessage />
@@ -317,14 +317,14 @@
 //                 name="author"
 //                 render={({ field }) => (
 //                   <FormItem>
-//                     <FormLabel className="text-sm font-bold text-slate-900">
+//                     <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                       Author
 //                     </FormLabel>
 //                     <FormControl>
 //                       <Input
 //                         placeholder="e.g., ISO Brain Team"
 //                         {...field}
-//                         className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+//                         className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
 //                       />
 //                     </FormControl>
 //                     <FormMessage />
@@ -338,14 +338,14 @@
 //               name="tags"
 //               render={({ field }) => (
 //                 <FormItem>
-//                   <FormLabel className="text-sm font-bold text-slate-900">
+//                   <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
 //                     Tags (comma-separated)
 //                   </FormLabel>
 //                   <FormControl>
 //                     <Input
 //                       placeholder="e.g., quality, management, template"
 //                       {...field}
-//                       className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+//                       className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
 //                     />
 //                   </FormControl>
 //                   <FormMessage />
@@ -358,7 +358,7 @@
 //                 type="button"
 //                 variant="outline"
 //                 onClick={() => onOpenChange(false)}
-//                 className="w-full sm:flex-1 h-14 rounded-2xl border-slate-100 font-bold hover:bg-slate-50 text-[16px]"
+//                 className="w-full sm:flex-1 h-14 rounded-2xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] text-[16px]"
 //               >
 //                 Cancel
 //               </Button>
@@ -532,8 +532,8 @@ export function UploadDocumentModal({
           className={cn(
             "group border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer",
             file
-              ? "border-indigo-200 bg-indigo-50/30 dark:bg-indigo-900/10"
-              : "border-slate-200 dark:border-slate-800 hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800/50",
+              ? "border-[var(--ib-line)] bg-[var(--ib-accbg)]/30 dark:bg-[var(--ib-acc)]/10"
+              : "border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:border-[var(--ib-acc)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50",
           )}
         >
           <input
@@ -542,12 +542,12 @@ export function UploadDocumentModal({
             ref={fileInputRef}
             onChange={handleFileChange}
           />
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-full mb-4 text-indigo-600 group-hover:scale-110 transition-transform">
+          <div className="bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 p-4 rounded-full mb-4 text-[var(--ib-acc)] group-hover:scale-110 transition-transform">
             <UploadCloud className="w-8 h-8" />
           </div>
           {file ? (
             <div className="flex items-center gap-2">
-              <span className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1 max-w-[300px]">
+              <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white line-clamp-1 max-w-[300px]">
                 {file.name}
               </span>
               <button
@@ -556,17 +556,17 @@ export function UploadDocumentModal({
                   e.stopPropagation();
                   setFile(null);
                 }}
-                className="text-slate-400 hover:text-red-500 z-10"
+                className="text-[var(--ib-mute)] hover:text-red-500 z-10"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
           ) : (
             <>
-              <p className="text-[15px] font-bold text-slate-900 dark:text-white mb-1 text-center">
+              <p className="text-[15px] font-bold text-[var(--ib-ink)] dark:text-white mb-1 text-center">
                 Click to upload or drag and drop
               </p>
-              <p className="text-[13px] text-slate-500 font-medium text-center">
+              <p className="text-[13px] text-[var(--ib-mute)] font-medium text-center">
                 PDF, DOCX, XLSX, PPT files up to 50MB
               </p>
             </>
@@ -583,14 +583,14 @@ export function UploadDocumentModal({
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Document Title *
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., Quality Manual Template"
                       {...field}
-                      className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -604,7 +604,7 @@ export function UploadDocumentModal({
                 name="category"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Category
                     </FormLabel>
                     <Select
@@ -612,11 +612,11 @@ export function UploadDocumentModal({
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                           <SelectValue placeholder="Select category" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                         {categories.map((cat) => (
                           <SelectItem key={cat.id} value={cat.id}>
                             {cat.name}
@@ -634,7 +634,7 @@ export function UploadDocumentModal({
                 name="status"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Status
                     </FormLabel>
                     <Select
@@ -642,11 +642,11 @@ export function UploadDocumentModal({
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                           <SelectValue placeholder="Select status" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                         <SelectItem value="ACTIVE">Active</SelectItem>
                         <SelectItem value="DRAFT">Draft</SelectItem>
                       </SelectContent>
@@ -662,7 +662,7 @@ export function UploadDocumentModal({
               name="type"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Document Type
                   </FormLabel>
                   <Select
@@ -670,11 +670,11 @@ export function UploadDocumentModal({
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                      <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                         <SelectValue placeholder="Select type" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                    <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                       <SelectItem value="PDF">PDF</SelectItem>
                       <SelectItem value="DOCX">DOCX</SelectItem>
                       <SelectItem value="XLSX">XLSX</SelectItem>
@@ -692,14 +692,14 @@ export function UploadDocumentModal({
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Description
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Brief description of the document..."
                       {...field}
-                      className="bg-slate-50 border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -713,14 +713,14 @@ export function UploadDocumentModal({
                 name="version"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Version
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., 1.0"
                         {...field}
-                        className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                        className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -733,14 +733,14 @@ export function UploadDocumentModal({
                 name="author"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Author
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., ISO Brain Team"
                         {...field}
-                        className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                        className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -754,14 +754,14 @@ export function UploadDocumentModal({
               name="tags"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Tags (comma-separated)
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., quality, management, template"
                       {...field}
-                      className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -774,7 +774,7 @@ export function UploadDocumentModal({
                 type="button"
                 variant="outline"
                 onClick={() => onOpenChange(false)}
-                className="w-full sm:flex-1 h-14 rounded-2xl border-slate-100 font-bold hover:bg-slate-50 text-[16px]"
+                className="w-full sm:flex-1 h-14 rounded-2xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] text-[16px]"
               >
                 Cancel
               </Button>

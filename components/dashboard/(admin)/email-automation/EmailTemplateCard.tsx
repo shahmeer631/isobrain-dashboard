@@ -31,13 +31,13 @@ export function EmailTemplateCard({
   onDuplicate,
 }: EmailTemplateCardProps) {
   return (
-    <Card className="p-6 overflow-hidden border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow duration-300">
+    <Card className="p-6 overflow-hidden border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:shadow-md transition-shadow duration-300">
       <div className="flex flex-col gap-6">
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white leading-tight">
+              <h3 className="text-lg font-semibold text-[var(--ib-ink)] dark:text-white leading-tight">
                 {name}
               </h3>
               {status === "Active" && (
@@ -46,7 +46,7 @@ export function EmailTemplateCard({
                 </Badge>
               )}
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
               {description}
             </p>
           </div>
@@ -55,7 +55,7 @@ export function EmailTemplateCard({
               variant="outline"
               size="sm"
               onClick={onEdit}
-              className="h-8 gap-1.5 text-xs border-slate-200 dark:border-slate-800"
+              className="h-8 gap-1.5 text-xs border-[var(--ib-line)] dark:border-[var(--ib-line)]"
             >
               <Edit2 className="h-3.5 w-3.5" />
               Edit
@@ -64,7 +64,7 @@ export function EmailTemplateCard({
               variant="outline"
               size="sm"
               onClick={onPreview}
-              className="h-8 gap-1.5 text-xs border-slate-200 dark:border-slate-800"
+              className="h-8 gap-1.5 text-xs border-[var(--ib-line)] dark:border-[var(--ib-line)]"
             >
               <Eye className="h-3.5 w-3.5" />
               Preview
@@ -73,7 +73,7 @@ export function EmailTemplateCard({
               variant="outline"
               size="sm"
               onClick={onDuplicate}
-              className="h-8 gap-1.5 text-xs border-slate-200 dark:border-slate-800"
+              className="h-8 gap-1.5 text-xs border-[var(--ib-line)] dark:border-[var(--ib-line)]"
             >
               <Copy className="h-3.5 w-3.5" />
               Duplicate
@@ -82,27 +82,27 @@ export function EmailTemplateCard({
         </div>
 
         {/* Subject Line */}
-        <div className="rounded-lg bg-slate-50 dark:bg-slate-900/50 p-3 flex items-center gap-3">
-          <span className="text-xs font-medium text-slate-400 dark:text-slate-500 shrink-0">
+        <div className="rounded-lg bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 p-3 flex items-center gap-3">
+          <span className="text-xs font-medium text-[var(--ib-mute)] dark:text-[var(--ib-mute)] shrink-0">
             Subject:
           </span>
-          <span className="text-sm text-slate-700 dark:text-slate-300 truncate font-medium">
+          <span className="text-sm text-[var(--ib-ink)] dark:text-[var(--ib-mute)] truncate font-medium">
             {subject}
           </span>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-3 gap-8 pt-2 border-t border-slate-100 dark:border-slate-800/50">
+        <div className="grid grid-cols-3 gap-8 pt-2 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]/50">
           <div className="space-y-1">
-            <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+            <p className="text-[11px] font-medium text-[var(--ib-mute)] dark:text-[var(--ib-mute)] uppercase tracking-wider">
               Emails Sent
             </p>
-            <p className="text-xl font-bold text-slate-900 dark:text-white">
+            <p className="text-xl font-bold text-[var(--ib-ink)] dark:text-white">
               {stats.sent}
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+            <p className="text-[11px] font-medium text-[var(--ib-mute)] dark:text-[var(--ib-mute)] uppercase tracking-wider">
               Open Rate
             </p>
             <p className="text-xl font-bold text-emerald-500">
@@ -110,7 +110,7 @@ export function EmailTemplateCard({
             </p>
           </div>
           <div className="space-y-1">
-            <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+            <p className="text-[11px] font-medium text-[var(--ib-mute)] dark:text-[var(--ib-mute)] uppercase tracking-wider">
               Click Rate
             </p>
             <p className="text-xl font-bold text-blue-500">{stats.clickRate}</p>

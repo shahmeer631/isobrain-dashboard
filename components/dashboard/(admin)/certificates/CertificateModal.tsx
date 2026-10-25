@@ -209,17 +209,17 @@ export function CertificateModal({
                           setShowUserDropdown(true);
                         }}
                         onFocus={() => setShowUserDropdown(true)}
-                        className="h-11 rounded-xl bg-slate-50/50 dark:bg-slate-800/50 focus:bg-white dark:focus:bg-slate-800 border-slate-100 dark:border-slate-800 transition-all duration-200"
+                        className="h-11 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50 focus:bg-white dark:focus:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] transition-all duration-200"
                       />
                       {showUserDropdown && userSearchTerm && (
-                        <div className="absolute z-50 top-full left-0 w-full mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                        <div className="absolute z-50 top-full left-0 w-full mt-1 bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg shadow-lg max-h-48 overflow-y-auto">
                           {isLoadingUsers ? (
-                            <div className="p-3 text-sm text-slate-500 text-center">Loading...</div>
+                            <div className="p-3 text-sm text-[var(--ib-mute)] text-center">Loading...</div>
                           ) : filteredUsers.length > 0 ? (
                             filteredUsers.map((u: any) => (
                               <div
                                 key={u.id}
-                                className="px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer text-sm text-slate-700 dark:text-slate-300"
+                                className="px-4 py-2 hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] cursor-pointer text-sm text-[var(--ib-ink)] dark:text-[var(--ib-mute)]"
                                 onClick={() => {
                                   field.onChange(u.id);
                                   setUserSearchTerm(u.email);
@@ -230,7 +230,7 @@ export function CertificateModal({
                               </div>
                             ))
                           ) : (
-                            <div className="p-3 text-sm text-slate-500 text-center">No users found</div>
+                            <div className="p-3 text-sm text-[var(--ib-mute)] text-center">No users found</div>
                           )}
                         </div>
                       )}
@@ -256,7 +256,7 @@ export function CertificateModal({
                   <FormControl>
                     <Input
                       placeholder="e.g., Standard Completion"
-                      className="h-11 rounded-xl bg-slate-50/50 dark:bg-slate-800/50 focus:bg-white dark:focus:bg-slate-800 border-slate-100 dark:border-slate-800 transition-all duration-200"
+                      className="h-11 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50 focus:bg-white dark:focus:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] transition-all duration-200"
                       {...field}
                     />
                   </FormControl>
@@ -285,14 +285,14 @@ export function CertificateModal({
                   disabled={mode === "design"}
                 >
                   <FormControl>
-                    <SelectTrigger className="h-11 w-full rounded-xl bg-slate-50/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 [&>span]:truncate [&>span]:block [&>span]:text-left">
+                    <SelectTrigger className="h-11 w-full rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] [&>span]:truncate [&>span]:block [&>span]:text-left">
                       <SelectValue placeholder="Select Course" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent className="max-h-60">
                     {isLoadingCourses ? (
                       <div className="flex items-center justify-center py-4">
-                        <Loader2 className="w-5 h-5 animate-spin text-slate-400" />
+                        <Loader2 className="w-5 h-5 animate-spin text-[var(--ib-mute)]" />
                       </div>
                     ) : courses.length > 0 ? (
                       courses.map((course) => (
@@ -301,7 +301,7 @@ export function CertificateModal({
                         </SelectItem>
                       ))
                     ) : (
-                      <div className="py-2 text-center text-sm text-slate-500">No courses found</div>
+                      <div className="py-2 text-center text-sm text-[var(--ib-mute)]">No courses found</div>
                     )}
                   </SelectContent>
                 </Select>
@@ -326,8 +326,8 @@ export function CertificateModal({
               className={cn(
                 "border-2 border-dashed rounded-xl transition-all duration-200 overflow-hidden relative group",
                 previewImage
-                  ? "border-indigo-200 bg-slate-50 dark:bg-slate-800/20 p-2"
-                  : "border-slate-200 dark:border-slate-700 p-8 flex flex-col items-center justify-center text-slate-500 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-indigo-300",
+                  ? "border-[var(--ib-line)] bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/20 p-2"
+                  : "border-[var(--ib-line)] dark:border-[var(--ib-line)] p-8 flex flex-col items-center justify-center text-[var(--ib-mute)] cursor-pointer hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50 hover:border-[var(--ib-acc)]",
               )}
             >
               {previewImage ? (
@@ -347,7 +347,7 @@ export function CertificateModal({
                         e.stopPropagation();
                         fileInputRef.current?.click();
                       }}
-                      className="h-8 bg-white/90 hover:bg-white text-slate-900 border-none"
+                      className="h-8 bg-white/90 hover:bg-white text-[var(--ib-ink)] border-none"
                     >
                       <ImageIcon className="w-4 h-4 mr-1" />
                       Change
@@ -369,13 +369,13 @@ export function CertificateModal({
                 </div>
               ) : (
                 <>
-                  <div className="bg-indigo-50 dark:bg-indigo-900/20 p-3 rounded-full mb-3 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-200">
+                  <div className="bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 p-3 rounded-full mb-3 text-[var(--ib-acc)] group-hover:scale-110 transition-transform duration-200">
                     <UploadCloud className="w-8 h-8" />
                   </div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  <p className="text-sm font-semibold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Click to upload or drag and drop
                   </p>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-[var(--ib-mute)] mt-1">
                     PNG, JPG or WebP (max. 800x400px)
                   </p>
                 </>
@@ -383,19 +383,19 @@ export function CertificateModal({
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 pt-6 border-t border-slate-100 dark:border-slate-800 mt-8">
+          <div className="flex flex-col sm:flex-row items-center gap-3 pt-6 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)] mt-8">
             <Button
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="w-full sm:flex-1 h-12 rounded-xl font-bold text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800"
+              className="w-full sm:flex-1 h-12 rounded-xl font-bold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] border-[var(--ib-line)] dark:border-[var(--ib-line)]"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={isMutationLoading || isUploading || isIssuing}
-              className="w-full sm:flex-[1.5] h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-[16px] shadow-lg shadow-indigo-100 dark:shadow-none transition-all flex items-center justify-center gap-2"
+              className="w-full sm:flex-[1.5] h-12 bg-[var(--ib-acc)] hover:bg-[var(--ib-acc)]/90 text-white rounded-xl font-bold text-[16px] shadow-lg shadow-[var(--ib-accbg)] dark:shadow-none transition-all flex items-center justify-center gap-2"
             >
               {(isMutationLoading || isUploading || isIssuing) ? (
                 <Loader2 className="w-5 h-5 animate-spin" />

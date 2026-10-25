@@ -69,7 +69,7 @@ const PlansPage = () => {
             <Button
               onClick={handleAddNew}
               variant="primary"
-              className="h-12 px-6 flex items-center gap-2  text-[14px] font-bold transition-all shadow-lg"
+              className="h-12 px-6 flex items-center gap-2 text-[14px] font-bold transition-all shadow-lg"
             >
               <Plus className="h-5 w-5" />
               Add New Plan

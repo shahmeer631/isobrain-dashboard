@@ -284,41 +284,41 @@ export default function UserManagementPage() {
 
       {/* Main Content Area */}
       {isLoading ? (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
-          <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-4">
+        <div className="bg-white dark:bg-[var(--ib-dk)] rounded-2xl shadow-sm border border-[var(--ib-line)] dark:border-[var(--ib-line)] overflow-hidden">
+          <div className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] flex items-center gap-4">
             {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-              <Skeleton key={i} className={`h-4 ${i === 1 ? 'w-8' : 'w-24'} bg-slate-100 dark:bg-slate-800`} />
+              <Skeleton key={i} className={`h-4 ${i === 1 ? 'w-8' : 'w-24'} bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]`} />
             ))}
           </div>
-          <div className="divide-y divide-slate-50 dark:divide-slate-800/50">
+          <div className="divide-y divide-[var(--ib-line)] dark:divide-[var(--ib-line)]/50">
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 gap-4">
                 <div className="flex items-center gap-4">
-                  <Skeleton className="h-5 w-5 rounded bg-slate-100 dark:bg-slate-800" />
-                  <Skeleton className="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-800" />
+                  <Skeleton className="h-5 w-5 rounded bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
+                  <Skeleton className="h-10 w-10 rounded-full bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
                   <div className="space-y-2">
-                    <Skeleton className="h-4 w-32 bg-slate-100 dark:bg-slate-800" />
-                    <Skeleton className="h-3 w-48 bg-slate-50 dark:bg-slate-800/50" />
+                    <Skeleton className="h-4 w-32 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
+                    <Skeleton className="h-3 w-48 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50" />
                   </div>
                 </div>
                 <div className="hidden md:flex items-center gap-6">
-                  <Skeleton className="h-4 w-16 bg-slate-100 dark:bg-slate-800" />
-                  <Skeleton className="h-4 w-20 bg-slate-100 dark:bg-slate-800" />
-                  <Skeleton className="h-6 w-16 rounded-full bg-slate-100 dark:bg-slate-800" />
+                  <Skeleton className="h-4 w-16 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
+                  <Skeleton className="h-4 w-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
+                  <Skeleton className="h-6 w-16 rounded-full bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
                   <div className="flex gap-2">
-                    <Skeleton className="h-9 w-9 rounded-xl bg-slate-100 dark:bg-slate-800" />
-                    <Skeleton className="h-9 w-9 rounded-xl bg-slate-100 dark:bg-slate-800" />
+                    <Skeleton className="h-9 w-9 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
+                    <Skeleton className="h-9 w-9 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50/30 dark:bg-slate-800/30">
-             <Skeleton className="h-4 w-32 bg-slate-100 dark:bg-slate-800" />
+          <div className="p-6 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)] flex justify-between items-center bg-[var(--ib-bg)]/30 dark:bg-[var(--ib-dk)]/30">
+             <Skeleton className="h-4 w-32 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
              <div className="flex gap-2">
-               <Skeleton className="h-10 w-24 rounded-xl bg-slate-100 dark:bg-slate-800" />
-               <Skeleton className="h-10 w-32 rounded-xl bg-slate-100 dark:bg-slate-800" />
-               <Skeleton className="h-10 w-24 rounded-xl bg-slate-100 dark:bg-slate-800" />
+               <Skeleton className="h-10 w-24 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
+               <Skeleton className="h-10 w-32 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
+               <Skeleton className="h-10 w-24 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]" />
              </div>
           </div>
         </div>
@@ -353,13 +353,13 @@ export default function UserManagementPage() {
 
           {/* Pagination Controls */}
           {totalPages >= 1 && (
-            <div className="flex flex-col sm:flex-row items-center justify-between p-6 bg-slate-50/30 dark:bg-slate-800/30 -mt-px border border-t border-slate-100 dark:border-slate-800 rounded-b-2xl gap-4 sm:gap-0">
+            <div className="flex flex-col sm:flex-row items-center justify-between p-6 bg-[var(--ib-bg)]/30 dark:bg-[var(--ib-dk)]/30 -mt-px border border-t border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-b-2xl gap-4 sm:gap-0">
               <div className="flex items-center gap-4">
-                <p className="text-sm text-slate-500 font-medium">
-                  Showing <span className="font-bold text-slate-900 dark:text-white">{(currentPage - 1) * itemsPerPage + 1}-{Math.min(currentPage * itemsPerPage, filteredUsers.length)}</span> of <span className="font-bold text-slate-900 dark:text-white">{filteredUsers.length}</span> users
+                <p className="text-sm text-[var(--ib-mute)] font-medium">
+                  Showing <span className="font-bold text-[var(--ib-ink)] dark:text-white">{(currentPage - 1) * itemsPerPage + 1}-{Math.min(currentPage * itemsPerPage, filteredUsers.length)}</span> of <span className="font-bold text-[var(--ib-ink)] dark:text-white">{filteredUsers.length}</span> users
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm text-slate-500 font-medium">Rows per page:</span>
+                  <span className="text-sm text-[var(--ib-mute)] font-medium">Rows per page:</span>
                   <Select 
                     value={isCustomLimit ? "custom" : itemsPerPage.toString()} 
                     onValueChange={(v) => { 
@@ -372,7 +372,7 @@ export default function UserManagementPage() {
                       }
                     }}
                   >
-                    <SelectTrigger className="h-8 w-[95px] rounded-lg text-sm bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800">
+                    <SelectTrigger className="h-8 w-[95px] rounded-lg text-sm bg-white dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)]">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -397,7 +397,7 @@ export default function UserManagementPage() {
                           setItemsPerPage(0); // Handle empty state gracefully
                         }
                       }}
-                      className="h-8 w-[70px] rounded-lg text-sm bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 p-2"
+                      className="h-8 w-[70px] rounded-lg text-sm bg-white dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] p-2"
                       placeholder="Qty"
                     />
                   )}
@@ -409,7 +409,7 @@ export default function UserManagementPage() {
                   size="sm"
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                  className="rounded-xl border-slate-200 dark:border-slate-800 h-10 px-4 font-bold disabled:opacity-50"
+                  className="rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] h-10 px-4 font-bold disabled:opacity-50"
                 >
                   Previous
                 </Button>
@@ -424,7 +424,7 @@ export default function UserManagementPage() {
                         "h-10 w-10 rounded-xl font-bold",
                         currentPage === i + 1 
                           ? "bg-blue-600 text-white" 
-                          : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
+                          : "border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-mute)] dark:text-[var(--ib-mute)]"
                       )}
                     >
                       {i + 1}
@@ -436,7 +436,7 @@ export default function UserManagementPage() {
                   size="sm"
                   disabled={currentPage === totalPages}
                   onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                  className="rounded-xl border-slate-200 dark:border-slate-800 h-10 px-4 font-bold disabled:opacity-50"
+                  className="rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] h-10 px-4 font-bold disabled:opacity-50"
                 >
                   Next
                   <ChevronRight className="h-4 w-4 ml-2" />

@@ -83,24 +83,20 @@ export function DashboardProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   React.useEffect(() => {
+    // Match HTML redesign breakpoint: sidebar hidden ≤980px
     const handleResize = () => {
       const width = window.innerWidth;
-      const mobile = width < 768;
-      const large = width >= 1440;
+      const mobile = width < 981;
 
       setIsMobile(mobile);
 
-      if (large) {
-        // On large screens (>= 1024px): sidebar should be OPEN (not collapsed)
+      if (width >= 981) {
         setIsCollapsed(false);
-      } else if (mobile) {
-        // On mobile (< 768px): sidebar should be collapsed/hidden
+      } else {
         setIsCollapsed(true);
       }
-      // Between 768–1023px: keep current state (don't force either way)
     };
 
-    // Run immediately on mount
     handleResize();
 
     window.addEventListener("resize", handleResize);

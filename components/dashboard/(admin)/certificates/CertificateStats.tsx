@@ -26,7 +26,7 @@ export function CertificateStats({ stats, isLoading }: CertificateStatsProps) {
       label: "Total Certificates Issued",
       value: stats?.totalCertificates?.toLocaleString() || "0",
       icon: Award,
-      iconColor: "from-indigo-500/20 to-indigo-600/20 text-indigo-600",
+      iconColor: "from-[var(--ib-accbg)] to-[var(--ib-accbg)] text-[var(--ib-acc)]",
     },
     {
       label: "Active Templates",
@@ -38,7 +38,7 @@ export function CertificateStats({ stats, isLoading }: CertificateStatsProps) {
       label: "Downloads This Month",
       value: stats?.downloadsThisMonth?.toLocaleString() || "0",
       icon: Download,
-      iconColor: "from-purple-500/20 to-purple-600/20 text-purple-600",
+      iconColor: "bg-[var(--ib-accbg)] text-[var(--ib-acc)]",
     },
     {
       label: "Issued This Week",

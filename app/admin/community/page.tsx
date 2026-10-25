@@ -160,7 +160,7 @@ const CommunityPage = () => {
       {Array.from({ length: 4 }).map((_, i) => (
         <div
           key={i}
-          className="flex flex-col bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[24px] p-7 shadow-sm h-full"
+          className="flex flex-col bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-[24px] p-7 shadow-sm h-full"
         >
           {/* Header */}
           <div className="flex justify-between items-start mb-4">
@@ -180,7 +180,7 @@ const CommunityPage = () => {
             {[1, 2, 3].map((j) => (
               <div
                 key={j}
-                className="bg-slate-50 dark:bg-slate-800/40 rounded-2xl p-4 text-center border border-slate-100/50 dark:border-slate-800/50"
+                className="bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/40 rounded-2xl p-4 text-center border border-[var(--ib-line)]/50 dark:border-[var(--ib-line)]/50"
               >
                 <Skeleton className="h-7 w-8 mx-auto mb-2" />
                 <Skeleton className="h-3 w-14 mx-auto" />
@@ -189,7 +189,7 @@ const CommunityPage = () => {
           </div>
 
           {/* Action buttons */}
-          <div className="flex items-center gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center gap-3 pt-4 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
             <Skeleton className="flex-1 h-12 rounded-xl" />
             <Skeleton className="h-12 w-12 rounded-xl shrink-0" />
             <Skeleton className="h-12 w-12 rounded-xl shrink-0" />
@@ -208,7 +208,7 @@ const CommunityPage = () => {
         actions={
           <Button
             variant="primary"
-            className="h-12 rounded-xl px-8 font-bold text-[15px] shadow-lg shadow-indigo-200 dark:shadow-none transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="h-12 rounded-xl px-8 font-bold text-[15px] shadow-lg shadow-[var(--ib-line)] dark:shadow-none transition-all hover:scale-[1.02] active:scale-[0.98]"
             onClick={() => setIsCreateOpen(true)}
           >
             <Plus className="w-5 h-5 mr-2 stroke-[3px]" />
@@ -269,14 +269,14 @@ const CommunityPage = () => {
           />
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center py-20 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl border-dashed">
-          <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-full mb-4">
-            <Users className="w-8 h-8 text-slate-400" />
+        <div className="flex flex-col items-center justify-center py-20 bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl border-dashed">
+          <div className="bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] p-4 rounded-full mb-4">
+            <Users className="w-8 h-8 text-[var(--ib-mute)]" />
           </div>
-          <h3 className="text-[18px] font-bold text-slate-900 dark:text-white mb-1">
+          <h3 className="text-[18px] font-bold text-[var(--ib-ink)] dark:text-white mb-1">
             No communities found
           </h3>
-          <p className="text-slate-500 text-[14px]">
+          <p className="text-[var(--ib-mute)] text-[14px]">
             {searchQuery ? "Try adjusting your search or filters." : "Create your first community!"}
           </p>
         </div>

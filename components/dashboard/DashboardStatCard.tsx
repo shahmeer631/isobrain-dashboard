@@ -36,7 +36,7 @@ export function DashboardStatCard({
   label,
   value,
   icon: Icon,
-  iconColor = "from-purple-500 to-indigo-500",
+  iconColor = "bg-[var(--ib-accbg)] text-[var(--ib-acc)]",
   trend,
   trendValue,
   className,
@@ -48,7 +48,7 @@ export function DashboardStatCard({
   if (isLoading) {
     return (
       <div className={cn(
-        "flex flex-col gap-3 rounded-sm bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-5 shadow-xs",
+        "ib-card flex flex-col gap-3 p-[18px]",
         className
       )}>
         <div className="flex items-start justify-between">
@@ -64,7 +64,7 @@ export function DashboardStatCard({
   return (
     <div
       className={cn(
-        "flex flex-col gap-3 rounded-sm bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-5 shadow-xs transition-all duration-300 hover:shadow-md",
+        "ib-card flex flex-col gap-3 p-[18px] transition-shadow hover:shadow-md",
         className,
       )}
     >
@@ -73,8 +73,10 @@ export function DashboardStatCard({
         {/* Icon box */}
         <div
           className={cn(
-            "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-linear-to-br shadow-xs",
-            iconColor,
+            "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl shadow-xs",
+            iconColor.includes("from-") || iconColor.includes("to-")
+              ? cn("bg-linear-to-br", iconColor)
+              : iconColor,
           )}
         >
           <Icon className="h-5 w-5" />
@@ -86,7 +88,7 @@ export function DashboardStatCard({
             className={cn(
               "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold",
               isUp &&
-                "text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400",
+                "text-[var(--ib-ok)] bg-[var(--ib-okbg)]",
               isDown &&
                 "text-rose-600 bg-rose-50 dark:bg-rose-900/20 dark:text-rose-400",
             )}
@@ -102,12 +104,12 @@ export function DashboardStatCard({
       </div>
 
       {/* Value */}
-      <h3 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white leading-none">
+      <h3 className="text-2xl font-semibold tracking-tight text-[var(--ib-ink)] leading-none">
         {value}
       </h3>
 
       {/* Label */}
-      <p className="text-xs font-medium text-slate-500 dark:text-slate-400 leading-none">
+      <p className="text-xs font-medium text-[var(--ib-mute)] leading-none">
         {label}
       </p>
     </div>

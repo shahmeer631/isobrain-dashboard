@@ -37,7 +37,7 @@ export function DashboardModal({
         )}
       >
         <DialogHeader className="px-6 sm:px-10 pt-8 sm:pt-10 pb-4 shrink-0">
-          <DialogTitle className="text-xl sm:text-2xl font-bold text-slate-900">
+          <DialogTitle className="text-xl sm:text-2xl font-bold text-[var(--ib-ink)]">
             {title}
           </DialogTitle>
         </DialogHeader>

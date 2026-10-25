@@ -53,12 +53,19 @@ export function BillingInformation() {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
-      <div className="flex items-center gap-2 mb-6">
-        <CreditCard className="h-5 w-5 text-slate-800 dark:text-slate-200" />
-        <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-          Billing Information
-        </h2>
+    <div className="ib-card p-6 sm:p-7">
+      <div className="mb-6 flex items-start gap-3">
+        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--ib-acc)_16%,var(--ib-line))] bg-[var(--ib-accbg)] text-[var(--ib-acc)]">
+          <CreditCard className="size-4" aria-hidden />
+        </div>
+        <div>
+          <h2 className="text-[16px] font-semibold tracking-[-0.01em] text-[var(--ib-ink)]">
+            Billing Information
+          </h2>
+          <p className="mt-0.5 text-[13px] text-[var(--ib-mute)]">
+            Invoices and receipts will use these details.
+          </p>
+        </div>
       </div>
 
       <Form {...form}>
@@ -69,13 +76,13 @@ export function BillingInformation() {
               name="fullName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                  <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Full Name
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter full name"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20"
                       {...field}
                     />
                   </FormControl>
@@ -89,14 +96,14 @@ export function BillingInformation() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                  <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Email Address
                   </FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder="Enter email address"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20"
                       {...field}
                     />
                   </FormControl>
@@ -110,7 +117,7 @@ export function BillingInformation() {
               name="country"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                  <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Country
                   </FormLabel>
                   <Select
@@ -118,7 +125,7 @@ export function BillingInformation() {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="w-full h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20">
+                      <SelectTrigger className="w-full h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20">
                         <SelectValue placeholder="Enter name..." />
                       </SelectTrigger>
                     </FormControl>
@@ -141,13 +148,13 @@ export function BillingInformation() {
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                  <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     City
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter city"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20"
                       {...field}
                     />
                   </FormControl>
@@ -162,13 +169,13 @@ export function BillingInformation() {
             name="address"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   Address
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Enter street address"
-                    className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20"
+                    className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20"
                     {...field}
                   />
                 </FormControl>
@@ -183,13 +190,13 @@ export function BillingInformation() {
               name="postalCode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                  <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Postal Code
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter postal code"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20"
                       {...field}
                     />
                   </FormControl>
@@ -203,13 +210,13 @@ export function BillingInformation() {
               name="vatId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs font-bold text-slate-900 dark:text-slate-300">
+                  <FormLabel className="text-xs font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     VAT/Tax ID (Optional)
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter your VAT/Tax ID"
-                      className="h-10 bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-blue-600/20"
+                      className="h-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-lg focus:ring-2 focus:ring-blue-600/20"
                       {...field}
                     />
                   </FormControl>

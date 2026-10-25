@@ -15,7 +15,7 @@ export const UsageSkeleton = () => {
         {/* Stats Grid Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-white p-8 rounded-xl border border-slate-100 flex flex-col gap-5">
+            <div key={i} className="bg-white p-8 rounded-xl border border-[var(--ib-line)] flex flex-col gap-5">
               <Skeleton className="h-12 w-12 rounded-lg" />
               <div className="space-y-2">
                 <Skeleton className="h-8 w-32 rounded-md" />
@@ -28,7 +28,7 @@ export const UsageSkeleton = () => {
         {/* Plans Grid Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-white p-8 rounded-xl border border-slate-100 flex flex-col gap-8">
+            <div key={i} className="bg-white p-8 rounded-xl border border-[var(--ib-line)] flex flex-col gap-8">
               <div className="flex justify-between items-center">
                 <Skeleton className="h-6 w-24 rounded-md" />
                 <Skeleton className="h-4 w-10 rounded-sm" />
@@ -37,7 +37,7 @@ export const UsageSkeleton = () => {
                 <Skeleton className="h-3 w-20 rounded-sm opacity-50" />
                 <Skeleton className="h-10 w-32 rounded-md" />
               </div>
-              <div className="space-y-4 pt-4 border-t border-slate-50">
+              <div className="space-y-4 pt-4 border-t border-[var(--ib-line)]">
                 {[1, 2, 3, 4].map((j) => (
                   <div key={j} className="flex justify-between">
                     <Skeleton className="h-4 w-24 rounded-sm" />

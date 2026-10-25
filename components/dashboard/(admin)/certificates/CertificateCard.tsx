@@ -28,25 +28,25 @@ export function CertificateCard({
       case "Professional Blue":
         return "text-blue-600";
       case "Corporate Purple":
-        return "text-purple-600";
+        return "text-[var(--ib-acc)]";
       case "Nature Green":
         return "text-emerald-600";
       case "Elegant Gold":
         return "text-amber-600";
       default:
-        return "text-indigo-600";
+        return "text-[var(--ib-acc)]";
     }
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[20px] p-5 shadow-sm hover:shadow-md transition-all flex flex-col">
+    <div className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-[20px] p-5 shadow-sm hover:shadow-md transition-all flex flex-col">
       {/* Top Header: ID & Badge */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-[var(--ib-acc)] flex items-center justify-center shrink-0">
             <Award className="w-4 h-4 text-white" />
           </div>
-          <span className="text-[13px] font-bold text-slate-900 dark:text-white">
+          <span className="text-[13px] font-bold text-[var(--ib-ink)] dark:text-white">
             ID: {certificate.id.slice(-6).toUpperCase()}
           </span>
         </div>
@@ -55,7 +55,7 @@ export function CertificateCard({
             "border-none px-2.5 py-1 text-[11px] font-bold rounded-md",
             certificate.isActive
               ? "bg-blue-600 text-white hover:bg-blue-700"
-              : "bg-slate-100 text-slate-500 dark:bg-slate-800",
+              : "bg-[var(--ib-bg)] text-[var(--ib-mute)] dark:bg-[var(--ib-dk)]",
           )}
         >
           {certificate.isActive ? "Published" : "Draft"}
@@ -64,10 +64,10 @@ export function CertificateCard({
 
       {/* Title & Author */}
       <div className="mb-6 flex-1">
-        <h3 className="text-[16px] font-bold text-slate-900 dark:text-white leading-snug line-clamp-2 min-h-[44px]">
+        <h3 className="text-[16px] font-bold text-[var(--ib-ink)] dark:text-white leading-snug line-clamp-2 min-h-[44px]">
           {certificate.name}
         </h3>
-        <p className="text-[13px] text-slate-500 mt-1">
+        <p className="text-[13px] text-[var(--ib-mute)] mt-1">
           by System
         </p>
       </div>
@@ -75,34 +75,34 @@ export function CertificateCard({
       {/* Stats Grid 2x2 */}
       <div className="grid grid-cols-2 gap-y-5 gap-x-4 mb-6">
         <div>
-          <p className="text-[11px] text-slate-500 font-medium mb-1">
+          <p className="text-[11px] text-[var(--ib-mute)] font-medium mb-1">
             Certificates Issued
           </p>
-          <p className="text-[14px] font-bold text-slate-900 dark:text-white">
+          <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
             {certificate.certificatesIssued || 0}
           </p>
         </div>
         <div>
-          <p className="text-[11px] text-slate-500 font-medium mb-1">
+          <p className="text-[11px] text-[var(--ib-mute)] font-medium mb-1">
             Attached Courses
           </p>
-          <p className="text-[14px] font-bold text-slate-900 dark:text-white">
+          <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
             {certificate.courses?.length || certificate.attachedCourses || 0}
           </p>
         </div>
         <div>
-          <p className="text-[11px] text-slate-500 font-medium mb-1">
+          <p className="text-[11px] text-[var(--ib-mute)] font-medium mb-1">
             Auto-Issue
           </p>
-          <p className="text-[14px] font-bold text-slate-900 dark:text-white">
+          <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
             {certificate.autoIssue ? "Enabled" : "Disabled"}
           </p>
         </div>
         <div>
-          <p className="text-[11px] text-slate-500 font-medium mb-1">
+          <p className="text-[11px] text-[var(--ib-mute)] font-medium mb-1">
             Created
           </p>
-          <p className="text-[14px] font-bold text-slate-900 dark:text-white">
+          <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
             {certificate.createdAt ? new Date(certificate.createdAt).toLocaleDateString() : "N/A"}
           </p>
         </div>
@@ -114,9 +114,9 @@ export function CertificateCard({
           <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
           </svg>
-          <span className="text-[13px] font-bold text-slate-900 dark:text-white">4.8</span>
+          <span className="text-[13px] font-bold text-[var(--ib-ink)] dark:text-white">4.8</span>
         </div>
-        <span className="text-[12px] text-slate-400 font-medium">
+        <span className="text-[12px] text-[var(--ib-mute)] font-medium">
           {certificate.updatedAt ? new Date(certificate.updatedAt).toLocaleDateString() : ""}
         </span>
       </div>
@@ -125,7 +125,7 @@ export function CertificateCard({
       <div className="grid grid-cols-2 gap-3 mb-5 mt-auto">
         <Button
           variant="outline"
-          className="h-10 rounded-xl border-slate-200 dark:border-slate-800 font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
+          className="h-10 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]"
           onClick={() => onEdit(certificate)}
         >
           <Edit className="w-4 h-4 mr-2" />
@@ -133,7 +133,7 @@ export function CertificateCard({
         </Button>
         <Button
           variant="outline"
-          className="h-10 rounded-xl border-slate-200 dark:border-slate-800 font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
+          className="h-10 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]"
           onClick={() => onDesign(certificate)}
         >
           <Award className="w-4 h-4 mr-2" />
@@ -142,13 +142,13 @@ export function CertificateCard({
       </div>
 
       {/* Divider */}
-      <div className="h-px bg-slate-100 dark:bg-slate-800 -mx-5 mb-4" />
+      <div className="h-px bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] -mx-5 mb-4" />
 
       {/* Footer Actions */}
       <div className="flex items-center justify-between">
         <button
           onClick={() => onDesign(certificate)}
-          className="flex items-center gap-1.5 text-[13px] font-semibold text-slate-500 hover:text-indigo-600 transition-colors"
+          className="flex items-center gap-1.5 text-[13px] font-semibold text-[var(--ib-mute)] hover:text-[var(--ib-acc)] transition-colors"
         >
           <Palette className="w-4 h-4" />
           Design

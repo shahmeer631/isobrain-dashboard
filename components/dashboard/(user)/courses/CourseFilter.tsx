@@ -37,30 +37,29 @@ export function CourseFilter({
   setActiveCategory,
 }: CourseFilterProps) {
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 space-y-6 shadow-sm">
-      <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-        {/* Search Bar */}
-        <div className="relative w-full lg:max-w-md group">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-indigo-600 transition-colors" />
+    <div className="ib-card space-y-5 p-5">
+      <div className="flex flex-col items-stretch justify-between gap-4 lg:flex-row lg:items-center">
+        <div className="relative w-full group lg:max-w-md">
+          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--ib-mute)] transition-colors group-focus-within:text-[var(--ib-acc)]" />
           <Input
             placeholder="Search courses..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-11 h-12 bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 rounded-xl focus:ring-indigo-500 font-medium"
+            className="h-10 rounded-[10px] border-[var(--ib-line)] bg-[var(--ib-bg)] pl-10 font-medium focus-visible:ring-[var(--ib-acc)]/25"
           />
         </div>
 
-        {/* Status Filters */}
-        <div className="flex items-center p-1 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-xl w-full lg:w-auto">
+        <div className="flex w-full items-center rounded-[10px] border border-[var(--ib-line)] bg-[var(--ib-bg)] p-1 lg:w-auto">
           {STATUS_FILTERS.map((status) => (
             <button
               key={status}
+              type="button"
               onClick={() => setActiveStatus(status)}
               className={cn(
-                "flex-1 lg:flex-none px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap",
+                "flex-1 whitespace-nowrap rounded-[8px] px-5 py-2 text-sm font-semibold transition-all lg:flex-none",
                 activeStatus === status
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/20"
-                  : "text-slate-500 hover:text-slate-900 dark:hover:text-white",
+                  ? "bg-[var(--ib-acc)] text-[var(--ib-on)]"
+                  : "text-[var(--ib-mute)] hover:text-[var(--ib-ink)]"
               )}
             >
               {status}
@@ -69,17 +68,17 @@ export function CourseFilter({
         </div>
       </div>
 
-      {/* Category Chips */}
-      <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-50 dark:border-slate-800/50">
+      <div className="flex flex-wrap gap-2 border-t border-[var(--ib-line)] pt-4">
         {CATEGORY_FILTERS.map((category) => (
           <button
             key={category}
+            type="button"
             onClick={() => setActiveCategory(category)}
             className={cn(
-              "px-4 py-2 rounded-xl text-[12px] font-bold border transition-all whitespace-nowrap",
+              "whitespace-nowrap rounded-full border px-3.5 py-1.5 text-[12px] font-semibold transition-all",
               activeCategory === category
-                ? "bg-indigo-600 border-indigo-600 text-white shadow-md shadow-indigo-600/10"
-                : "bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-500 hover:border-indigo-500/50 hover:text-indigo-600",
+                ? "border-[var(--ib-acc)] bg-[var(--ib-acc)] text-[var(--ib-on)]"
+                : "border-[var(--ib-line)] bg-[var(--ib-card)] text-[var(--ib-mute)] hover:border-[var(--ib-acc)]/40 hover:text-[var(--ib-acc)]"
             )}
           >
             {category}

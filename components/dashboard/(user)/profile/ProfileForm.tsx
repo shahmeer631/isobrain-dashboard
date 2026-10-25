@@ -123,7 +123,7 @@ export function ProfileForm({ user, isLoading }: ProfileFormProps) {
           <EmailNotifications />
         </div>
 
-        <div className="flex justify-end pt-6 border-t border-slate-100 dark:border-slate-800">
+        <div className="flex justify-end pt-6 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
           <Button
             type="submit"
             className="gap-2 h-12 px-8 rounded-xl font-bold shadow-lg shadow-blue-500/20 text-white"

@@ -27,7 +27,7 @@ const REVIEW_STATS = [
     label: "5-Star Rate",
     value: "80%",
     icon: Percent,
-    iconColor: "bg-purple-100 text-purple-500",
+    iconColor: "bg-[var(--ib-accbg)] text-[var(--ib-acc)]",
   },
 ];
 

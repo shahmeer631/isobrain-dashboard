@@ -35,7 +35,7 @@ export function AnalyticsStats({ stats }: AnalyticsStatsProps) {
       label: "Revenue",
       value: `$${stats?.revenue.toLocaleString() || "0"}`,
       icon: DollarSign,
-      iconColor: "bg-purple-100 text-purple-500",
+      iconColor: "bg-[var(--ib-accbg)] text-[var(--ib-acc)]",
       trend: "up" as const,
       trendValue: "+8.2%",
     },

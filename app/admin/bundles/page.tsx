@@ -89,7 +89,7 @@ export default function BundlesPage() {
   const renderSkeleton = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {[1, 2, 3, 4].map((i) => (
-        <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+        <div key={i} className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-2xl p-6 shadow-sm">
           <div className="flex justify-between items-start mb-4">
             <Skeleton className="w-12 h-12 rounded-xl" />
             <Skeleton className="h-6 w-20 rounded-full" />
@@ -121,7 +121,7 @@ export default function BundlesPage() {
         actions={
           <Button
             variant="primary"
-            className="h-11 shadow-indigo-200"
+            className="h-11 shadow-[var(--ib-line)]"
             onClick={() => setIsCreateOpen(true)}
           >
             <Plus className="w-5 h-5 mr-2" />
@@ -145,8 +145,8 @@ export default function BundlesPage() {
       {isLoading ? (
         renderSkeleton()
       ) : isError ? (
-        <div className="text-center py-20 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
-          <p className="text-slate-500 font-medium text-lg">Failed to load bundles.</p>
+        <div className="text-center py-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-3xl border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+          <p className="text-[var(--ib-mute)] font-medium text-lg">Failed to load bundles.</p>
           <Button variant="outline" className="mt-4" onClick={() => window.location.reload()}>
             Retry
           </Button>
@@ -170,12 +170,12 @@ export default function BundlesPage() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-24 bg-white dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
-          <div className="w-20 h-20 bg-slate-50 dark:bg-slate-800/50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+        <div className="text-center py-24 bg-white dark:bg-[var(--ib-dk)] border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl">
+          <div className="w-20 h-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-full flex items-center justify-center mx-auto mb-4 text-[var(--ib-mute)]">
              <Plus className="w-10 h-10" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">No bundles found</h3>
-          <p className="text-slate-500 max-w-xs mx-auto">Try adjusting your search or filters to find what you&apos;re looking for.</p>
+          <h3 className="text-lg font-bold text-[var(--ib-ink)] dark:text-white mb-1">No bundles found</h3>
+          <p className="text-[var(--ib-mute)] max-w-xs mx-auto">Try adjusting your search or filters to find what you&apos;re looking for.</p>
         </div>
       )}
 

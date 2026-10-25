@@ -22,18 +22,23 @@ export function Preferences() {
   const { control } = useFormContext();
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">
-        Preferences
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="ib-card p-6 sm:p-7">
+      <div className="mb-6">
+        <h2 className="text-[16px] font-semibold tracking-[-0.01em] text-[var(--ib-ink)]">
+          Preferences
+        </h2>
+        <p className="mt-1 text-[13px] text-[var(--ib-mute)]">
+          Choose language and timezone for your learning experience.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
         <FormField
           control={control}
           name="language"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="flex items-center gap-2">
-                <Globe className="h-4 w-4 text-slate-400" />
+                <Globe className="h-4 w-4 text-[var(--ib-mute)]" />
                 Language *
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -64,7 +69,7 @@ export function Preferences() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-slate-400" />
+                <Clock className="h-4 w-4 text-[var(--ib-mute)]" />
                 Timezone *
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>

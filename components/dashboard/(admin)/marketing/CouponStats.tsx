@@ -22,7 +22,7 @@ export function CouponStats({ stats, isLoading }: CouponStatsProps) {
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="h-[120px] bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 animate-pulse"
+            className="h-[120px] bg-white dark:bg-[var(--ib-dk)] rounded-2xl p-6 border border-[var(--ib-line)] dark:border-[var(--ib-line)] animate-pulse"
           >
             <Skeleton className="h-4 w-24 mb-4" />
             <Skeleton className="h-8 w-20" />
@@ -49,7 +49,7 @@ export function CouponStats({ stats, isLoading }: CouponStatsProps) {
       label: "Total Discounts Given",
       value: `$${stats?.totalDiscountGiven?.toLocaleString() || "0"}`,
       icon: Wallet,
-      iconColor: "bg-purple-100 text-purple-600",
+      iconColor: "bg-[var(--ib-accbg)] text-[var(--ib-acc)]",
     },
     {
       label: "Active Coupons",

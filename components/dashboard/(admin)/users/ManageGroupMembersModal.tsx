@@ -115,20 +115,20 @@ export function ManageGroupMembersModal({
       <div className="space-y-6 max-h-[70vh] overflow-y-auto pr-1">
         {/* Plan access summary */}
         <div>
-          <p className="text-[13px] font-bold text-slate-700 dark:text-slate-300 mb-2">
+          <p className="text-[13px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] mb-2">
             Plan Access
           </p>
           <div className="flex flex-wrap gap-1.5">
             {(detail?.permissions || group?.permissions || []).map((p) => (
               <Badge
                 key={p}
-                className="bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300 border-none"
+                className="bg-[var(--ib-accbg)] text-[var(--ib-acc)] dark:bg-[var(--ib-acc)]/20 dark:text-[var(--ib-acc)] border-none"
               >
                 {planAccessLabel(p)}
               </Badge>
             ))}
           </div>
-          <p className="mt-2 text-[12px] text-slate-500">
+          <p className="mt-2 text-[12px] text-[var(--ib-mute)]">
             Removing a user only removes access from this group. Their normal
             subscription is never cancelled.
           </p>
@@ -136,29 +136,29 @@ export function ManageGroupMembersModal({
 
         {/* Add user search */}
         <div className="space-y-3">
-          <p className="text-[13px] font-bold text-slate-700 dark:text-slate-300">
+          <p className="text-[13px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
             Add User
           </p>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--ib-mute)]" />
             <Input
               placeholder="Search by name or email…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="h-11 pl-10 bg-slate-50 dark:bg-slate-800 border-none rounded-xl"
+              className="h-11 pl-10 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl"
               disabled={usersLoading}
             />
           </div>
 
           {search.trim() && (
-            <div className="rounded-xl border border-slate-200 dark:border-slate-700 divide-y divide-slate-100 dark:divide-slate-800 overflow-hidden">
+            <div className="rounded-xl border border-[var(--ib-line)] dark:border-[var(--ib-line)] divide-y divide-[var(--ib-line)] dark:divide-[var(--ib-line)] overflow-hidden">
               {usersLoading ? (
-                <div className="flex items-center justify-center py-6 text-slate-400">
+                <div className="flex items-center justify-center py-6 text-[var(--ib-mute)]">
                   <Loader2 className="w-4 h-4 animate-spin mr-2" />
                   Loading users…
                 </div>
               ) : searchResults.length === 0 ? (
-                <p className="py-6 text-center text-[13px] text-slate-400">
+                <p className="py-6 text-center text-[13px] text-[var(--ib-mute)]">
                   No users found.
                 </p>
               ) : (
@@ -170,16 +170,16 @@ export function ManageGroupMembersModal({
                   return (
                     <div
                       key={user.id}
-                      className="flex items-center justify-between gap-3 px-4 py-3 bg-white dark:bg-slate-900"
+                      className="flex items-center justify-between gap-3 px-4 py-3 bg-white dark:bg-[var(--ib-dk)]"
                     >
                       <div className="min-w-0">
-                        <p className="text-[14px] font-bold text-slate-900 dark:text-white truncate">
+                        <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white truncate">
                           {name}
                         </p>
-                        <p className="text-[12px] text-slate-500 truncate">
+                        <p className="text-[12px] text-[var(--ib-mute)] truncate">
                           {user.email}
                         </p>
-                        <p className="text-[11px] text-slate-400 mt-0.5">
+                        <p className="text-[11px] text-[var(--ib-mute)] mt-0.5">
                           Subscription:{" "}
                           {user.subscribed === "SUBSCRIBED" && user.currentPlan
                             ? user.currentPlan
@@ -216,16 +216,16 @@ export function ManageGroupMembersModal({
         {/* Members list */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <p className="text-[13px] font-bold text-slate-700 dark:text-slate-300">
+            <p className="text-[13px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
               Members
             </p>
-            <span className="text-[12px] font-bold text-slate-400">
+            <span className="text-[12px] font-bold text-[var(--ib-mute)]">
               {members.length}
             </span>
           </div>
 
           {isFetching && !detail ? (
-            <div className="flex items-center justify-center py-10 text-slate-400">
+            <div className="flex items-center justify-center py-10 text-[var(--ib-mute)]">
               <Loader2 className="w-5 h-5 animate-spin mr-2" />
               Loading members…
             </div>
@@ -234,11 +234,11 @@ export function ManageGroupMembersModal({
               Failed to load group members.
             </p>
           ) : members.length === 0 ? (
-            <p className="py-8 text-center text-[13px] text-slate-400 border border-dashed border-slate-200 dark:border-slate-700 rounded-xl">
+            <p className="py-8 text-center text-[13px] text-[var(--ib-mute)] border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl">
               No users have been added to this group yet.
             </p>
           ) : (
-            <div className="rounded-xl border border-slate-200 dark:border-slate-700 divide-y divide-slate-100 dark:divide-slate-800 overflow-hidden">
+            <div className="rounded-xl border border-[var(--ib-line)] dark:border-[var(--ib-line)] divide-y divide-[var(--ib-line)] dark:divide-[var(--ib-line)] overflow-hidden">
               {members.map((m) => {
                 const name =
                   [m.user.firstName, m.user.lastName]
@@ -248,16 +248,16 @@ export function ManageGroupMembersModal({
                 return (
                   <div
                     key={m.id}
-                    className="flex items-center justify-between gap-3 px-4 py-3 bg-white dark:bg-slate-900"
+                    className="flex items-center justify-between gap-3 px-4 py-3 bg-white dark:bg-[var(--ib-dk)]"
                   >
                     <div className="min-w-0">
-                      <p className="text-[14px] font-bold text-slate-900 dark:text-white truncate">
+                      <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white truncate">
                         {name}
                       </p>
-                      <p className="text-[12px] text-slate-500 truncate">
+                      <p className="text-[12px] text-[var(--ib-mute)] truncate">
                         {m.user.email}
                       </p>
-                      <p className="text-[11px] text-slate-400 mt-0.5">
+                      <p className="text-[11px] text-[var(--ib-mute)] mt-0.5">
                         {m.user.status}
                         {" · Subscription: "}
                         {m.user.currentPlan && m.user.currentPlan !== "FREE"
@@ -272,7 +272,7 @@ export function ManageGroupMembersModal({
                       type="button"
                       size="sm"
                       variant="outline"
-                      className="h-9 shrink-0 text-red-600 hover:bg-red-50 border-slate-200"
+                      className="h-9 shrink-0 text-red-600 hover:bg-red-50 border-[var(--ib-line)]"
                       disabled={!!pendingUserId}
                       onClick={() => handleRemove(m.userId)}
                     >

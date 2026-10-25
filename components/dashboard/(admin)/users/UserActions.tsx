@@ -34,9 +34,9 @@ export function MessageUsersModal({
       title="Message Users"
     >
       <div className="space-y-6">
-        <p className="text-sm font-medium text-slate-500">
+        <p className="text-sm font-medium text-[var(--ib-mute)]">
           This message will be sent to{" "}
-          <span className="text-slate-900 font-bold">{count}</span> selected
+          <span className="text-[var(--ib-ink)] font-bold">{count}</span> selected
           users.
         </p>
         <div className="space-y-2">
@@ -61,7 +61,7 @@ export function MessageUsersModal({
           >
             Cancel
           </Button>
-          <Button className="flex-1 bg-slate-900 text-white hover:bg-slate-800 rounded-xl h-11 font-bold">
+          <Button className="flex-1 bg-[var(--ib-dk)] text-white hover:bg-[var(--ib-dk)] rounded-xl h-11 font-bold">
             Send Message
           </Button>
         </div>
@@ -100,9 +100,9 @@ export function AddGroupModal({
       title="Add to Group"
     >
       <div className="space-y-6">
-        <p className="text-sm font-medium text-slate-500">
+        <p className="text-sm font-medium text-[var(--ib-mute)]">
           This group assignment will be applied to{" "}
-          <span className="text-slate-900 font-bold">{count}</span> selected
+          <span className="text-[var(--ib-ink)] font-bold">{count}</span> selected
           {count === 1 ? ' user' : ' users'}.
         </p>
         <div className="space-y-2">
@@ -130,7 +130,7 @@ export function AddGroupModal({
             Cancel
           </Button>
           <Button 
-            className="flex-1 bg-slate-900 text-white hover:bg-slate-800 rounded-xl h-11 font-bold"
+            className="flex-1 bg-[var(--ib-dk)] text-white hover:bg-[var(--ib-dk)] rounded-xl h-11 font-bold"
             onClick={handleConfirm}
             disabled={!selectedGroup || isLoading}
           >
@@ -172,9 +172,9 @@ export function EnrollCourseModal({
       title="Enroll in Course"
     >
       <div className="space-y-6">
-        <p className="text-sm font-medium text-slate-500">
+        <p className="text-sm font-medium text-[var(--ib-mute)]">
           This enrollment will be applied to{" "}
-          <span className="text-slate-900 font-bold">{count}</span> selected
+          <span className="text-[var(--ib-ink)] font-bold">{count}</span> selected
           {count === 1 ? ' user' : ' users'}.
         </p>
         <div className="space-y-2">
@@ -202,7 +202,7 @@ export function EnrollCourseModal({
             Cancel
           </Button>
           <Button 
-            className="flex-1 bg-slate-900 text-white hover:bg-slate-800 rounded-xl h-11 font-bold"
+            className="flex-1 bg-[var(--ib-dk)] text-white hover:bg-[var(--ib-dk)] rounded-xl h-11 font-bold"
             onClick={handleConfirm}
             disabled={!selectedCourse || isLoading}
           >
@@ -245,9 +245,9 @@ export function UnenrollCourseModal({
       title="Unenroll from Course"
     >
       <div className="space-y-6">
-        <p className="text-sm font-medium text-slate-500">
+        <p className="text-sm font-medium text-[var(--ib-mute)]">
           This unenrollment will be applied to{" "}
-          <span className="text-slate-900 font-bold">{count}</span> selected
+          <span className="text-[var(--ib-ink)] font-bold">{count}</span> selected
           {count === 1 ? ' user' : ' users'}.
         </p>
         <div className="space-y-2">
@@ -313,12 +313,12 @@ export function DeleteConfirmModal({
           <AlertTriangle className="h-8 w-8" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-xl font-bold text-slate-900">
+          <h3 className="text-xl font-bold text-[var(--ib-ink)]">
             Are you absolutely sure?
           </h3>
-          <p className="text-slate-500 text-sm">
+          <p className="text-[var(--ib-mute)] text-sm">
             You are about to delete{" "}
-            <span className="text-slate-900 font-bold">{count}</span> {count === 1 ? 'user' : 'users'}.
+            <span className="text-[var(--ib-ink)] font-bold">{count}</span> {count === 1 ? 'user' : 'users'}.
             This action cannot be undone and will remove all their course
             progress and history.
           </p>

@@ -156,8 +156,8 @@
 //               />
 //             ))
 //           ) : (
-//             <div className="bg-white dark:bg-slate-900 rounded-2xl p-12 text-center border border-slate-100 dark:border-slate-800">
-//               <p className="text-slate-500 font-medium">
+//             <div className="bg-white dark:bg-[var(--ib-dk)] rounded-2xl p-12 text-center border border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+//               <p className="text-[var(--ib-mute)] font-medium">
 //                 No coupons found matching your criteria.
 //               </p>
 //             </div>
@@ -349,7 +349,7 @@ const CouponDiscountPage = () => {
           {isLoading ? (
             renderSkeletons()
           ) : isError ? (
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-12 text-center border border-slate-100 dark:border-slate-800">
+            <div className="bg-white dark:bg-[var(--ib-dk)] rounded-2xl p-12 text-center border border-[var(--ib-line)] dark:border-[var(--ib-line)]">
               <p className="text-rose-500 font-medium">
                 Failed to load coupons. Please try again later.
               </p>
@@ -364,14 +364,14 @@ const CouponDiscountPage = () => {
               />
             ))
           ) : (
-            <div className="bg-white dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl p-16 text-center">
-              <div className="w-20 h-20 bg-slate-50 dark:bg-slate-800/50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+            <div className="bg-white dark:bg-[var(--ib-dk)] border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-16 text-center">
+              <div className="w-20 h-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-full flex items-center justify-center mx-auto mb-4 text-[var(--ib-mute)]">
                 <Search className="w-10 h-10" />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+              <h3 className="text-lg font-bold text-[var(--ib-ink)] dark:text-white mb-1">
                 No coupons found
               </h3>
-              <p className="text-slate-500 max-w-xs mx-auto">
+              <p className="text-[var(--ib-mute)] max-w-xs mx-auto">
                 Try adjusting your search or filters to find what you&apos;re
                 looking for.
               </p>

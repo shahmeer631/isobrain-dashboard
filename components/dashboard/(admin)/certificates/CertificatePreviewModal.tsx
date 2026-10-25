@@ -28,7 +28,7 @@ export function CertificatePreviewModal({
       maxWidth="sm:max-w-[1000px]"
     >
       <div className="flex flex-col items-center gap-8 py-4">
-        <div className="w-full max-w-4xl bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-4 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-inner overflow-hidden">
+        <div className="w-full max-w-4xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-3xl p-4 sm:p-10 border border-[var(--ib-line)] dark:border-[var(--ib-line)] shadow-inner overflow-hidden">
           <CertificatePreview data={{
             name: certificate.name,
             title: certificate.title,
@@ -42,17 +42,17 @@ export function CertificatePreviewModal({
           }} />
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full pt-4 border-t border-slate-100 dark:border-slate-800">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full pt-4 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="w-full sm:flex-1 h-12 rounded-xl font-bold text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 flex items-center gap-2"
+            className="w-full sm:flex-1 h-12 rounded-xl font-bold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] border-[var(--ib-line)] dark:border-[var(--ib-line)] flex items-center gap-2"
           >
             <X className="w-4 h-4" />
             Close
           </Button>
           <Button
-            className="w-full sm:flex-1 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-[16px] shadow-lg shadow-indigo-100 dark:shadow-none transition-all flex items-center justify-center gap-2"
+            className="w-full sm:flex-1 h-12 bg-[var(--ib-acc)] hover:bg-[var(--ib-acc)]/90 text-white rounded-xl font-bold text-[16px] shadow-lg shadow-[var(--ib-accbg)] dark:shadow-none transition-all flex items-center justify-center gap-2"
             onClick={() => window.print()}
           >
             <Printer className="w-5 h-5" />

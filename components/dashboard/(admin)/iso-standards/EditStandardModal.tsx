@@ -150,8 +150,8 @@ export function EditStandardModal({
             className={cn(
               "group border-2 border-dashed rounded-2xl p-6 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer mb-6",
               fileName
-                ? "border-indigo-200 bg-indigo-50/30 dark:bg-indigo-900/10"
-                : "border-slate-100 dark:border-slate-800 hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800/50",
+                ? "border-[var(--ib-line)] bg-[var(--ib-accbg)]/30 dark:bg-[var(--ib-acc)]/10"
+                : "border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:border-[var(--ib-acc)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50",
             )}
           >
             <input
@@ -161,13 +161,13 @@ export function EditStandardModal({
               ref={fileInputRef}
               onChange={handleFileChange}
             />
-            <UploadCloud className={cn("w-6 h-6 mb-2 text-slate-400 group-hover:text-indigo-600 transition-colors", fileName && "text-indigo-600")} />
+            <UploadCloud className={cn("w-6 h-6 mb-2 text-[var(--ib-mute)] group-hover:text-[var(--ib-acc)] transition-colors", fileName && "text-[var(--ib-acc)]")} />
             {fileName ? (
-              <span className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">
+              <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white line-clamp-1">
                 {fileName}
               </span>
             ) : (
-              <span className="text-xs font-medium text-slate-500 text-center">
+              <span className="text-xs font-medium text-[var(--ib-mute)] text-center">
                 Click to update PDF document (optional)
               </span>
             )}
@@ -178,13 +178,13 @@ export function EditStandardModal({
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   Title <span className="text-red-500">*</span>
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="e.g., Quality Management Systems"
-                    className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]"
+                    className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
                     {...field}
                   />
                 </FormControl>
@@ -199,12 +199,12 @@ export function EditStandardModal({
               name="categoryId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Category
                   </FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
-                      <SelectTrigger className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]">
+                      <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]">
                         <SelectValue placeholder={isLoadingCategories ? "Loading..." : "Select category"} />
                       </SelectTrigger>
                     </FormControl>
@@ -226,12 +226,12 @@ export function EditStandardModal({
               name="status"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Status
                   </FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
-                      <SelectTrigger className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]">
+                      <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]">
                         <SelectValue placeholder="Select status" />
                       </SelectTrigger>
                     </FormControl>
@@ -251,7 +251,7 @@ export function EditStandardModal({
             <Button
               type="button"
               variant="outline"
-              className="w-full sm:flex-1 h-12 rounded-xl text-slate-600 font-bold border-slate-200 dark:border-slate-800"
+              className="w-full sm:flex-1 h-12 rounded-xl text-[var(--ib-mute)] font-bold border-[var(--ib-line)] dark:border-[var(--ib-line)]"
               onClick={() => onOpenChange(false)}
             >
               Cancel

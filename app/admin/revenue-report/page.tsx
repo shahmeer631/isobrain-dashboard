@@ -27,7 +27,7 @@ const CATEGORY_DATA = [
     name: "Information Security Courses",
     amount: "$13,380",
     percentage: 45,
-    color: "#9333ea", // purple-600
+    color: "#1B4DDB", // ib-acc
   },
   {
     name: "ISO Standards Library",
@@ -115,7 +115,7 @@ const RevenueReportPage = () => {
                 "px-5 py-2 rounded-xl text-sm font-bold transition-all",
                 activeTab === option
                   ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-                  : "bg-white text-slate-500 border border-slate-100 hover:bg-slate-50",
+                  : "bg-white text-[var(--ib-mute)] border border-[var(--ib-line)] hover:bg-[var(--ib-bg)]",
               )}
             >
               {option}
@@ -145,7 +145,7 @@ const RevenueReportPage = () => {
             label="Avg Order Value"
             value="$187"
             icon={DollarSign}
-            iconColor="bg-purple-50"
+            iconColor="bg-[var(--ib-accbg)]"
             trend="up"
             trendValue="$187"
           />

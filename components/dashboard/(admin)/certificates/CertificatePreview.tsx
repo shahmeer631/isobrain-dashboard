@@ -12,11 +12,11 @@ export function CertificatePreview({ data, className }: CertificatePreviewProps)
     switch (data.templateType) {
       case "Modern Minimalist":
         return {
-          wrapper: "border-slate-100 bg-white",
-          accentColor: "text-slate-900",
-          secondaryColor: "text-slate-500",
-          borderColor: "border-slate-200",
-          innerBorder: "border-slate-50",
+          wrapper: "border-[var(--ib-line)] bg-white",
+          accentColor: "text-[var(--ib-ink)]",
+          secondaryColor: "text-[var(--ib-mute)]",
+          borderColor: "border-[var(--ib-line)]",
+          innerBorder: "border-[var(--ib-line)]",
           icon: "https://cdn-icons-png.flaticon.com/512/3112/3112946.png",
           font: "font-sans",
           decor: null,
@@ -34,14 +34,14 @@ export function CertificatePreview({ data, className }: CertificatePreviewProps)
         };
       case "Corporate Purple":
         return {
-          wrapper: "border-purple-100 bg-slate-50",
-          accentColor: "text-purple-700",
-          secondaryColor: "text-purple-900/60",
-          borderColor: "border-purple-600",
-          innerBorder: "border-purple-50",
+          wrapper: "border-[var(--ib-line)] bg-[var(--ib-bg)]",
+          accentColor: "text-[var(--ib-acc)]",
+          secondaryColor: "text-[var(--ib-mute)]",
+          borderColor: "border-[var(--ib-acc)]",
+          innerBorder: "border-[var(--ib-line)]",
           icon: "https://cdn-icons-png.flaticon.com/512/3135/3135768.png",
           font: "font-sans",
-          decor: "bg-purple-600/10",
+          decor: "bg-[var(--ib-accbg)]",
         };
       case "Nature Green":
         return {
@@ -67,11 +67,11 @@ export function CertificatePreview({ data, className }: CertificatePreviewProps)
         };
       default:
         return {
-          wrapper: "border-indigo-100 bg-white",
-          accentColor: "text-indigo-700",
-          secondaryColor: "text-indigo-900/60",
-          borderColor: "border-indigo-600",
-          innerBorder: "border-indigo-50",
+          wrapper: "border-[var(--ib-line)] bg-[var(--ib-card)]",
+          accentColor: "text-[var(--ib-acc)]",
+          secondaryColor: "text-[var(--ib-mute)]",
+          borderColor: "border-[var(--ib-acc)]",
+          innerBorder: "border-[var(--ib-line)]",
           icon: "https://cdn-icons-png.flaticon.com/512/3112/3112946.png",
           font: "font-sans",
           decor: null,
@@ -141,7 +141,7 @@ export function CertificatePreview({ data, className }: CertificatePreviewProps)
         <div className="w-full grid grid-cols-3 items-end gap-2 sm:gap-6 pt-2 sm:pt-6 px-2 shrink-0">
           {/* Signature 1 */}
           <div className="flex flex-col items-center gap-1">
-            <div className={cn("w-full h-px", config.wrapper.includes('bg-[#0F172A]') ? 'bg-amber-400/20' : 'bg-slate-300')} />
+            <div className={cn("w-full h-px", config.wrapper.includes('bg-[#0F172A]') ? 'bg-amber-400/20' : 'bg-[var(--ib-line)]')} />
             <span className={cn("text-[7px] sm:text-[9px] font-bold uppercase tracking-wider truncate w-full", config.secondaryColor, "opacity-60")}>
               {data.signature1 || "Course Instructor"}
             </span>
@@ -159,7 +159,7 @@ export function CertificatePreview({ data, className }: CertificatePreviewProps)
 
           {/* Signature 2 */}
           <div className="flex flex-col items-center gap-1">
-            <div className={cn("w-full h-px", config.wrapper.includes('bg-[#0F172A]') ? 'bg-amber-400/20' : 'bg-slate-300')} />
+            <div className={cn("w-full h-px", config.wrapper.includes('bg-[#0F172A]') ? 'bg-amber-400/20' : 'bg-[var(--ib-line)]')} />
             <span className={cn("text-[7px] sm:text-[9px] font-bold uppercase tracking-wider truncate w-full", config.secondaryColor, "opacity-60")}>
               {data.signature2 || "ISO Brain Director"}
             </span>

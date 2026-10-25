@@ -37,8 +37,8 @@ export function NotificationSettings({
   isSaving: boolean;
 }) {
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-sm">
-      <h3 className="text-[18px] font-bold text-slate-900 dark:text-white mb-8">
+    <div className="bg-white dark:bg-[var(--ib-dk)] rounded-3xl p-8 shadow-sm">
+      <h3 className="text-[18px] font-bold text-[var(--ib-ink)] dark:text-white mb-8">
         Notification Preferences
       </h3>
 
@@ -46,23 +46,23 @@ export function NotificationSettings({
         {NOTIFICATION_PREFERENCES.map((pref) => (
           <div
             key={pref.id}
-            className="flex items-center justify-between p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="flex items-center justify-between p-6 rounded-2xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] transition-colors"
           >
             <div className="space-y-1">
               <Label
                 htmlFor={pref.id}
-                className="text-[15px] font-bold text-slate-900 dark:text-white cursor-pointer"
+                className="text-[15px] font-bold text-[var(--ib-ink)] dark:text-white cursor-pointer"
               >
                 {pref.label}
               </Label>
-              <p className="text-[13px] font-medium text-slate-500 leading-relaxed">
+              <p className="text-[13px] font-medium text-[var(--ib-mute)] leading-relaxed">
                 {pref.description}
               </p>
             </div>
             <Switch
               id={pref.id}
               defaultChecked
-              className="data-[state=checked]:bg-indigo-600"
+              className="data-[state=checked]:bg-[var(--ib-acc)]"
             />
           </div>
         ))}

@@ -176,14 +176,14 @@ export function PlanModal({
                 name="name"
                 render={({ field }) => (
                   <FormItem className="space-y-1.5">
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Plan Name *
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., Silver"
                         {...field}
-                        className="bg-slate-50 border-none h-11 rounded-xl"
+                        className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                       />
                     </FormControl>
                     <FormMessage />
@@ -196,14 +196,14 @@ export function PlanModal({
                 name="description"
                 render={({ field }) => (
                   <FormItem className="space-y-1.5">
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Description *
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Plan description..."
                         {...field}
-                        className="bg-slate-50 border-none h-11 rounded-xl"
+                        className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                       />
                     </FormControl>
                     <FormMessage />
@@ -217,14 +217,14 @@ export function PlanModal({
                   name="discountedPrice"
                   render={({ field }) => (
                     <FormItem className="space-y-1.5">
-                      <FormLabel className="text-sm font-bold text-slate-900">
+                      <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                         Price After Discount *
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="number"
                           {...field}
-                          className="bg-slate-50 border-none h-11 rounded-xl"
+                          className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                         />
                       </FormControl>
                       <FormMessage />
@@ -237,14 +237,14 @@ export function PlanModal({
                   name="originalPrice"
                   render={({ field }) => (
                     <FormItem className="space-y-1.5">
-                      <FormLabel className="text-sm font-bold text-slate-900">
+                      <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                         Original Price *
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="number"
                           {...field}
-                          className="bg-slate-50 border-none h-11 rounded-xl"
+                          className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                         />
                       </FormControl>
                       <FormMessage />
@@ -259,14 +259,14 @@ export function PlanModal({
                   name="learningUnits"
                   render={({ field }) => (
                     <FormItem className="space-y-1.5">
-                      <FormLabel className="text-sm font-bold text-slate-900">
+                      <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                         Learning Units *
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="number"
                           {...field}
-                          className="bg-slate-50 border-none h-11 rounded-xl"
+                          className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                         />
                       </FormControl>
                       <FormMessage />
@@ -279,14 +279,14 @@ export function PlanModal({
                   name="validityDays"
                   render={({ field }) => (
                     <FormItem className="space-y-1.5">
-                      <FormLabel className="text-sm font-bold text-slate-900">
+                      <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                         Validity (Days) *
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="number"
                           {...field}
-                          className="bg-slate-50 border-none h-11 rounded-xl"
+                          className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                         />
                       </FormControl>
                       <FormDescription className="text-[10px] uppercase">
@@ -304,14 +304,14 @@ export function PlanModal({
                   name="validFrom"
                   render={({ field }) => (
                     <FormItem className="space-y-1.5">
-                      <FormLabel className="text-sm font-bold text-slate-900">
+                      <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                         Valid From *
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="date"
                           {...field}
-                          className="bg-slate-50 border-none h-11 rounded-xl"
+                          className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                         />
                       </FormControl>
                       <FormMessage />
@@ -324,14 +324,14 @@ export function PlanModal({
                   name="validUntil"
                   render={({ field }) => (
                     <FormItem className="space-y-1.5">
-                      <FormLabel className="text-sm font-bold text-slate-900">
+                      <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                         Valid Until *
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="date"
                           {...field}
-                          className="bg-slate-50 border-none h-11 rounded-xl"
+                          className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                         />
                       </FormControl>
                       <FormMessage />
@@ -348,7 +348,7 @@ export function PlanModal({
                 name="features"
                 render={() => (
                   <FormItem className="space-y-4">
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Features *
                     </FormLabel>
                     <div className="grid grid-cols-1 gap-3">
@@ -399,7 +399,7 @@ export function PlanModal({
                 name="badge"
                 render={({ field }) => (
                   <FormItem className="space-y-1.5">
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Badge
                     </FormLabel>
                     <Select
@@ -407,7 +407,7 @@ export function PlanModal({
                       defaultValue={field.value || "none"}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-11 rounded-xl">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-11 rounded-xl">
                           <SelectValue placeholder="Select badge" />
                         </SelectTrigger>
                       </FormControl>
@@ -429,14 +429,14 @@ export function PlanModal({
                 name="buttonText"
                 render={({ field }) => (
                   <FormItem className="space-y-1.5">
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Button Text *
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g. Get Started Free"
                         {...field}
-                        className="bg-slate-50 border-none h-11 rounded-xl"
+                        className="bg-[var(--ib-bg)] border-none h-11 rounded-xl"
                       />
                     </FormControl>
                     <FormMessage />
@@ -449,7 +449,7 @@ export function PlanModal({
                 name="isActive"
                 render={({ field }) => (
                   <FormItem className="space-y-1.5">
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Status
                     </FormLabel>
                     <Select
@@ -457,7 +457,7 @@ export function PlanModal({
                       defaultValue={field.value ? "true" : "false"}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-11 rounded-xl">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-11 rounded-xl">
                           <SelectValue placeholder="Select status" />
                         </SelectTrigger>
                       </FormControl>
@@ -473,12 +473,12 @@ export function PlanModal({
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-slate-50 dark:border-slate-800">
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
             <Button
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="w-full sm:flex-1 h-12 rounded-xl text-slate-500 font-bold hover:bg-slate-50 transition-all"
+              className="w-full sm:flex-1 h-12 rounded-xl text-[var(--ib-mute)] font-bold hover:bg-[var(--ib-bg)] transition-all"
             >
               Cancel
             </Button>

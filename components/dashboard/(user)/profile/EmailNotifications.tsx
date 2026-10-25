@@ -14,16 +14,21 @@ export function EmailNotifications() {
   const { control } = useFormContext();
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">
-        Email Notifications
-      </h2>
-      <div className="space-y-6">
+    <div className="ib-card p-6 sm:p-7">
+      <div className="mb-6">
+        <h2 className="text-[16px] font-semibold tracking-[-0.01em] text-[var(--ib-ink)]">
+          Email Notifications
+        </h2>
+        <p className="mt-1 text-[13px] text-[var(--ib-mute)]">
+          Control which learning updates you receive by email.
+        </p>
+      </div>
+      <div className="space-y-3">
         <FormField
           control={control}
           name="courseUpdates"
           render={({ field }) => (
-            <FormItem className="flex flex-row items-center justify-between rounded-lg border border-slate-100 dark:border-slate-800/60 p-4 shadow-sm">
+            <FormItem className="flex flex-row items-center justify-between rounded-[12px] border border-[var(--ib-line)] bg-[var(--ib-bg)]/50 p-4 transition-colors hover:border-[color-mix(in_srgb,var(--ib-acc)_22%,var(--ib-line))]">
               <div className="space-y-0.5">
                 <FormLabel className="text-base font-medium">
                   Course Updates
@@ -45,7 +50,7 @@ export function EmailNotifications() {
           control={control}
           name="marketingEmails"
           render={({ field }) => (
-            <FormItem className="flex flex-row items-center justify-between rounded-lg border border-slate-100 dark:border-slate-800/60 p-4 shadow-sm">
+            <FormItem className="flex flex-row items-center justify-between rounded-[12px] border border-[var(--ib-line)] bg-[var(--ib-bg)]/50 p-4 transition-colors hover:border-[color-mix(in_srgb,var(--ib-acc)_22%,var(--ib-line))]">
               <div className="space-y-0.5">
                 <FormLabel className="text-base font-medium">
                   Marketing Emails
@@ -67,7 +72,7 @@ export function EmailNotifications() {
           control={control}
           name="weeklyProgress"
           render={({ field }) => (
-            <FormItem className="flex flex-row items-center justify-between rounded-lg border border-slate-100 dark:border-slate-800/60 p-4 shadow-sm">
+            <FormItem className="flex flex-row items-center justify-between rounded-[12px] border border-[var(--ib-line)] bg-[var(--ib-bg)]/50 p-4 transition-colors hover:border-[color-mix(in_srgb,var(--ib-acc)_22%,var(--ib-line))]">
               <div className="space-y-0.5">
                 <FormLabel className="text-base font-medium">
                   Weekly Progress Reports

@@ -37,7 +37,7 @@ export default function SettingsPage() {
     //     />
 
     //     {/* Tab Navigation */}
-    //     <div className="flex items-center gap-8 border-b border-slate-100 dark:border-slate-800">
+    //     <div className="flex items-center gap-8 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)]">
     //       {TABS.map((tab) => {
     //         const Icon = tab.icon;
     //         const isActive = activeTab === tab.id;
@@ -48,19 +48,19 @@ export default function SettingsPage() {
     //             className={cn(
     //               "flex items-center gap-2 py-4 px-1 text-[15px] font-bold transition-all relative",
     //               isActive
-    //                 ? "text-indigo-600 dark:text-indigo-400"
-    //                 : "text-slate-500 hover:text-slate-900 dark:hover:text-white",
+    //                 ? "text-[var(--ib-acc)]"
+    //                 : "text-[var(--ib-mute)] hover:text-[var(--ib-ink)] dark:hover:text-white",
     //             )}
     //           >
     //             <Icon
     //               className={cn(
     //                 "w-4 h-4",
-    //                 isActive ? "text-indigo-600" : "text-slate-400",
+    //                 isActive ? "text-[var(--ib-acc)]" : "text-[var(--ib-mute)]",
     //               )}
     //             />
     //             {tab.label}
     //             {isActive && (
-    //               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full" />
+    //               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--ib-acc)] dark:bg-[var(--ib-acc)] rounded-full" />
     //             )}
     //           </button>
     //         );

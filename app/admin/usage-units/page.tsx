@@ -22,7 +22,7 @@ const UsageUnitsPage = () => {
           <p className="text-rose-500 font-bold text-lg">Failed to load usage units data</p>
           <button 
             onClick={() => refetch()} 
-            className="px-6 py-2 rounded-lg border border-slate-200 font-bold hover:bg-slate-50 transition-all text-slate-600"
+            className="px-6 py-2 rounded-lg border border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] transition-all text-[var(--ib-mute)]"
           >
             Retry
           </button>
@@ -61,7 +61,7 @@ const UsageUnitsPage = () => {
             title="Avg. Units Used" 
             value={stats?.avgUnitsUsed?.toLocaleString() || "0"} 
             icon={<TrendingUp className="h-6 w-6" />}
-            iconBg="bg-purple-50 text-purple-600"
+            iconBg="bg-[var(--ib-accbg)] text-[var(--ib-acc)]"
           />
         </div>
 
@@ -85,7 +85,7 @@ const UsageInfoBox = React.memo(() => (
       <Lightbulb className="h-5 w-5" />
       <h3 className="font-bold text-[16px]">Usage Units Information</h3>
     </div>
-    <ul className="space-y-3 text-slate-600 font-medium text-[14px]">
+    <ul className="space-y-3 text-[var(--ib-mute)] font-medium text-[14px]">
       {[
         { label: "Learning Units", desc: "are consumed when users access AI features like ISO Navigator, Audit Lens, and Master Lab" },
         { label: "Average Usage", desc: "shows how many units users typically consume per month" },

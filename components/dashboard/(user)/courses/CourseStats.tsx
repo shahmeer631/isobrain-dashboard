@@ -1,16 +1,42 @@
 "use client";
 
 import React from "react";
-import { BookOpen, Play, CheckCircle, Clock } from "lucide-react";
-import { DashboardStatCard } from "@/components/dashboard/DashboardStatCard";
-
+import { BookOpen, Play, CheckCircle, Clock, LucideIcon } from "lucide-react";
 import { IMyCourseStats } from "@/types/userDashboardTypes";
 import { CourseStatsSkeleton } from "./CourseDashboardSkeleton";
+import { GlanceStat } from "@/components/dashboard/design-system";
 
 interface CourseStatsProps {
   stats?: IMyCourseStats;
   isLoading?: boolean;
 }
+
+const items: {
+  label: string;
+  icon: LucideIcon;
+  value: (s?: IMyCourseStats) => string;
+}[] = [
+  {
+    label: "Total enrolled",
+    icon: BookOpen,
+    value: (s) => s?.totalEnrolled?.toString() || "0",
+  },
+  {
+    label: "In progress",
+    icon: Play,
+    value: (s) => s?.inProgress?.toString() || "0",
+  },
+  {
+    label: "Completed",
+    icon: CheckCircle,
+    value: (s) => s?.completed?.toString() || "0",
+  },
+  {
+    label: "Total hours",
+    icon: Clock,
+    value: (s) => s?.totalHours || "0h",
+  },
+];
 
 export function CourseStats({ stats, isLoading }: CourseStatsProps) {
   if (isLoading) {
@@ -18,31 +44,15 @@ export function CourseStats({ stats, isLoading }: CourseStatsProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <DashboardStatCard
-        label="Total Enrolled"
-        value={stats?.totalEnrolled?.toString() || "0"}
-        icon={BookOpen}
-        iconColor="from-blue-500/20 to-blue-600/20 text-blue-600 shadow-none border-blue-100/50"
-      />
-      <DashboardStatCard
-        label="In Progress"
-        value={stats?.inProgress?.toString() || "0"}
-        icon={Play}
-        iconColor="from-orange-500/20 to-orange-600/20 text-orange-600 shadow-none border-orange-100/50"
-      />
-      <DashboardStatCard
-        label="Completed"
-        value={stats?.completed?.toString() || "0"}
-        icon={CheckCircle}
-        iconColor="from-emerald-500/20 to-emerald-600/20 text-emerald-600 shadow-none border-emerald-100/50"
-      />
-      <DashboardStatCard
-        label="Total Hours"
-        value={stats?.totalHours || "0h"}
-        icon={Clock}
-        iconColor="from-purple-500/20 to-purple-600/20 text-purple-600 shadow-none border-purple-100/50"
-      />
+    <div className="grid grid-cols-2 gap-3.5 lg:grid-cols-4">
+      {items.map(({ label, icon, value }) => (
+        <GlanceStat
+          key={label}
+          label={label}
+          value={value(stats)}
+          icon={icon}
+        />
+      ))}
     </div>
   );
 }

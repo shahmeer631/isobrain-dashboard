@@ -11,7 +11,7 @@ const ProfilePage = () => {
 
   return (
     <Container>
-      <div className="space-y-8 pb-10 relative">
+      <div className="relative space-y-6 pb-8">
         <PageHeader
           title="My Profile"
           subtitle="Manage your personal information and preferences"

@@ -34,7 +34,7 @@ interface RecentlyEditedCardProps {
 const statusStyles: Record<ContentStatus, string> = {
   Published:
     "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
-  Draft: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+  Draft: "bg-[var(--ib-bg)] text-[var(--ib-mute)] dark:bg-[var(--ib-dk)] dark:text-[var(--ib-mute)]",
   Archived:
     "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400",
   Pending:
@@ -70,12 +70,12 @@ export function RecentlyEditedCard({
   return (
     <div
       className={cn(
-        "group flex flex-col rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md",
+        "group flex flex-col rounded-2xl bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md",
         className,
       )}
     >
       {/* Thumbnail */}
-      <div className="relative h-40 w-full overflow-hidden bg-slate-200 dark:bg-slate-800">
+      <div className="relative h-40 w-full overflow-hidden bg-[var(--ib-line)] dark:bg-[var(--ib-dk)]">
         <Image
           src={imageSrc}
           alt={imageAlt ?? title}
@@ -88,19 +88,19 @@ export function RecentlyEditedCard({
       {/* Body */}
       <div className="flex flex-col gap-5 p-6">
         {/* Content type */}
-        <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--ib-mute)]">
           {contentType}
         </p>
 
         {/* Title */}
-        <p className="text-sm font-bold text-slate-900 dark:text-white leading-snug line-clamp-2">
+        <p className="text-sm font-bold text-[var(--ib-ink)] dark:text-white leading-snug line-clamp-2">
           {title}
         </p>
 
         {/* Editor info */}
-        <p className="text-[11px] text-slate-500 dark:text-slate-400">
+        <p className="text-[11px] text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
           Edited by{" "}
-          <span className="font-medium text-slate-700 dark:text-slate-300">
+          <span className="font-medium text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
             {editedBy}
           </span>{" "}
           · {editedAt}
@@ -122,7 +122,7 @@ export function RecentlyEditedCard({
               {/* <Button
                 variant="ghost"
                 size="icon"
-                className="h-7 w-7 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                className="h-7 w-7 text-[var(--ib-mute)] hover:text-[var(--ib-ink)] dark:hover:text-[var(--ib-mute)]"
               >
                 <MoreVertical className="h-4 w-4" />
               </Button> */}

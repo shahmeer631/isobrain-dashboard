@@ -38,9 +38,9 @@ export function AssignmentsList() {
   ).length;
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 space-y-8 shadow-sm">
+    <div className="ib-card p-8 space-y-8 shadow-sm">
       <div className="flex justify-between items-center">
-        <h3 className="text-[18px] font-black text-slate-900 dark:text-white">
+        <h3 className="text-[18px] font-black text-[var(--ib-ink)] dark:text-white">
           Assignments & Projects
         </h3>
         <span className="bg-orange-50 text-orange-600 border border-orange-100 dark:bg-orange-900/20 dark:border-orange-800 font-black text-[10px] uppercase px-2 py-0.5 rounded-md tracking-wider">
@@ -52,22 +52,22 @@ export function AssignmentsList() {
         {ASSIGNMENTS_DATA.map((item) => (
           <div
             key={item.id}
-            className="group p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-indigo-500/30 transition-all duration-300"
+            className="group p-5 rounded-2xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:border-[var(--ib-acc)]/30 transition-all duration-300"
           >
             <div className="flex items-start justify-between gap-4 mb-4">
               <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-700">
+                <div className="h-10 w-10 rounded-xl bg-white dark:bg-[var(--ib-dk)] flex items-center justify-center shadow-sm border border-[var(--ib-line)] dark:border-[var(--ib-line)]">
                   {item.status === "Submitted" ? (
                     <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                   ) : (
-                    <Target className="w-5 h-5 text-indigo-600" />
+                    <Target className="w-5 h-5 text-[var(--ib-acc)]" />
                   )}
                 </div>
                 <div>
-                  <h4 className="text-[15px] font-black text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors">
+                  <h4 className="text-[15px] font-black text-[var(--ib-ink)] dark:text-white group-hover:text-[var(--ib-acc)] transition-colors">
                     {item.title}
                   </h4>
-                  <p className="text-[12px] font-bold text-slate-400">
+                  <p className="text-[12px] font-bold text-[var(--ib-mute)]">
                     {item.course}
                   </p>
                 </div>
@@ -80,7 +80,7 @@ export function AssignmentsList() {
             </div>
 
             <div className="space-y-3">
-              <div className="flex justify-between items-center text-[11px] font-bold text-slate-500">
+              <div className="flex justify-between items-center text-[11px] font-bold text-[var(--ib-mute)]">
                 <span className="font-bold">Due: {item.dueDate}</span>
                 <span
                   className={cn(
@@ -89,7 +89,7 @@ export function AssignmentsList() {
                       ? "bg-emerald-100 text-emerald-600"
                       : item.status === "In Progress"
                         ? "bg-blue-100 text-blue-600"
-                        : "bg-slate-100 text-slate-600",
+                        : "bg-[var(--ib-bg)] text-[var(--ib-mute)]",
                   )}
                 >
                   {item.status}
@@ -102,9 +102,9 @@ export function AssignmentsList() {
                     "transition-all duration-1000",
                     item.status === "Submitted"
                       ? "bg-emerald-500"
-                      : "bg-indigo-600",
+                      : "bg-[var(--ib-acc)]",
                   )}
-                  className="h-1.5 bg-slate-200 dark:bg-slate-700/50 rounded-full"
+                  className="h-1.5 bg-[var(--ib-line)] dark:bg-[var(--ib-bg)]/50 rounded-full"
                 />
               )}
             </div>

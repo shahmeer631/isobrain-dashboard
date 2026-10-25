@@ -13,7 +13,7 @@ interface TrafficSourcesProps {
 const COLORS = [
   "text-blue-600",
   "text-emerald-500",
-  "text-purple-600",
+  "text-[var(--ib-acc)]",
   "text-orange-600",
 ];
 
@@ -58,7 +58,7 @@ function CircularProgress({
     <div className="relative inline-flex items-center justify-center">
       <svg className="w-24 h-24 transform -rotate-90">
         <circle
-          className="text-slate-100 dark:text-slate-800"
+          className="text-[var(--ib-mute)] dark:text-[var(--ib-ink)]"
           strokeWidth="10"
           stroke="currentColor"
           fill="transparent"
@@ -79,7 +79,7 @@ function CircularProgress({
           cy="48"
         />
       </svg>
-      <span className="absolute text-[18px] font-black text-slate-900 dark:text-white">
+      <span className="absolute text-[18px] font-black text-[var(--ib-ink)] dark:text-white">
         {displayValue}%
       </span>
     </div>
@@ -88,8 +88,8 @@ function CircularProgress({
 
 export function TrafficSources({ sources }: TrafficSourcesProps) {
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-sm">
-      <h3 className="text-[18px] font-bold text-slate-900 dark:text-white mb-10">
+    <div className="bg-white dark:bg-[var(--ib-dk)] rounded-3xl p-8 shadow-sm">
+      <h3 className="text-[18px] font-bold text-[var(--ib-ink)] dark:text-white mb-10">
         Traffic Sources
       </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -103,10 +103,10 @@ export function TrafficSources({ sources }: TrafficSourcesProps) {
               colorClass={COLORS[index % COLORS.length]}
             />
             <div className="space-y-1">
-              <h4 className="text-[14px] font-bold text-slate-900 dark:text-white">
+              <h4 className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
                 {source.name}
               </h4>
-              <p className="text-[12px] font-medium text-slate-500 uppercase tracking-tight">
+              <p className="text-[12px] font-medium text-[var(--ib-mute)] uppercase tracking-tight">
                 Traffic share
               </p>
             </div>

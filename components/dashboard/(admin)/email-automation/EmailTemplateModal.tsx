@@ -87,7 +87,7 @@ export function EmailTemplateModal({
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
-              className="h-11 bg-slate-50 border-slate-100 focus:bg-white transition-all"
+              className="h-11 bg-[var(--ib-bg)] border-[var(--ib-line)] focus:bg-white transition-all"
               required
             />
           </div>
@@ -103,10 +103,10 @@ export function EmailTemplateModal({
               onChange={(e) =>
                 setFormData({ ...formData, subject: e.target.value })
               }
-              className="h-11 bg-slate-50 border-slate-100 focus:bg-white transition-all"
+              className="h-11 bg-[var(--ib-bg)] border-[var(--ib-line)] focus:bg-white transition-all"
               required
             />
-            <p className="text-[11px] text-slate-400">
+            <p className="text-[11px] text-[var(--ib-mute)]">
               Available variables:{" "}
               <code className="text-blue-500 font-mono">
                 {"{{ student_name }}"}
@@ -134,7 +134,7 @@ export function EmailTemplateModal({
               onChange={(e) =>
                 setFormData({ ...formData, body: e.target.value })
               }
-              className="bg-slate-50 border-slate-100 focus:bg-white transition-all resize-none leading-relaxed"
+              className="bg-[var(--ib-bg)] border-[var(--ib-line)] focus:bg-white transition-all resize-none leading-relaxed"
               required
             />
           </div>
@@ -149,7 +149,7 @@ export function EmailTemplateModal({
                 setFormData({ ...formData, trigger: value })
               }
             >
-              <SelectTrigger className="h-11 w-full bg-slate-50 border-slate-100 focus:bg-white transition-all">
+              <SelectTrigger className="h-11 w-full bg-[var(--ib-bg)] border-[var(--ib-line)] focus:bg-white transition-all">
                 <SelectValue placeholder="Select trigger" />
               </SelectTrigger>
               <SelectContent>
@@ -178,7 +178,7 @@ export function EmailTemplateModal({
             type="button"
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="h-12 border-slate-200 text-slate-600 font-semibold hover:bg-slate-50"
+            className="h-12 border-[var(--ib-line)] text-[var(--ib-mute)] font-semibold hover:bg-[var(--ib-bg)]"
           >
             Cancel
           </Button>

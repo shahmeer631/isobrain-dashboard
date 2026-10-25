@@ -30,11 +30,11 @@ export function LogoutConfirmationModal({
           <LogOut className="w-8 h-8" />
         </div>
         
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+        <h3 className="text-xl font-bold text-[var(--ib-ink)] dark:text-white">
           Are you sure you want to log out?
         </h3>
         
-        <p className="text-slate-500 dark:text-slate-400 font-medium max-w-[280px]">
+        <p className="text-[var(--ib-mute)] dark:text-[var(--ib-mute)] font-medium max-w-[280px]">
           You will need to sign in again to access your account.
         </p>
 
@@ -43,7 +43,7 @@ export function LogoutConfirmationModal({
             type="button"
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="w-full sm:flex-1 h-12 rounded-xl border-slate-200 dark:border-slate-800 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm"
+            className="w-full sm:flex-1 h-12 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] shadow-sm"
             disabled={isLoading}
           >
             Cancel

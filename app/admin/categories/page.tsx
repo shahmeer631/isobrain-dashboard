@@ -192,7 +192,7 @@ export default function CategoriesPage() {
 
       {/* Categories Grid/List */}
       {isLoading ? (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden p-6 space-y-4">
+        <div className="bg-white dark:bg-[var(--ib-dk)] rounded-2xl shadow-sm border border-[var(--ib-line)] dark:border-[var(--ib-line)] overflow-hidden p-6 space-y-4">
           <div className="flex gap-4 border-b pb-4">
             <Skeleton className="h-5 w-16" />
             <Skeleton className="h-5 w-32" />
@@ -217,34 +217,34 @@ export default function CategoriesPage() {
           ))}
         </div>
       ) : isError ? (
-        <div className="text-center py-20 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
-          <p className="text-slate-500 font-medium text-lg">Failed to load categories.</p>
+        <div className="text-center py-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-3xl border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+          <p className="text-[var(--ib-mute)] font-medium text-lg">Failed to load categories.</p>
           <Button variant="outline" className="mt-4" onClick={() => window.location.reload()}>
             Retry
           </Button>
         </div>
       ) : filteredCategories.length > 0 ? (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+        <div className="bg-white dark:bg-[var(--ib-dk)] rounded-2xl shadow-sm border border-[var(--ib-line)] dark:border-[var(--ib-line)] overflow-hidden">
           <div className="overflow-x-auto w-full">
             <table className="w-full text-left border-separate border-spacing-0 min-w-[600px] sm:min-w-0">
               <thead>
-                <tr className="bg-slate-50/50 dark:bg-slate-800/50">
-                  <th className="p-5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-black uppercase tracking-wider text-slate-400 w-[80px]">
+                <tr className="bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50">
+                  <th className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[11px] font-black uppercase tracking-wider text-[var(--ib-mute)] w-[80px]">
                     Order
                   </th>
-                  <th className="p-5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-black uppercase tracking-wider text-slate-400">
+                  <th className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[11px] font-black uppercase tracking-wider text-[var(--ib-mute)]">
                     Name
                   </th>
-                  <th className="p-5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-black uppercase tracking-wider text-slate-400 hidden md:table-cell">
+                  <th className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[11px] font-black uppercase tracking-wider text-[var(--ib-mute)] hidden md:table-cell">
                     Slug
                   </th>
-                  <th className="p-5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-black uppercase tracking-wider text-slate-400 hidden lg:table-cell">
+                  <th className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[11px] font-black uppercase tracking-wider text-[var(--ib-mute)] hidden lg:table-cell">
                     Standard Subtitle
                   </th>
-                  <th className="p-5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-black uppercase tracking-wider text-slate-400 hidden sm:table-cell">
+                  <th className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[11px] font-black uppercase tracking-wider text-[var(--ib-mute)] hidden sm:table-cell">
                     Dates
                   </th>
-                  <th className="p-5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-black uppercase tracking-wider text-slate-400 text-right w-[120px]">
+                  <th className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[11px] font-black uppercase tracking-wider text-[var(--ib-mute)] text-right w-[120px]">
                     Actions
                   </th>
                 </tr>
@@ -253,46 +253,46 @@ export default function CategoriesPage() {
                 {filteredCategories.map((category) => (
                   <tr
                     key={category?.id}
-                    className="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors"
+                    className="hover:bg-[var(--ib-bg)]/50 dark:hover:bg-[var(--ib-dk)]/50 transition-colors"
                   >
-                    <td className="p-5 border-b border-slate-100 dark:border-slate-800">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
-                        <ListOrdered className="w-3.5 h-3.5 text-slate-400" />
+                    <td className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+                      <div className="flex items-center gap-1.5 font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
+                        <ListOrdered className="w-3.5 h-3.5 text-[var(--ib-mute)]" />
                         {category?.order ?? "-"}
                       </div>
                     </td>
-                    <td className="p-5 border-b border-slate-100 dark:border-slate-800">
-                      <div className="font-bold text-slate-900 dark:text-white">
+                    <td className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+                      <div className="font-bold text-[var(--ib-ink)] dark:text-white">
                         {category?.name || "N/A"}
                       </div>
-                      <div className="text-[11px] text-slate-400 md:hidden mt-0.5 font-mono">
+                      <div className="text-[11px] text-[var(--ib-mute)] md:hidden mt-0.5 font-mono">
                         {category?.slug || "N/A"}
                       </div>
                     </td>
-                    <td className="p-5 border-b border-slate-100 dark:border-slate-800 text-sm text-slate-500 font-mono hidden md:table-cell">
+                    <td className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-sm text-[var(--ib-mute)] font-mono hidden md:table-cell">
                       {category?.slug || "N/A"}
                     </td>
-                    <td className="p-5 border-b border-slate-100 dark:border-slate-800 text-sm text-slate-600 dark:text-slate-400 max-w-[250px] truncate hidden lg:table-cell">
+                    <td className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)] max-w-[250px] truncate hidden lg:table-cell">
                       {category?.standardSub || "N/A"}
                     </td>
-                    <td className="p-5 border-b border-slate-100 dark:border-slate-800 text-xs text-slate-400 space-y-1 hidden sm:table-cell">
+                    <td className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)] text-xs text-[var(--ib-mute)] space-y-1 hidden sm:table-cell">
                       <div>Created: {category?.createdAt ? new Date(category.createdAt).toLocaleDateString() : "N/A"}</div>
                       <div>Updated: {category?.updatedAt ? new Date(category.updatedAt).toLocaleDateString() : "N/A"}</div>
                     </td>
-                    <td className="p-5 border-b border-slate-100 dark:border-slate-800">
+                    <td className="p-5 border-b border-[var(--ib-line)] dark:border-[var(--ib-line)]">
                       <div className="flex items-center justify-end gap-2">
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-9 w-9 bg-white dark:bg-slate-800 shadow-xs border border-slate-100 dark:border-slate-700 hover:bg-slate-50 rounded-xl"
+                          className="h-9 w-9 bg-white dark:bg-[var(--ib-dk)] shadow-xs border border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:bg-[var(--ib-bg)] rounded-xl"
                           onClick={() => handleOpenEdit(category)}
                         >
-                          <Edit2 className="h-4 w-4 text-slate-600 dark:text-slate-400" />
+                          <Edit2 className="h-4 w-4 text-[var(--ib-mute)] dark:text-[var(--ib-mute)]" />
                         </Button>
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-9 w-9 bg-white dark:bg-slate-800 shadow-xs border border-slate-100 dark:border-slate-700 hover:bg-rose-50 hover:text-rose-600 rounded-xl"
+                          className="h-9 w-9 bg-white dark:bg-[var(--ib-dk)] shadow-xs border border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:bg-rose-50 hover:text-rose-600 rounded-xl"
                           onClick={() => handleOpenDelete(category)}
                         >
                           <Trash2 className="h-4 w-4" />
@@ -306,12 +306,12 @@ export default function CategoriesPage() {
           </div>
         </div>
       ) : (
-        <div className="text-center py-24 bg-white dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
-          <div className="w-20 h-20 bg-slate-50 dark:bg-slate-800/50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+        <div className="text-center py-24 bg-white dark:bg-[var(--ib-dk)] border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl">
+          <div className="w-20 h-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-full flex items-center justify-center mx-auto mb-4 text-[var(--ib-mute)]">
             <FileText className="w-10 h-10" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">No categories found</h3>
-          <p className="text-slate-500 max-w-xs mx-auto">
+          <h3 className="text-lg font-bold text-[var(--ib-ink)] dark:text-white mb-1">No categories found</h3>
+          <p className="text-[var(--ib-mute)] max-w-xs mx-auto">
             Try adjusting your search query or create a new category to get started.
           </p>
         </div>
@@ -333,13 +333,13 @@ export default function CategoriesPage() {
                 name="name"
                 render={({ field }) => (
                   <FormItem className="sm:col-span-2">
-                    <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Category Name <span className="text-rose-500">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., Food Safety Management"
-                        className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]"
+                        className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
                         {...field}
                       />
                     </FormControl>
@@ -356,13 +356,13 @@ export default function CategoriesPage() {
                 name="standardSub"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Standard Subtitle <span className="text-rose-500">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., Ensuring Safety from Farm to Fork"
-                        className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]"
+                        className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
                         {...field}
                       />
                     </FormControl>
@@ -377,14 +377,14 @@ export default function CategoriesPage() {
                 name="order"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                       Display Order <span className="text-rose-500">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
                         type="number"
                         placeholder="e.g., 5"
-                        className="h-12 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px]"
+                        className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
                         {...field}
                       />
                     </FormControl>
@@ -400,13 +400,13 @@ export default function CategoriesPage() {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     General Description (Optional)
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Optional brief description of the category..."
-                      className="bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px] min-h-[80px] resize-y"
+                      className="bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px] min-h-[80px] resize-y"
                       value={field.value || ""}
                       onChange={field.onChange}
                       onBlur={field.onBlur}
@@ -425,13 +425,13 @@ export default function CategoriesPage() {
               name="courseDesc"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Course Page Description <span className="text-rose-500">*</span>
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Detailed description shown on courses matching this category..."
-                      className="bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px] min-h-[100px] resize-y"
+                      className="bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px] min-h-[100px] resize-y"
                       {...field}
                     />
                   </FormControl>
@@ -446,13 +446,13 @@ export default function CategoriesPage() {
               name="standardDesc"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     Standards Page Description <span className="text-rose-500">*</span>
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Detailed description shown on standards page matching this category..."
-                      className="bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-[14px] min-h-[100px] resize-y"
+                      className="bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px] min-h-[100px] resize-y"
                       {...field}
                     />
                   </FormControl>
@@ -465,7 +465,7 @@ export default function CategoriesPage() {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full sm:flex-1 h-12 rounded-xl text-slate-600 font-bold border-slate-200 dark:border-slate-800"
+                className="w-full sm:flex-1 h-12 rounded-xl text-[var(--ib-mute)] font-bold border-[var(--ib-line)] dark:border-[var(--ib-line)]"
                 onClick={() => setIsFormModalOpen(false)}
               >
                 Cancel

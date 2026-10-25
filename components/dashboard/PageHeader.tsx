@@ -26,13 +26,18 @@ export function PageHeader({
   className,
 }: PageHeaderProps) {
   return (
-    <div className={cn("flex flex-col md:flex-row items-start  justify-between gap-4", className)}>
-      <div className="space-y-1">
-        <h1 className="text-3xl font-semibold tracking-tighter text-slate-900 dark:text-white leading-none">
+    <div
+      className={cn(
+        "flex flex-col items-start justify-between gap-4 font-sans md:flex-row md:items-end",
+        className
+      )}
+    >
+      <div className="min-w-0">
+        <h1 className="text-[24px] font-bold leading-tight tracking-[-0.025em] text-[var(--ib-ink)] min-[981px]:text-[26px]">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-slate-500 dark:text-slate-400 font-medium tracking-tight">
+          <p className="mt-1 max-w-2xl text-[14px] leading-relaxed text-[var(--ib-mute)]">
             {subtitle}
           </p>
         )}

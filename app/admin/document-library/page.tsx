@@ -77,7 +77,7 @@ export default function DocumentLibraryPage() {
   const renderSkeleton = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {[1, 2, 3, 4, 5, 6].map((i) => (
-        <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 xl:p-6 shadow-sm">
+        <div key={i} className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-2xl p-4 xl:p-6 shadow-sm">
           <div className="flex justify-between items-start mb-4">
             <Skeleton className="w-12 h-12 rounded-xl" />
             <Skeleton className="h-5 w-16 px-2.5 py-0.5 rounded-md text-[12px]" />
@@ -91,7 +91,7 @@ export default function DocumentLibraryPage() {
             <Skeleton className="h-10 w-full" />
             <Skeleton className="col-span-2 h-10 w-full" />
           </div>
-          <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <div className="flex items-center gap-3 pt-4 border-t border-[var(--ib-line)]">
             <Skeleton className="flex-1 h-10" />
             <Skeleton className="w-10 h-10 shrink-0" />
             <Skeleton className="w-10 h-10 shrink-0" />
@@ -110,14 +110,14 @@ export default function DocumentLibraryPage() {
           <>
           <Button
             variant="outline"
-            className="h-11 shadow-indigo-200"
+            className="h-11 shadow-[var(--ib-line)]"
             onClick={() => setIsBulkUploadOpen(true)}
           >
             Bulk Upload
           </Button>
           <Button
             variant="primary"
-            className="h-11 shadow-indigo-200"
+            className="h-11 shadow-[var(--ib-line)]"
             onClick={() => setIsUploadOpen(true)}
             >
             <Plus className="w-5 h-5 mr-2" />
@@ -143,8 +143,8 @@ export default function DocumentLibraryPage() {
       {isLoading ? (
         renderSkeleton()
       ) : isError ? (
-        <div className="flex flex-col items-center justify-center py-20 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
-          <p className="text-slate-400 font-bold text-lg">
+        <div className="flex flex-col items-center justify-center py-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-3xl border-2 border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+          <p className="text-[var(--ib-mute)] font-bold text-lg">
             Failed to load documents
           </p>
           <Button variant="outline" className="mt-4" onClick={() => window.location.reload()}>
@@ -152,8 +152,8 @@ export default function DocumentLibraryPage() {
           </Button>
         </div>
       ) : filteredDocuments.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-20 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
-          <p className="text-slate-400 font-bold text-lg">
+        <div className="flex flex-col items-center justify-center py-20 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 rounded-3xl border-2 border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)]">
+          <p className="text-[var(--ib-mute)] font-bold text-lg">
             No documents found matching your criteria
           </p>
         </div>

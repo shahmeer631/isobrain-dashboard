@@ -38,11 +38,11 @@ export function CourseDetailsModal({
       case "PUBLISHED":
         return "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400";
       case "DRAFT":
-        return "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400";
+        return "bg-[var(--ib-bg)] text-[var(--ib-mute)] dark:bg-[var(--ib-dk)] dark:text-[var(--ib-mute)]";
       case "ARCHIVED":
         return "bg-red-100 text-red-600 dark:bg-red-500/10 dark:text-red-400";
       default:
-        return "bg-slate-100 text-slate-600";
+        return "bg-[var(--ib-bg)] text-[var(--ib-mute)]";
     }
   };
 
@@ -55,13 +55,13 @@ export function CourseDetailsModal({
     >
       {isLoading ? (
         <div className="flex items-center justify-center p-12">
-          <Loader2 className="w-8 h-8 animate-spin text-indigo-600" />
+          <Loader2 className="w-8 h-8 animate-spin text-[var(--ib-acc)]" />
         </div>
       ) : course ? (
         <div className="space-y-6">
           {/* Header Section with Thumbnail & Basic Info */}
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="relative aspect-video w-full md:w-64 overflow-hidden rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+            <div className="relative aspect-video w-full md:w-64 overflow-hidden rounded-xl border border-[var(--ib-line)] dark:border-[var(--ib-line)] shadow-sm">
               {course.thumbnail ? (
                 <Image
                   src={course.thumbnail}
@@ -70,8 +70,8 @@ export function CourseDetailsModal({
                   className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
-                  <Layout className="w-8 h-8 text-slate-300" />
+                <div className="w-full h-full bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] flex items-center justify-center">
+                  <Layout className="w-8 h-8 text-[var(--ib-mute)]" />
                 </div>
               )}
             </div>
@@ -81,14 +81,14 @@ export function CourseDetailsModal({
                 <Badge className={cn("px-2.5 py-0.5 font-bold", getStatusBadge(course.status))}>
                   {course.status}
                 </Badge>
-                <span className="text-xs text-slate-400 font-medium">
+                <span className="text-xs text-[var(--ib-mute)] font-medium">
                   ID: {course.id.toUpperCase()}
                 </span>
               </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h2 className="text-2xl font-bold text-[var(--ib-ink)] dark:text-white leading-tight">
                 {course.title}
               </h2>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-500">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[var(--ib-mute)]">
                 <div className="flex items-center gap-1.5">
                   <User className="w-4 h-4" />
                   <span className="font-semibold">{course.instructor}</span>
@@ -101,37 +101,37 @@ export function CourseDetailsModal({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
             {/* Essential Stats */}
             <div className="space-y-4">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-[var(--ib-ink)] dark:text-white uppercase tracking-wider">
                 Essential Information
               </h3>
               <div className="grid grid-cols-1 gap-3">
-                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50">
+                  <div className="flex items-center gap-2 text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
                     <Clock className="w-4 h-4" />
                     <span className="text-sm font-medium">CPD Hours</span>
                   </div>
-                  <span className="text-sm font-bold text-slate-900 dark:text-white">
+                  <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white">
                     {course.cpdHours} Hours
                   </span>
                 </div>
-                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50">
+                  <div className="flex items-center gap-2 text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm font-medium">Created On</span>
                   </div>
-                  <span className="text-sm font-bold text-slate-900 dark:text-white">
+                  <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white">
                     {new Date(course.createdAt).toLocaleDateString()}
                   </span>
                 </div>
-                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50">
+                  <div className="flex items-center gap-2 text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm font-medium">Last Updated</span>
                   </div>
-                  <span className="text-sm font-bold text-slate-900 dark:text-white">
+                  <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white">
                     {new Date(course.updatedAt).toLocaleDateString()}
                   </span>
                 </div>
@@ -140,22 +140,22 @@ export function CourseDetailsModal({
 
             {/* Description */}
             <div className="space-y-4">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-[var(--ib-ink)] dark:text-white uppercase tracking-wider">
                 Course Description
               </h3>
               <div className="relative group">
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 min-h-[140px]">
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                <div className="p-4 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 min-h-[140px]">
+                  <p className="text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)] leading-relaxed">
                     {course.description || "No description provided for this course."}
                   </p>
                 </div>
-                <FileText className="absolute bottom-3 right-3 w-4 h-4 text-slate-200 dark:text-slate-700 group-hover:text-indigo-400 transition-colors" />
+                <FileText className="absolute bottom-3 right-3 w-4 h-4 text-[var(--ib-mute)] dark:text-[var(--ib-ink)] group-hover:text-[var(--ib-acc)] transition-colors" />
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <div className="p-8 text-center text-slate-500">
+        <div className="p-8 text-center text-[var(--ib-mute)]">
           Course not found or an error occurred.
         </div>
       )}

@@ -85,7 +85,7 @@ const TransactionsPage = () => {
                 title="Pending" 
                 value={stats?.pending.toLocaleString() || "0"} 
                 icon={<CreditCard className="h-6 w-6" />}
-                iconBg="bg-purple-50 text-purple-600"
+                iconBg="bg-[var(--ib-accbg)] text-[var(--ib-acc)]"
               />
             </>
           )}
@@ -111,9 +111,9 @@ const TransactionsPage = () => {
 
         {/* Pagination Controls */}
         {!isLoading && meta && meta.total > 0 && (
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-4 border-t border-slate-100">
-            <span className="text-[14px] font-bold text-slate-500">
-              Showing <span className="text-slate-900">{(page - 1) * meta.limit + 1}-{Math.min(page * meta.limit, meta.total)}</span> of <span className="text-slate-900">{meta.total}</span> transactions
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-4 border-t border-[var(--ib-line)]">
+            <span className="text-[14px] font-bold text-[var(--ib-mute)]">
+              Showing <span className="text-[var(--ib-ink)]">{(page - 1) * meta.limit + 1}-{Math.min(page * meta.limit, meta.total)}</span> of <span className="text-[var(--ib-ink)]">{meta.total}</span> transactions
             </span>
 
             <div className="flex items-center gap-2">
@@ -122,7 +122,7 @@ const TransactionsPage = () => {
                 size="sm"
                 disabled={page === 1 || isFetching}
                 onClick={() => setPage(p => p - 1)}
-                className="h-10 px-4 rounded-xl font-bold border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-50"
+                className="h-10 px-4 rounded-xl font-bold border-[var(--ib-line)] text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] disabled:opacity-50"
               >
                 <ChevronLeft className="h-4 w-4 mr-1.5" />
                 Previous
@@ -141,7 +141,7 @@ const TransactionsPage = () => {
                         "h-10 w-10 rounded-xl font-bold transition-all",
                         page === pNum 
                           ? "shadow-lg shadow-blue-100 ring-2 ring-blue-500/10" 
-                          : "border-slate-100 text-slate-500 hover:bg-slate-50"
+                          : "border-[var(--ib-line)] text-[var(--ib-mute)] hover:bg-[var(--ib-bg)]"
                       )}
                     >
                       {pNum}
@@ -155,7 +155,7 @@ const TransactionsPage = () => {
                 size="sm"
                 disabled={page * meta.limit >= meta.total || isFetching}
                 onClick={() => setPage(p => p + 1)}
-                className="h-10 px-4 rounded-xl font-bold border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-50"
+                className="h-10 px-4 rounded-xl font-bold border-[var(--ib-line)] text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] disabled:opacity-50"
               >
                 Next
                 <ChevronRight className="h-4 w-4 ml-1.5" />

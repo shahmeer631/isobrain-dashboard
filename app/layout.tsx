@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StoreProvider from "@/lib/redux/Provider";
-import { Toaster } from "sonner";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 import { cookies } from "next/headers";
@@ -27,11 +28,22 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
-        <StoreProvider token={token}>
-          {children}
-          <Toaster position="top-right" richColors />
-        </StoreProvider>
+      <body
+        className={`${inter.variable} font-sans antialiased`}
+        suppressHydrationWarning
+        style={{ fontSize: 14, lineHeight: 1.5 }}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          storageKey="isobrain-dashboard-theme"
+        >
+          <StoreProvider token={token}>
+            {children}
+            <Toaster position="top-right" richColors />
+          </StoreProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

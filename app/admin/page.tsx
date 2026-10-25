@@ -66,7 +66,7 @@ export default function DashboardPage() {
       label: "New Leads",
       value: dashboardStats ? dashboardStats.newLeads.toLocaleString() : "0",
       icon: Zap,
-      iconColor: "text-purple-500 bg-purple-300/20",
+      iconColor: "text-[var(--ib-acc)] bg-[var(--ib-accbg)]",
       trend: "down" as const,
       trendValue: "-5.8%",
     },
@@ -136,7 +136,7 @@ export default function DashboardPage() {
       {/* ── Recently Edited ────────────────────────────────────── */}
       <section>
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-lg font-bold text-[var(--ib-ink)] dark:text-white tracking-tight">
             Recently Edited
           </h2>
           <Button
@@ -152,7 +152,7 @@ export default function DashboardPage() {
             Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="group flex flex-col rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm"
+                className="group flex flex-col rounded-2xl bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] overflow-hidden shadow-sm"
               >
                 <Skeleton className="h-40 w-full rounded-none" />
                 <div className="flex flex-col gap-5 p-6">
@@ -170,7 +170,7 @@ export default function DashboardPage() {
               <RecentlyEditedCard key={item.id} {...item} />
             ))
           ) : (
-            <div className="col-span-full py-8 text-center text-sm text-slate-500">
+            <div className="col-span-full py-8 text-center text-sm text-[var(--ib-mute)]">
               No recent courses found.
             </div>
           )}
@@ -179,9 +179,9 @@ export default function DashboardPage() {
 
       {/* ── Recent Orders ──────────────────────────────────────── */}
       <section>
-        <div className="rounded-2xl p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+        <div className="rounded-2xl p-6 bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] shadow-sm overflow-hidden">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight">
+            <h2 className="text-lg font-bold text-[var(--ib-ink)] dark:text-white tracking-tight">
               Recent Orders
             </h2>
             <Button
@@ -196,7 +196,7 @@ export default function DashboardPage() {
               Array.from({ length: 4 }).map((_, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between gap-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 px-6 py-5"
+                  className="flex items-center justify-between gap-4 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/40 px-6 py-5"
                 >
                   <div className="flex flex-col gap-2 min-w-0 w-full">
                     <div className="flex items-center gap-2">
@@ -214,7 +214,7 @@ export default function DashboardPage() {
                 <RecentOrderRow key={order.orderId} {...order} />
               ))
             ) : (
-              <div className="py-8 text-center text-sm text-slate-500">
+              <div className="py-8 text-center text-sm text-[var(--ib-mute)]">
                 No recent orders found.
               </div>
             )}
@@ -224,8 +224,8 @@ export default function DashboardPage() {
 
       {/* ── Quick Actions ──────────────────────────────────────── */}
       <section>
-        <div className="rounded-2xl bg-[#ffffffb2] border border-slate-100/30 shadow-sm p-4  ">
-          <h2 className="mb-4 text-lg font-bold text-slate-900 dark:text-white tracking-tight">
+        <div className="rounded-2xl bg-[#ffffffb2] border border-[var(--ib-line)]/30 shadow-sm p-4 ">
+          <h2 className="mb-4 text-lg font-bold text-[var(--ib-ink)] dark:text-white tracking-tight">
             Quick Actions
           </h2>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">

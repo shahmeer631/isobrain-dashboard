@@ -16,13 +16,12 @@ const ProgressPage = () => {
 
   return (
     <Container>
-      <div className="space-y-10 pb-10">
+      <div className="space-y-6 pb-8">
         <PageHeader
           title="My Progress"
           subtitle="Track your learning journey and achievements"
         />
 
-        {/* Stats Grid */}
         <ProgressStats
           avgProgress={progressData?.data?.stats?.avgProgress || 0}
           activeCourses={progressData?.data?.stats?.activeCourses || 0}
@@ -31,16 +30,16 @@ const ProgressPage = () => {
           isLoading={isLoading}
         />
 
-        {/* Dynamic Layout Bottom */}
-        <div className="w-full flex flex-col gap-8">
+        <div className="flex w-full flex-col gap-5">
           <WeeklyActivity
             weeklyActivity={progressData?.data?.weeklyActivity}
             isLoading={isLoading}
           />
-          <CourseProgressList 
+          <CourseProgressList
             courseProgress={progressData?.data?.courseProgress}
             isLoading={isLoading}
           />
+          {/* Preserved (currently unused) production sections */}
           <div className="hidden">
             <AssignmentsList />
           </div>

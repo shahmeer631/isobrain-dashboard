@@ -6,17 +6,17 @@ import { Progress } from "@/components/ui/progress";
 
 export function NextAchievement() {
   return (
-    <div className="bg-amber-50 dark:bg-amber-900/10 border-2 border-amber-100 dark:border-amber-800 rounded-3xl p-8 space-y-6 shadow-sm">
+    <div className="bg-amber-50 dark:bg-amber-900/10 border-2 border-amber-100 dark:border-amber-800 rounded-[14px] p-8 space-y-6 shadow-sm">
       <div className="flex flex-col md:flex-row items-center gap-6">
         <div className="h-16 w-16 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-500/20 shrink-0">
           <Award className="w-8 h-8" />
         </div>
 
         <div className="space-y-2 text-center md:text-left flex-1">
-          <h3 className="text-[18px] font-black text-slate-900 dark:text-white">
+          <h3 className="text-[18px] font-black text-[var(--ib-ink)] dark:text-white">
             Next Achievement
           </h3>
-          <p className="text-slate-600 dark:text-slate-400 text-[14px] font-medium leading-relaxed">
+          <p className="text-[var(--ib-mute)] dark:text-[var(--ib-mute)] text-[14px] font-medium leading-relaxed">
             Complete 2 more courses to unlock the{" "}
             <span className="text-amber-600 font-bold">
               &quot;ISO Master&quot;

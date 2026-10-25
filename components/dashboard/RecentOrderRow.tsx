@@ -17,7 +17,7 @@ const orderStatusStyles: Record<OrderStatus, string> = {
   Pending:
     "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
   Failed: "bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400",
-  Refunded: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+  Refunded: "bg-[var(--ib-bg)] text-[var(--ib-mute)] dark:bg-[var(--ib-dk)] dark:text-[var(--ib-mute)]",
 };
 
 /**
@@ -43,14 +43,14 @@ export function RecentOrderRow({
   return (
     <div
       className={cn(
-        "flex items-center justify-between gap-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 px-6 py-5 transition-colors duration-200 hover:bg-slate-100 dark:hover:bg-slate-800/70",
+        "flex items-center justify-between gap-4 rounded-xl bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/40 px-6 py-5 transition-colors duration-200 hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/70",
         className,
       )}
     >
       {/* Left: ID, status, name, product */}
       <div className="flex flex-col gap-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight">
+          <span className="text-[13px] font-bold text-[var(--ib-ink)] dark:text-white tracking-tight">
             {orderId}
           </span>
           <span
@@ -62,10 +62,10 @@ export function RecentOrderRow({
             {status}
           </span>
         </div>
-        <p className="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">
+        <p className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] truncate">
           {customerName}
         </p>
-        <p className="text-xs text-slate-400 dark:text-slate-500 truncate">
+        <p className="text-xs text-[var(--ib-mute)] dark:text-[var(--ib-mute)] truncate">
           {productName}
         </p>
       </div>

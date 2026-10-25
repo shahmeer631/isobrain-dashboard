@@ -138,14 +138,14 @@ export function AddAffiliateModal({
             name="name"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-bold text-slate-900">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                   Full Name *
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="e.g., Sarah Martinez"
                     {...field}
-                    className="bg-slate-50 border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-purple-100 placeholder:text-slate-400"
+                    className="bg-[var(--ib-bg)] border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-[var(--ib-acc)]/20 placeholder:text-[var(--ib-mute)]"
                   />
                 </FormControl>
                 <FormMessage />
@@ -158,14 +158,14 @@ export function AddAffiliateModal({
             name="email"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-bold text-slate-900">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                   Email Address *
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="e.g., sarah@example.com"
                     {...field}
-                    className="bg-slate-50 border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-purple-100 placeholder:text-slate-400"
+                    className="bg-[var(--ib-bg)] border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-[var(--ib-acc)]/20 placeholder:text-[var(--ib-mute)]"
                   />
                 </FormControl>
                 <FormMessage />
@@ -178,7 +178,7 @@ export function AddAffiliateModal({
             name="affiliateCode"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-bold text-slate-900">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                   Affiliate Code *
                 </FormLabel>
                 <FormControl>
@@ -186,10 +186,10 @@ export function AddAffiliateModal({
                     placeholder="e.g., SARAH2024"
                     {...field}
                     onChange={(e) => field.onChange(e.target.value.toUpperCase())}
-                    className="bg-slate-50 border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-purple-100 placeholder:text-slate-400"
+                    className="bg-[var(--ib-bg)] border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-[var(--ib-acc)]/20 placeholder:text-[var(--ib-mute)]"
                   />
                 </FormControl>
-                <FormDescription className="text-xs text-slate-500">
+                <FormDescription className="text-xs text-[var(--ib-mute)]">
                   Unique code for tracking sales
                 </FormDescription>
                 <FormMessage />
@@ -203,14 +203,14 @@ export function AddAffiliateModal({
               name="commissionRate"
               render={({ field }) => (
                 <FormItem className="space-y-1.5">
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Commission Rate (%)
                   </FormLabel>
                   <FormControl>
                     <Input
                       type="number"
                       {...field}
-                      className="bg-slate-50 border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-purple-100"
+                      className="bg-[var(--ib-bg)] border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-[var(--ib-acc)]/20"
                     />
                   </FormControl>
                   <FormMessage />
@@ -223,7 +223,7 @@ export function AddAffiliateModal({
               name="status"
               render={({ field }) => (
                 <FormItem className="space-y-1.5">
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Status
                   </FormLabel>
                   <Select
@@ -231,11 +231,11 @@ export function AddAffiliateModal({
                     value={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-slate-50 border-none h-11 rounded-xl focus:ring-1 focus:ring-purple-100">
+                      <SelectTrigger className="bg-[var(--ib-bg)] border-none h-11 rounded-xl focus:ring-1 focus:ring-[var(--ib-acc)]/20">
                         <SelectValue placeholder="Select status" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                    <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                       <SelectItem value="ACTIVE">Active</SelectItem>
                       <SelectItem value="PENDING">Pending</SelectItem>
                       <SelectItem value="INACTIVE">Inactive</SelectItem>
@@ -252,7 +252,7 @@ export function AddAffiliateModal({
             name="paymentMethod"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-bold text-slate-900">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                   Payment Method
                 </FormLabel>
                 <Select
@@ -260,11 +260,11 @@ export function AddAffiliateModal({
                   value={field.value}
                 >
                   <FormControl>
-                    <SelectTrigger className="bg-slate-50 border-none h-11 rounded-xl focus:ring-1 focus:ring-purple-100">
+                    <SelectTrigger className="bg-[var(--ib-bg)] border-none h-11 rounded-xl focus:ring-1 focus:ring-[var(--ib-acc)]/20">
                       <SelectValue placeholder="Select method" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                  <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                     <SelectItem value="Stripe">Stripe</SelectItem>
                   </SelectContent>
                 </Select>
@@ -278,14 +278,14 @@ export function AddAffiliateModal({
             name="paymentDetails"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-bold text-slate-900">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                   Payment Details
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="stripe email or bank account"
                     {...field}
-                    className="bg-slate-50 border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-purple-100 placeholder:text-slate-400"
+                    className="bg-[var(--ib-bg)] border-none h-11 rounded-xl focus-visible:ring-1 focus-visible:ring-[var(--ib-acc)]/20 placeholder:text-[var(--ib-mute)]"
                   />
                 </FormControl>
                 <FormMessage />
@@ -298,14 +298,14 @@ export function AddAffiliateModal({
             name="notes"
             render={({ field }) => (
               <FormItem className="space-y-1.5">
-                <FormLabel className="text-sm font-bold text-slate-900">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                   Notes (Optional)
                 </FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Any additional information..."
                     {...field}
-                    className="bg-slate-50 border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-purple-100 resize-none placeholder:text-slate-400"
+                    className="bg-[var(--ib-bg)] border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-[var(--ib-acc)]/20 resize-none placeholder:text-[var(--ib-mute)]"
                   />
                 </FormControl>
                 <FormMessage />
@@ -318,7 +318,7 @@ export function AddAffiliateModal({
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="w-full sm:flex-1 h-12 rounded-xl border-slate-200 font-bold hover:bg-slate-50 text-slate-600"
+              className="w-full sm:flex-1 h-12 rounded-xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] text-[var(--ib-mute)]"
               disabled={isLoading}
             >
               Cancel

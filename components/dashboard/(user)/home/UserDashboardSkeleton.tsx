@@ -7,7 +7,7 @@ export function UserStatsSkeleton() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {[1, 2, 3, 4].map((i) => (
-        <div key={i} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 space-y-4">
+        <div key={i} className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-6 space-y-4">
           <Skeleton className="h-10 w-10 rounded-2xl" />
           <div className="space-y-2">
             <Skeleton className="h-4 w-24 rounded-md" />
@@ -28,7 +28,7 @@ export function ContinueLearningSkeleton() {
       </div>
       <div className="space-y-4">
         {[1, 2].map((i) => (
-          <div key={i} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6">
+          <div key={i} className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-6">
             <div className="flex flex-col md:flex-row gap-6">
               <Skeleton className="relative w-full md:w-56 h-36 shrink-0 rounded-2xl" />
               <div className="flex-1 space-y-4">
@@ -66,13 +66,13 @@ export function ContinueLearningSkeleton() {
 
 export function RecentResourcesSkeleton() {
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 h-full space-y-8">
+    <div className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-8 h-full space-y-8">
       <div className="flex items-center justify-between">
         <Skeleton className="h-6 w-40 rounded-md" />
       </div>
       <div className="space-y-4">
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-slate-50 dark:border-slate-800/50">
+          <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-[var(--ib-line)] dark:border-[var(--ib-line)]/50">
             <Skeleton className="h-11 w-11 shrink-0 rounded-xl" />
             <div className="flex-1 space-y-2">
               <Skeleton className="h-4 w-3/4 rounded-md" />
@@ -87,7 +87,7 @@ export function RecentResourcesSkeleton() {
 
 export function RecentAchievementsSkeleton() {
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 h-full space-y-8">
+    <div className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-8 h-full space-y-8">
       <div className="flex items-center justify-between">
         <Skeleton className="h-6 w-48 rounded-md" />
       </div>

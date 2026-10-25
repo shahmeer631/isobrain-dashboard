@@ -28,7 +28,7 @@ const products = [
     description:
       "Import your existing content to create on-demand learning experiences",
     icon: GraduationCap,
-    colorClass: "border-purple-400 dark:border-purple-500",
+    colorClass: "border-[var(--ib-acc)]",
     link: "/admin/courses",
   },
   {
@@ -60,7 +60,7 @@ const products = [
     description:
       "Import your existing content to create on-demand learning experiences",
     icon: BookOpen,
-    colorClass: "border-indigo-400 dark:border-indigo-500",
+    colorClass: "border-[var(--ib-acc)] dark:border-[var(--ib-acc)]",
     link: "/admin/iso-standards",
   },
   {
@@ -68,7 +68,7 @@ const products = [
     description:
       "Import your existing content to create on-demand learning experiences",
     icon: Package,
-    colorClass: "border-slate-400 dark:border-slate-500",
+    colorClass: "border-[var(--ib-line)] dark:border-[var(--ib-line)]",
     link: "/admin/bundles",
   },
 ];
@@ -79,9 +79,9 @@ export function ChooseProductModal({
 }: ChooseProductModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-4xl max-w-[95vw] p-8 gap-8 rounded-md bg-white dark:bg-slate-900 border-none">
+      <DialogContent className="sm:max-w-4xl max-w-[95vw] p-8 gap-8 rounded-md bg-white dark:bg-[var(--ib-dk)] border-none">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <DialogTitle className="text-2xl font-bold tracking-tight text-[var(--ib-ink)] dark:text-white">
             Choose a product
           </DialogTitle>
         </DialogHeader>
@@ -93,19 +93,19 @@ export function ChooseProductModal({
               key={product.title}
               onClick={() => onOpenChange(false)}
               className={cn(
-                "group flex flex-col items-start gap-4 p-6 bg-white dark:bg-slate-950 rounded-md border text-left transition-all duration-200 hover:shadow-md hover:-translate-y-1 cursor-pointer w-full",
+                "group flex flex-col items-start gap-4 p-6 bg-white dark:bg-[var(--ib-bg)] rounded-md border text-left transition-all duration-200 hover:shadow-md hover:-translate-y-1 cursor-pointer w-full",
                 product.colorClass,
               )}
             >
               <product.icon
-                className="h-6 w-6 text-slate-800 dark:text-slate-200"
+                className="h-6 w-6 text-[var(--ib-ink)] dark:text-[var(--ib-mute)]"
                 strokeWidth={1.5}
               />
               <div className="space-y-1">
-                <h3 className="text-[17px] font-bold text-slate-800 dark:text-slate-100">
+                <h3 className="text-[17px] font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   {product.title}
                 </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-snug font-medium pr-2">
+                <p className="text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)] leading-snug font-medium pr-2">
                   {product.description}
                 </p>
               </div>

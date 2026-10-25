@@ -7,7 +7,7 @@ export function CourseStatsSkeleton() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {[1, 2, 3, 4].map((i) => (
-        <div key={i} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 space-y-4">
+        <div key={i} className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl p-6 space-y-4">
           <Skeleton className="h-10 w-10 rounded-2xl" />
           <div className="space-y-2">
             <Skeleton className="h-4 w-24 rounded-md" />
@@ -23,7 +23,7 @@ export function CourseGridSkeleton() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
       {[1, 2, 3, 4, 5, 6].map((i) => (
-        <div key={i} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm">
+        <div key={i} className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl overflow-hidden shadow-sm">
           {/* Thumbnail Skeleton */}
           <Skeleton className="aspect-16/10 w-full" />
           

@@ -189,20 +189,20 @@ export function UploadVideoModal({
           {!selectedVideoConfig ? (
             <div
               onClick={() => fileInputRef.current?.click()}
-              className="border-2 border-dashed border-slate-200 rounded-3xl p-8 flex flex-col items-center justify-center bg-slate-50/50 hover:bg-slate-50 transition-colors cursor-pointer group"
+              className="border-2 border-dashed border-[var(--ib-line)] rounded-3xl p-8 flex flex-col items-center justify-center bg-[var(--ib-bg)]/50 hover:bg-[var(--ib-bg)] transition-colors cursor-pointer group"
             >
               <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                <Upload className="w-7 h-7 text-slate-400" />
+                <Upload className="w-7 h-7 text-[var(--ib-mute)]" />
               </div>
-              <p className="text-[17px] font-bold text-slate-900 mb-1">
+              <p className="text-[17px] font-bold text-[var(--ib-ink)] mb-1">
                 Click to upload or drag and drop
               </p>
-              <p className="text-sm font-semibold text-slate-400">
+              <p className="text-sm font-semibold text-[var(--ib-mute)]">
                 MP4, AVI, MOV files up to 500MB
               </p>
             </div>
           ) : (
-            <div className="relative border-2 border-slate-200 rounded-3xl overflow-hidden bg-black/5 flex items-center justify-center p-2 group">
+            <div className="relative border-2 border-[var(--ib-line)] rounded-3xl overflow-hidden bg-black/5 flex items-center justify-center p-2 group">
               <video
                 src={selectedVideoConfig.preview}
                 className="w-full h-auto max-h-[250px] rounded-2xl object-cover"
@@ -229,14 +229,14 @@ export function UploadVideoModal({
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Video Title *
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., ISO 9001 Introduction"
                       {...field}
-                      className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -250,7 +250,7 @@ export function UploadVideoModal({
                 name="courseId"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Select Course *
                     </FormLabel>
                     <Select
@@ -259,14 +259,14 @@ export function UploadVideoModal({
                       value={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                           <SelectValue placeholder="Select Course" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                         {isCoursesLoading ? (
                           <div className="flex items-center justify-center p-4">
-                            <Loader2 className="w-5 h-5 animate-spin text-slate-400" />
+                            <Loader2 className="w-5 h-5 animate-spin text-[var(--ib-mute)]" />
                           </div>
                         ) : courses.length > 0 ? (
                           courses.map((course) => (
@@ -291,7 +291,7 @@ export function UploadVideoModal({
                 name="status"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Status
                     </FormLabel>
                     <Select
@@ -300,11 +300,11 @@ export function UploadVideoModal({
                       value={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                           <SelectValue placeholder="Status" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                         <SelectItem value="PUBLISHED">Published</SelectItem>
                         <SelectItem value="DRAFT">Draft</SelectItem>
                       </SelectContent>
@@ -320,14 +320,14 @@ export function UploadVideoModal({
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Description
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Brief description of the video..."
                       {...field}
-                      className="bg-slate-50 border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none min-h-[100px] rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 resize-none font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -341,14 +341,14 @@ export function UploadVideoModal({
                 name="duration"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Duration (mm:ss)
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., 15:30"
                         {...field}
-                        className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-1 focus:ring-indigo-100"
+                        className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-accbg)]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -357,7 +357,7 @@ export function UploadVideoModal({
               />
 
               <div>
-                <FormLabel className="text-sm font-bold text-slate-900 block mb-2">
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)] block mb-2">
                   Thumbnail
                 </FormLabel>
                 <input
@@ -371,14 +371,14 @@ export function UploadVideoModal({
                 {!selectedThumbConfig ? (
                   <div
                     onClick={() => thumbInputRef.current?.click()}
-                    className="border-2 border-dashed border-slate-200 rounded-xl h-12 flex items-center justify-center bg-slate-50/50 hover:bg-slate-50 transition-colors cursor-pointer group"
+                    className="border-2 border-dashed border-[var(--ib-line)] rounded-xl h-12 flex items-center justify-center bg-[var(--ib-bg)]/50 hover:bg-[var(--ib-bg)] transition-colors cursor-pointer group"
                   >
-                    <p className="text-[13px] font-semibold text-slate-400 group-hover:text-slate-600 transition-colors">
+                    <p className="text-[13px] font-semibold text-[var(--ib-mute)] group-hover:text-[var(--ib-mute)] transition-colors">
                       Click to select thumbnail image
                     </p>
                   </div>
                 ) : (
-                  <div className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-black/5 flex items-center gap-3 p-2 group h-20">
+                  <div className="relative border-2 border-[var(--ib-line)] rounded-xl overflow-hidden bg-black/5 flex items-center gap-3 p-2 group h-20">
                     <div className="relative h-full aspect-video rounded-lg overflow-hidden shrink-0 bg-white">
                       <img
                         src={selectedThumbConfig.preview}
@@ -387,7 +387,7 @@ export function UploadVideoModal({
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs text-slate-700 truncate font-bold mb-1">
+                      <p className="text-xs text-[var(--ib-ink)] truncate font-bold mb-1">
                         {selectedThumbConfig.file.name}
                       </p>
                       <Button
@@ -415,7 +415,7 @@ export function UploadVideoModal({
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="w-full sm:flex-1 h-14 rounded-2xl border-slate-100 font-bold hover:bg-slate-50 text-[16px]"
+              className="w-full sm:flex-1 h-14 rounded-2xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] text-[16px]"
             >
               Cancel
             </Button>

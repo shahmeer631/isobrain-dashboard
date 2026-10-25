@@ -35,7 +35,7 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
   }, [coupon.isActive, coupon.expiryDate]);
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-6 transition-all hover:shadow-md">
+    <div className="bg-white dark:bg-[var(--ib-dk)] rounded-2xl p-6 shadow-sm border border-[var(--ib-line)] dark:border-[var(--ib-line)] flex flex-col gap-6 transition-all hover:shadow-md">
       {/* Top Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
         <div className="flex flex-col gap-2">
@@ -44,7 +44,7 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
               <Tag className="h-5 w-5" />
             </div>
             <div className="flex items-center gap-2">
-              <h3 className="text-xl font-bold tracking-tight bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent uppercase">
+              <h3 className="text-xl font-bold tracking-tight text-[var(--ib-acc)] uppercase">
                 {coupon.code}
               </h3>
 
@@ -55,7 +55,7 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
                     "relative p-2 rounded-xl transition-all duration-500 overflow-hidden",
                     copied
                       ? "bg-emerald-500 text-white shadow-lg shadow-emerald-200"
-                      : "hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400",
+                      : "hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] text-[var(--ib-mute)]",
                   )}
                   title="Copy code"
                 >
@@ -78,9 +78,9 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
                 </button>
 
                 {copied && (
-                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-2xl animate-in fade-in zoom-in slide-in-from-bottom-2 duration-300 pointer-events-none">
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[var(--ib-dk)] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-2xl animate-in fade-in zoom-in slide-in-from-bottom-2 duration-300 pointer-events-none">
                     Copied!
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[var(--ib-line)]" />
                   </div>
                 )}
               </div>
@@ -90,7 +90,7 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
                 "rounded-lg px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider",
                 status === "Active" && "bg-blue-600 text-white",
                 status === "Inactive" &&
-                  "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400",
+                  "bg-[var(--ib-bg)] text-[var(--ib-mute)] dark:bg-[var(--ib-dk)] dark:text-[var(--ib-mute)]",
                 status === "Expired" &&
                   "bg-rose-100 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400",
               )}
@@ -98,13 +98,13 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
               {status}
             </Badge>
           </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+          <p className="text-sm text-[var(--ib-mute)] dark:text-[var(--ib-mute)] font-medium">
             {coupon.discountType === "PERCENTAGE"
               ? `${coupon.discountValue}% off`
               : `$${coupon.discountValue} off`}{" "}
             discount
           </p>
-          <div className="flex items-center gap-2 text-xs text-slate-400 font-semibold">
+          <div className="flex items-center gap-2 text-xs text-[var(--ib-mute)] font-semibold">
             <Calendar className="h-3.5 w-3.5" />
             <span>
               Expires:{" "}
@@ -120,7 +120,7 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
             variant="outline"
             size="sm"
             onClick={() => onEdit(coupon)}
-            className="rounded-xl border-slate-200 text-slate-600 h-9 font-bold px-4 hover:bg-slate-50"
+            className="rounded-xl border-[var(--ib-line)] text-[var(--ib-mute)] h-9 font-bold px-4 hover:bg-[var(--ib-bg)]"
           >
             <Edit className="h-3.5 w-3.5 mr-2" />
             Edit
@@ -141,15 +141,15 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-1 flex flex-col gap-3">
           <div className="flex justify-between items-end">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+            <span className="text-xs font-bold text-[var(--ib-mute)] uppercase tracking-widest">
               Uses
             </span>
-            <span className="text-sm font-bold text-slate-900 dark:text-white">
+            <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white">
               {coupon.usedCount} / {coupon.usageLimit || "∞"}
             </span>
           </div>
           {coupon.usageLimit && (
-            <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+            <div className="h-2 w-full bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] rounded-full overflow-hidden">
               <div
                 className="h-full bg-blue-600 rounded-full transition-all duration-500"
                 style={{ width: `${Math.min(usagePercentage, 100)}%` }}
@@ -159,10 +159,10 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
         </div>
 
         <div className="md:col-span-1 flex flex-col gap-1">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span className="text-xs font-bold text-[var(--ib-mute)] uppercase tracking-widest">
             Remaining
           </span>
-          <span className="text-lg font-bold text-slate-900 dark:text-white">
+          <span className="text-lg font-bold text-[var(--ib-ink)] dark:text-white">
             {coupon.usageLimit
               ? coupon.usageLimit - coupon.usedCount
               : "Unlimited"}
@@ -170,7 +170,7 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
         </div>
 
         <div className="md:col-span-1 flex flex-col gap-1">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span className="text-xs font-bold text-[var(--ib-mute)] uppercase tracking-widest">
             Revenue
           </span>
           <span className="text-lg font-bold text-emerald-500">
@@ -185,10 +185,10 @@ export function CouponCard({ coupon, onEdit, onDelete }: CouponCardProps) {
         </div>
 
         <div className="md:col-span-1 flex flex-col gap-1">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <span className="text-xs font-bold text-[var(--ib-mute)] uppercase tracking-widest">
             Net Discount
           </span>
-          <span className="text-lg font-bold text-purple-500">
+          <span className="text-lg font-bold text-[var(--ib-acc)]">
             $
             {(coupon.payments || [])
               .reduce((acc, curr) => acc + (curr.discountAmount || 0), 0)

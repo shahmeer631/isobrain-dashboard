@@ -125,8 +125,8 @@ export default function ReviewsPage() {
         ))}
 
         {filteredReviews.length === 0 && (
-          <div className="py-20 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
-            <p className="text-slate-500 font-medium">
+          <div className="py-20 text-center bg-white dark:bg-[var(--ib-dk)] border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl">
+            <p className="text-[var(--ib-mute)] font-medium">
               No reviews found matching your search.
             </p>
           </div>

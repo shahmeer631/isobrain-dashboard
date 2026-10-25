@@ -172,14 +172,14 @@ export function EditDocumentModal({
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Document Title *
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., Quality Manual Template"
                       {...field}
-                      className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                      className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                     />
                   </FormControl>
                   <FormMessage />
@@ -192,16 +192,16 @@ export function EditDocumentModal({
               name="category"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Category
                   </FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
-                      <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                      <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                         <SelectValue placeholder="Select category" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                    <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                       {categories.map((cat) => (
                         <SelectItem key={cat.id} value={cat.id}>
                           {cat.name}
@@ -219,16 +219,16 @@ export function EditDocumentModal({
               name="status"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Status
                   </FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
-                      <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                      <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                         <SelectValue placeholder="Select status" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                    <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                       <SelectItem value="ACTIVE">Active</SelectItem>
                       <SelectItem value="DRAFT">Draft</SelectItem>
                     </SelectContent>
@@ -244,16 +244,16 @@ export function EditDocumentModal({
                 name="type"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Document Type
                     </FormLabel>
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+                        <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
                           <SelectValue placeholder="Select type" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+                      <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
                         <SelectItem value="PDF">PDF</SelectItem>
                         <SelectItem value="DOC">DOC</SelectItem>
                         <SelectItem value="DOCX">DOCX</SelectItem>
@@ -272,14 +272,14 @@ export function EditDocumentModal({
                 name="fileSize"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       File Size
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., 2.5 MB"
                         {...field}
-                        className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-slate-400 text-[15px] transition-colors focus:bg-white focus:ring-indigo-100"
+                        className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-1 focus-visible:ring-offset-0 font-medium placeholder:text-[var(--ib-mute)] text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]"
                       />
                     </FormControl>
                   </FormItem>
@@ -289,31 +289,31 @@ export function EditDocumentModal({
 
             {/* Read-only Stats Area */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-50 rounded-xl p-4">
-                <p className="text-[12px] font-bold text-slate-400 uppercase tracking-tight mb-0.5">
+              <div className="bg-[var(--ib-bg)] rounded-xl p-4">
+                <p className="text-[12px] font-bold text-[var(--ib-mute)] uppercase tracking-tight mb-0.5">
                   Total Downloads
                 </p>
-                <p className="text-[16px] font-bold text-slate-900">
+                <p className="text-[16px] font-bold text-[var(--ib-ink)]">
                   {document?.downloads || "0"}
                 </p>
               </div>
-              <div className="bg-slate-50 rounded-xl p-4">
-                <p className="text-[12px] font-bold text-slate-400 uppercase tracking-tight mb-0.5">
+              <div className="bg-[var(--ib-bg)] rounded-xl p-4">
+                <p className="text-[12px] font-bold text-[var(--ib-mute)] uppercase tracking-tight mb-0.5">
                   File Type
                 </p>
-                <p className="text-[16px] font-bold text-slate-900 uppercase">
+                <p className="text-[16px] font-bold text-[var(--ib-ink)] uppercase">
                   {document?.type || "PDF"}
                 </p>
               </div>
             </div>
 
             <div className="space-y-2">
-              <FormLabel className="text-sm font-bold text-slate-900">
+              <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                 Replace File (Optional)
               </FormLabel>
               <div
                 onClick={() => fileInputRef.current?.click()}
-                className="border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
+                className="border-2 border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50 transition-colors group"
               >
                 <input
                   type="file"
@@ -321,8 +321,8 @@ export function EditDocumentModal({
                   ref={fileInputRef}
                   onChange={handleFileChange}
                 />
-                <UploadCloud className="w-6 h-6 text-slate-400 group-hover:text-indigo-600 mb-2 transition-colors" />
-                <p className="text-sm font-bold text-slate-500">
+                <UploadCloud className="w-6 h-6 text-[var(--ib-mute)] group-hover:text-[var(--ib-acc)] mb-2 transition-colors" />
+                <p className="text-sm font-bold text-[var(--ib-mute)]">
                   {file?.name || "Upload new version"}
                 </p>
               </div>
@@ -338,7 +338,7 @@ export function EditDocumentModal({
                 setFile(null);
                 onOpenChange(false);
               }}
-              className="w-full sm:flex-1 h-14 rounded-2xl border-slate-100 font-bold hover:bg-slate-50 text-[16px]"
+              className="w-full sm:flex-1 h-14 rounded-2xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] text-[16px]"
             >
               Cancel
             </Button>

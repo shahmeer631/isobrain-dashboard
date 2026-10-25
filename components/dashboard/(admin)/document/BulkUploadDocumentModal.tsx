@@ -117,8 +117,8 @@ export function BulkUploadDocumentModal({
           className={cn(
             "group border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center transition-all duration-200 cursor-pointer",
             files.length
-              ? "border-indigo-200 bg-indigo-50/30 dark:bg-indigo-900/10"
-              : "border-slate-200 dark:border-slate-800 hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800/50",
+              ? "border-[var(--ib-line)] bg-[var(--ib-accbg)]/30 dark:bg-[var(--ib-acc)]/10"
+              : "border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:border-[var(--ib-acc)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]/50",
           )}
         >
           <input
@@ -129,12 +129,12 @@ export function BulkUploadDocumentModal({
             onChange={handleFileChange}
             accept=".pdf,.doc,.docx,.xlsx,.ppt,.pptx,.txt"
           />
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-full mb-4 text-indigo-600 group-hover:scale-110 transition-transform">
+          <div className="bg-[var(--ib-accbg)] dark:bg-[var(--ib-acc)]/20 p-4 rounded-full mb-4 text-[var(--ib-acc)] group-hover:scale-110 transition-transform">
             <UploadCloud className="w-8 h-8" />
           </div>
           {files.length ? (
             <div className="flex flex-col items-center gap-2">
-              <span className="text-sm font-bold text-slate-900 dark:text-white line-clamp-1 max-w-[420px] text-center">
+              <span className="text-sm font-bold text-[var(--ib-ink)] dark:text-white line-clamp-1 max-w-[420px] text-center">
                 {selectedLabel}
               </span>
               <button
@@ -143,17 +143,17 @@ export function BulkUploadDocumentModal({
                   e.stopPropagation();
                   clearSelection();
                 }}
-                className="text-slate-400 hover:text-red-500"
+                className="text-[var(--ib-mute)] hover:text-red-500"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
           ) : (
             <>
-              <p className="text-[15px] font-bold text-slate-900 dark:text-white mb-1 text-center">
+              <p className="text-[15px] font-bold text-[var(--ib-ink)] dark:text-white mb-1 text-center">
                 Click to upload multiple files
               </p>
-              <p className="text-[13px] text-slate-500 font-medium text-center">
+              <p className="text-[13px] text-[var(--ib-mute)] font-medium text-center">
                 PDF, DOC, DOCX, XLSX, PPT, TXT files
               </p>
             </>
@@ -161,12 +161,12 @@ export function BulkUploadDocumentModal({
         </div>
 
         <div className="space-y-2">
-          <p className="text-sm font-bold text-slate-900">Category</p>
+          <p className="text-sm font-bold text-[var(--ib-ink)]">Category</p>
           <Select value={categoryId} onValueChange={setCategoryId}>
-            <SelectTrigger className="bg-slate-50 border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-slate-900 font-medium text-[15px] transition-colors focus:bg-white focus:ring-indigo-100">
+            <SelectTrigger className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus:ring-1 focus:ring-offset-0 text-[var(--ib-ink)] font-medium text-[15px] transition-colors focus:bg-white focus:ring-[var(--ib-accbg)]">
               <SelectValue placeholder="Select category" />
             </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-100 shadow-xl">
+            <SelectContent className="rounded-xl border-[var(--ib-line)] shadow-xl">
               {categories.map((cat) => (
                 <SelectItem key={cat.id} value={cat.id}>
                   {cat.name}
@@ -185,7 +185,7 @@ export function BulkUploadDocumentModal({
               setCategoryId("");
               onOpenChange(false);
             }}
-            className="w-full sm:flex-1 h-14 rounded-2xl border-slate-100 font-bold hover:bg-slate-50 text-[16px]"
+            className="w-full sm:flex-1 h-14 rounded-2xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] text-[16px]"
           >
             Cancel
           </Button>

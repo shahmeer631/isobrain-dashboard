@@ -138,14 +138,14 @@ export function CreateBundleModal({
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Bundle Title *
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., Quality Management Suite"
                       {...field}
-                      className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-purple-100"
+                      className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-acc)]/20"
                     />
                   </FormControl>
                   <FormMessage />
@@ -158,14 +158,14 @@ export function CreateBundleModal({
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-sm font-bold text-slate-900">
+                  <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                     Description
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Brief description of the bundle..."
                       {...field}
-                      className="bg-slate-50 border-none min-h-[100px] rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-colors focus:bg-white focus:ring-1 focus:ring-purple-100"
+                      className="bg-[var(--ib-bg)] border-none min-h-[100px] rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-acc)]/20"
                     />
                   </FormControl>
                   <FormMessage />
@@ -179,14 +179,14 @@ export function CreateBundleModal({
                 name="price"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Bundle Price
                     </FormLabel>
                     <FormControl>
                       <Input
                         type="number"
                         {...field}
-                        className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-purple-100"
+                        className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-acc)]/20"
                       />
                     </FormControl>
                     <FormMessage />
@@ -199,14 +199,14 @@ export function CreateBundleModal({
                 name="originalPrice"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Original Price
                     </FormLabel>
                     <FormControl>
                       <Input
                         type="number"
                         {...field}
-                        className="bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-purple-100"
+                        className="bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-acc)]/20"
                       />
                     </FormControl>
                     <FormMessage />
@@ -228,26 +228,26 @@ export function CreateBundleModal({
 
                 return (
                   <FormItem>
-                    <FormLabel className="text-sm font-bold text-slate-900">
+                    <FormLabel className="text-sm font-bold text-[var(--ib-ink)]">
                       Select Items to Include *
                     </FormLabel>
                     
                     {selectedCourses.length > 0 && (
                       <div className="mb-4">
-                        <p className="text-sm font-semibold text-slate-700 mb-3">Selected Items:</p>
+                        <p className="text-sm font-semibold text-[var(--ib-ink)] mb-3">Selected Items:</p>
                         <div className="flex flex-wrap gap-3">
                           {selectedCourses.map((course, index) => (
                             <button
                               key={course.id}
                               type="button"
                               onClick={() => toggleItem(course.id)}
-                              className="group flex items-center gap-2.5 px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-medium text-slate-500 hover:border-red-200 hover:bg-red-50 transition-all"
+                              className="group flex items-center gap-2.5 px-4 py-2 rounded-full border border-[var(--ib-line)] bg-white text-sm font-medium text-[var(--ib-mute)] hover:border-red-200 hover:bg-red-50 transition-all"
                             >
                               <div className="relative w-4 h-4 flex items-center justify-center">
                                 {index === 0 ? (
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-slate-400 group-hover:opacity-0 transition-opacity absolute"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-[var(--ib-mute)] group-hover:opacity-0 transition-opacity absolute"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                                 ) : (
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-slate-400 group-hover:opacity-0 transition-opacity absolute"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-[var(--ib-mute)] group-hover:opacity-0 transition-opacity absolute"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
                                 )}
                                 <X className="w-4 h-4 text-red-500 opacity-0 group-hover:opacity-100 transition-opacity absolute" />
                               </div>
@@ -262,10 +262,10 @@ export function CreateBundleModal({
                       placeholder="Search courses..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="mb-2 bg-slate-50 border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-purple-100 placeholder:text-slate-400"
+                      className="mb-2 bg-[var(--ib-bg)] border-none h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors focus:bg-white focus:ring-1 focus:ring-[var(--ib-acc)]/20 placeholder:text-[var(--ib-mute)]"
                     />
                     
-                    <div className="border border-slate-100 rounded-xl overflow-hidden bg-white">
+                    <div className="border border-[var(--ib-line)] rounded-xl overflow-hidden bg-white">
                       <ScrollArea className="h-[200px] w-full">
                         <div className="p-1">
                           {filteredCourses.map((course) => (
@@ -274,20 +274,20 @@ export function CreateBundleModal({
                               type="button"
                               onClick={() => toggleItem(course.id)}
                               className={cn(
-                                "w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors hover:bg-slate-50 text-left",
+                                "w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors hover:bg-[var(--ib-bg)] text-left",
                                 field.value.includes(course.id)
-                                  ? "text-slate-900 bg-purple-50/30"
-                                  : "text-slate-500"
+                                  ? "text-[var(--ib-ink)] bg-[var(--ib-accbg)]"
+                                  : "text-[var(--ib-mute)]"
                               )}
                             >
                               {course.title}
                               {field.value.includes(course.id) && (
-                                <Check className="w-4 h-4 text-purple-600" />
+                                <Check className="w-4 h-4 text-[var(--ib-acc)]" />
                               )}
                             </button>
                           ))}
                           {filteredCourses.length === 0 && (
-                            <div className="p-4 text-center text-sm text-slate-500">
+                            <div className="p-4 text-center text-sm text-[var(--ib-mute)]">
                               No courses found.
                             </div>
                           )}
@@ -306,7 +306,7 @@ export function CreateBundleModal({
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="w-full sm:flex-1 h-12 rounded-xl border-slate-200 font-bold hover:bg-slate-50"
+              className="w-full sm:flex-1 h-12 rounded-xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)]"
             >
               Cancel
             </Button>

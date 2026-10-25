@@ -12,13 +12,13 @@ interface OrderStatCardProps {
 export function OrderStatCard({
   label,
   value,
-  valueColor = "text-slate-900",
+  valueColor = "text-[var(--ib-ink)]",
   className,
 }: OrderStatCardProps) {
   return (
     <Card
       className={cn(
-        "border-none bg-white dark:bg-slate-900 shadow-sm rounded-xl overflow-hidden",
+        "border-none bg-white dark:bg-[var(--ib-dk)] shadow-sm rounded-xl overflow-hidden",
         className,
       )}
     >
@@ -27,7 +27,7 @@ export function OrderStatCard({
           <h3 className={cn("text-3xl font-bold tracking-tight", valueColor)}>
             {value}
           </h3>
-          <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+          <p className="text-sm font-medium text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
             {label}
           </p>
         </div>

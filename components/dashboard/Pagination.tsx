@@ -34,8 +34,8 @@ export function Pagination({
             className={cn(
               "w-10 h-10 rounded-xl font-bold",
               currentPage === i
-                ? "shadow-md shadow-indigo-200 dark:shadow-none"
-                : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                ? "shadow-md shadow-[var(--ib-line)] dark:shadow-none"
+                : "border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]"
             )}
             onClick={() => onPageChange(i)}
           >
@@ -57,8 +57,8 @@ export function Pagination({
           className={cn(
             "w-10 h-10 rounded-xl font-bold",
             currentPage === 1
-              ? "shadow-md shadow-indigo-200 dark:shadow-none"
-              : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+              ? "shadow-md shadow-[var(--ib-line)] dark:shadow-none"
+              : "border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]"
           )}
           onClick={() => onPageChange(1)}
         >
@@ -69,7 +69,7 @@ export function Pagination({
       if (startPage > 2) {
         pages.push(
           <div key="dots-start" className="flex items-center justify-center w-10 h-10">
-            <MoreHorizontal className="w-4 h-4 text-slate-400" />
+            <MoreHorizontal className="w-4 h-4 text-[var(--ib-mute)]" />
           </div>
         );
       }
@@ -83,8 +83,8 @@ export function Pagination({
             className={cn(
               "w-10 h-10 rounded-xl font-bold",
               currentPage === i
-                ? "shadow-md shadow-indigo-200 dark:shadow-none"
-                : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                ? "shadow-md shadow-[var(--ib-line)] dark:shadow-none"
+                : "border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]"
             )}
             onClick={() => onPageChange(i)}
           >
@@ -96,7 +96,7 @@ export function Pagination({
       if (endPage < totalPages - 1) {
         pages.push(
           <div key="dots-end" className="flex items-center justify-center w-10 h-10">
-            <MoreHorizontal className="w-4 h-4 text-slate-400" />
+            <MoreHorizontal className="w-4 h-4 text-[var(--ib-mute)]" />
           </div>
         );
       }
@@ -110,8 +110,8 @@ export function Pagination({
           className={cn(
             "w-10 h-10 rounded-xl font-bold",
             currentPage === totalPages
-              ? "shadow-md shadow-indigo-200 dark:shadow-none"
-              : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+              ? "shadow-md shadow-[var(--ib-line)] dark:shadow-none"
+              : "border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)]"
           )}
           onClick={() => onPageChange(totalPages)}
         >
@@ -128,7 +128,7 @@ export function Pagination({
       <Button
         variant="outline"
         size="icon"
-        className="w-10 h-10 rounded-xl border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50"
+        className="w-10 h-10 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] disabled:opacity-50"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -140,7 +140,7 @@ export function Pagination({
       <Button
         variant="outline"
         size="icon"
-        className="w-10 h-10 rounded-xl border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50"
+        className="w-10 h-10 rounded-xl border-[var(--ib-line)] dark:border-[var(--ib-line)] text-[var(--ib-mute)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] dark:hover:bg-[var(--ib-dk)] disabled:opacity-50"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >

@@ -14,7 +14,7 @@ export function SettingsSaveButton({
   isSaving,
 }: SettingsSaveButtonProps) {
   return (
-    <div className="pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+    <div className="pt-8 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)] flex justify-end">
       <Button
         onClick={onSave}
         disabled={isSaving}

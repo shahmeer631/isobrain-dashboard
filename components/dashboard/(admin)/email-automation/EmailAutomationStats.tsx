@@ -29,7 +29,7 @@ const stats: StatData[] = [
     value: "54.3%",
     icon: MousePointer2,
     iconColor:
-      "from-purple-500/10 to-purple-500/10 text-purple-500 shadow-none",
+      "bg-[var(--ib-accbg)] text-[var(--ib-acc)] shadow-none",
   },
   {
     label: "Active Templates",

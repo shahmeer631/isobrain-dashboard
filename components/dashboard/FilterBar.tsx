@@ -28,17 +28,17 @@ export function FilterBar({
   return (
     <div
       className={cn(
-        "flex flex-col md:flex-row items-center gap-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-sm mb-8",
+        "flex flex-col md:flex-row items-center gap-4 bg-[var(--ib-card)] border border-[var(--ib-line)] rounded-2xl p-3 shadow-sm mb-8",
         className,
       )}
     >
       <div className="relative flex-1 w-full">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[var(--ib-mute)]" />
         <Input
           placeholder={placeholder}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="pl-11 bg-slate-50 dark:bg-slate-800 border-none h-11 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 text-[15px]"
+          className="pl-11 bg-[var(--ib-bg)] border-none h-11 rounded-[10px] focus-visible:ring-0 focus-visible:ring-offset-0 text-[15px] text-[var(--ib-ink)]"
         />
       </div>
 
@@ -49,10 +49,10 @@ export function FilterBar({
             onClick={() => setActiveFilter(filter)}
             variant={activeFilter === filter ? "primary" : "outline"}
             className={cn(
-              "rounded-xl px-6 h-11 text-[14px] font-bold shrink-0 transition-all",
+              "rounded-[10px] px-6 h-11 text-[14px] font-bold shrink-0 transition-all",
               activeFilter === filter
-                ? "text-white shadow-md shadow-indigo-100"
-                : "border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-slate-800 dark:text-slate-400 dark:hover:bg-slate-800",
+                ? "text-white shadow-sm"
+                : "border-[var(--ib-line)] text-[var(--ib-mute)] hover:bg-[var(--ib-accbg)] hover:text-[var(--ib-acc)]",
             )}
           >
             {filter}

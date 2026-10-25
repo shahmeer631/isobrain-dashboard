@@ -39,11 +39,11 @@ export function VideoCard({
 
   return (
     <div 
-      className="flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 xl:p-6 shadow-sm hover:shadow-md transition-all group h-full cursor-pointer"
+      className="flex flex-col bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-2xl p-4 xl:p-6 shadow-sm hover:shadow-md transition-all group h-full cursor-pointer"
       onClick={onClick}
     >
       {/* Thumbnail Area */}
-      <div className="relative aspect-video rounded-lg bg-linear-to-br from-blue-500 to-purple-600 mb-6 flex items-center justify-center overflow-hidden">
+      <div className="relative aspect-video rounded-lg bg-[var(--ib-acc)] mb-6 flex items-center justify-center overflow-hidden">
         {thumbnail && isValidUrl(thumbnail) ? (
           <Image
             src={thumbnail}
@@ -59,38 +59,38 @@ export function VideoCard({
       {/* Info Area */}
       <div className="flex-1 mb-6">
         <div className="flex justify-between items-start gap-4 mb-2">
-          <h4 className="text-[17px] font-bold text-slate-900 dark:text-white line-clamp-1">
+          <h4 className="text-[17px] font-bold text-[var(--ib-ink)] dark:text-white line-clamp-1">
             {title}
           </h4>
           <Badge
             className={cn(
               "rounded-lg px-2.5 py-1 font-bold text-[10px] border-none shadow-sm uppercase tracking-wider shrink-0",
               status === "Published"
-                ? "bg-slate-900 text-white"
-                : "bg-slate-100 text-slate-500",
+                ? "bg-[var(--ib-dk)] text-white"
+                : "bg-[var(--ib-bg)] text-[var(--ib-mute)]",
             )}
           >
             {status}
           </Badge>
         </div>
-        <p className="text-[13px] font-semibold text-slate-400 mb-4 line-clamp-2">
+        <p className="text-[13px] font-semibold text-[var(--ib-mute)] mb-4 line-clamp-2">
           {description}
         </p>
 
         <div className="flex items-center justify-between gap-6">
           <div>
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-tight mb-0.5">
+            <p className="text-[11px] font-bold text-[var(--ib-mute)] uppercase tracking-tight mb-0.5">
               Duration
             </p>
-            <p className="text-[14px] font-bold text-slate-900 dark:text-white">
+            <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
               {duration}
             </p>
           </div>
           <div>
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-tight mb-0.5">
+            <p className="text-[11px] font-bold text-[var(--ib-mute)] uppercase tracking-tight mb-0.5">
               Views
             </p>
-            <p className="text-[14px] font-bold text-slate-900 dark:text-white">
+            <p className="text-[14px] font-bold text-[var(--ib-ink)] dark:text-white">
               {views}
             </p>
           </div>
@@ -101,13 +101,13 @@ export function VideoCard({
       <div className="flex items-center gap-3">
         <Button
           variant="outline"
-          className="flex-1 h-11 rounded-md border-slate-200 dark:border-slate-800 font-bold hover:bg-slate-50 group/btn text-slate-900 dark:text-white"
+          className="flex-1 h-11 rounded-md border-[var(--ib-line)] dark:border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] group/btn text-[var(--ib-ink)] dark:text-white"
           onClick={(e) => {
             e.stopPropagation();
             onEdit();
           }}
         >
-          <Edit className="w-4 h-4 mr-2 group-hover/btn:text-indigo-600 transition-colors" />
+          <Edit className="w-4 h-4 mr-2 group-hover/btn:text-[var(--ib-acc)] transition-colors" />
           Edit
         </Button>
         <Button

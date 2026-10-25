@@ -21,24 +21,24 @@ export function TopSellingProducts({
   return (
     <div
       className={cn(
-        "bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 h-full",
+        "bg-white dark:bg-[var(--ib-dk)] rounded-2xl p-6 border border-[var(--ib-line)] dark:border-[var(--ib-line)] h-full",
         className,
       )}
     >
-      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
+      <h3 className="text-xl font-bold text-[var(--ib-ink)] dark:text-white mb-6">
         Top Selling Products
       </h3>
       <div className="space-y-4">
         {products.map((product, index) => (
           <div
             key={index}
-            className="flex items-center justify-between p-4 rounded-xl bg-slate-50/50 dark:bg-slate-800/50 border border-slate-50 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-800 transition-all hover:shadow-sm"
+            className="flex items-center justify-between p-4 rounded-xl bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/50 border border-[var(--ib-line)] dark:border-[var(--ib-line)] hover:bg-white dark:hover:bg-[var(--ib-dk)] transition-all hover:shadow-sm"
           >
             <div className="space-y-1">
-              <p className="text-sm font-bold text-slate-900 dark:text-white">
+              <p className="text-sm font-bold text-[var(--ib-ink)] dark:text-white">
                 {product.name}
               </p>
-              <p className="text-xs font-semibold text-slate-400">
+              <p className="text-xs font-semibold text-[var(--ib-mute)]">
                 {product.sales} sales
               </p>
             </div>

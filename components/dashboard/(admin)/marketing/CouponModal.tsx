@@ -65,7 +65,7 @@ export function CouponModal({
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="col-span-full space-y-2">
-            <Label htmlFor="code" className="text-sm font-bold text-slate-700">
+            <Label htmlFor="code" className="text-sm font-bold text-[var(--ib-ink)]">
               Coupon Code *
             </Label>
             <Input
@@ -75,16 +75,16 @@ export function CouponModal({
               onChange={(e) =>
                 setFormData({ ...formData, code: e.target.value.toUpperCase() })
               }
-              className="h-11 bg-slate-50 border-slate-100 rounded-xl focus:bg-white transition-all font-bold placeholder:font-normal"
+              className="h-11 bg-[var(--ib-bg)] border-[var(--ib-line)] rounded-xl focus:bg-white transition-all font-bold placeholder:font-normal"
               required
             />
-            <p className="text-[11px] text-slate-400 font-medium">
+            <p className="text-[11px] text-[var(--ib-mute)] font-medium">
               Use uppercase letters and numbers
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="type" className="text-sm font-bold text-slate-700">
+            <Label htmlFor="type" className="text-sm font-bold text-[var(--ib-ink)]">
               Discount Type *
             </Label>
             <Select
@@ -95,7 +95,7 @@ export function CouponModal({
             >
               <SelectTrigger
                 id="type"
-                className="h-11 bg-slate-50 border-slate-100 rounded-xl focus:bg-white"
+                className="h-11 bg-[var(--ib-bg)] border-[var(--ib-line)] rounded-xl focus:bg-white"
               >
                 <SelectValue placeholder="Select type" />
               </SelectTrigger>
@@ -107,7 +107,7 @@ export function CouponModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="value" className="text-sm font-bold text-slate-700">
+            <Label htmlFor="value" className="text-sm font-bold text-[var(--ib-ink)]">
               Discount Value *
             </Label>
             <Input
@@ -120,13 +120,13 @@ export function CouponModal({
               onChange={(e) =>
                 setFormData({ ...formData, discountValue: e.target.value })
               }
-              className="h-11 bg-slate-50 border-slate-100 rounded-xl focus:bg-white"
+              className="h-11 bg-[var(--ib-bg)] border-[var(--ib-line)] rounded-xl focus:bg-white"
               required
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="limit" className="text-sm font-bold text-slate-700">
+            <Label htmlFor="limit" className="text-sm font-bold text-[var(--ib-ink)]">
               Usage Limit
             </Label>
             <Input
@@ -137,7 +137,7 @@ export function CouponModal({
               onChange={(e) =>
                 setFormData({ ...formData, usageLimit: e.target.value })
               }
-              className="h-11 bg-slate-50 border-slate-100 rounded-xl focus:bg-white"
+              className="h-11 bg-[var(--ib-bg)] border-[var(--ib-line)] rounded-xl focus:bg-white"
               required
             />
           </div>
@@ -145,7 +145,7 @@ export function CouponModal({
           <div className="space-y-2">
             <Label
               htmlFor="expiry"
-              className="text-sm font-bold text-slate-700"
+              className="text-sm font-bold text-[var(--ib-ink)]"
             >
               Expiry Date
             </Label>
@@ -156,7 +156,7 @@ export function CouponModal({
               onChange={(e) =>
                 setFormData({ ...formData, expiryDate: e.target.value })
               }
-              className="h-11 bg-slate-50 border-slate-100 rounded-xl focus:bg-white"
+              className="h-11 bg-[var(--ib-bg)] border-[var(--ib-line)] rounded-xl focus:bg-white"
               required
             />
           </div>
@@ -168,7 +168,7 @@ export function CouponModal({
             type="button"
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="flex-1 h-12 rounded-xl border-slate-200 text-slate-600 font-bold hover:bg-slate-50"
+            className="flex-1 h-12 rounded-xl border-[var(--ib-line)] text-[var(--ib-mute)] font-bold hover:bg-[var(--ib-bg)]"
             disabled={isLoading}
           >
             Cancel

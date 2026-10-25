@@ -152,7 +152,7 @@ export default function CertificatesPage() {
         {isLoading ? (
           renderSkeletons()
         ) : isError ? (
-          <div className="py-20 text-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl">
+          <div className="py-20 text-center bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl">
             <p className="text-rose-500 font-medium">
               Failed to load certificates. Please try again.
             </p>
@@ -168,11 +168,11 @@ export default function CertificatesPage() {
             />
           ))
         ) : (
-          <div className="py-20 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
-            <div className="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="w-8 h-8 text-slate-400" />
+          <div className="py-20 text-center bg-white dark:bg-[var(--ib-dk)] border border-dashed border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-3xl">
+            <div className="w-16 h-16 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="w-8 h-8 text-[var(--ib-mute)]" />
             </div>
-            <p className="text-slate-500 font-medium max-w-xs mx-auto">
+            <p className="text-[var(--ib-mute)] font-medium max-w-xs mx-auto">
               No certificate templates found matching your search.
             </p>
           </div>

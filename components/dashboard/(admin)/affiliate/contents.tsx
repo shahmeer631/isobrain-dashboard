@@ -79,7 +79,7 @@ const Contents = () => {
   const renderSkeletons = () => (
     <>
       {Array.from({ length: 5 }).map((_, i) => (
-        <tr key={i} className="hover:bg-gray-50/70 border-b border-slate-50 last:border-b-0">
+        <tr key={i} className="hover:bg-gray-50/70 border-b border-[var(--ib-line)] last:border-b-0">
           <td className="py-4 pl-4 pr-3 sm:pl-6 lg:pl-6">
             <div className="flex items-center gap-3">
               <Skeleton className="h-10 w-10 rounded-full" />
@@ -129,7 +129,7 @@ const Contents = () => {
                   setSearchQuery(e.target.value);
                   setPage(1);
                 }}
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none"
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-500 focus:border-[var(--ib-acc)] focus:ring-1 focus:ring-[var(--ib-acc)] focus:outline-none"
               />
               {(isLoading || isFetching) && (
                 <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-gray-400" />
@@ -167,7 +167,7 @@ const Contents = () => {
                     <tr key={affiliate.id} className="hover:bg-gray-50/70">
                       <td className="max-w-[220px] py-4 pl-4 pr-3 sm:pl-6 lg:pl-6">
                         <div className="flex items-start gap-3">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-purple-600 text-sm font-semibold text-white">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-[var(--ib-acc)] to-[var(--ib-acc)] text-sm font-semibold text-white">
                             {getInitials(affiliate.name)}
                           </div>
                           <div className="min-w-0 flex-1">
@@ -179,7 +179,7 @@ const Contents = () => {
 
                       <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell lg:px-4">
                         <div className="flex items-center gap-3">
-                          <span className="font-bold text-slate-700 uppercase">{affiliate.affiliateCode}</span>
+                          <span className="font-bold text-[var(--ib-ink)] uppercase">{affiliate.affiliateCode}</span>
                           <div className="relative group/copy">
                             <button
                               onClick={() => handleCopy(affiliate.id, affiliate.affiliateCode)}
@@ -187,7 +187,7 @@ const Contents = () => {
                                 "relative p-2 rounded-xl transition-all duration-500 overflow-hidden",
                                 copiedId === affiliate.id 
                                   ? "bg-emerald-500 text-white shadow-lg shadow-emerald-200" 
-                                  : "hover:bg-slate-100 text-slate-400"
+                                  : "hover:bg-[var(--ib-bg)] text-[var(--ib-mute)]"
                               )}
                               title="Copy code"
                             >
@@ -206,9 +206,9 @@ const Contents = () => {
                             </button>
                             
                             {copiedId === affiliate.id && (
-                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-2xl animate-in fade-in zoom-in slide-in-from-bottom-2 duration-300 pointer-events-none z-50">
+                              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[var(--ib-dk)] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-2xl animate-in fade-in zoom-in slide-in-from-bottom-2 duration-300 pointer-events-none z-50">
                                 Copied!
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900" />
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[var(--ib-line)]" />
                               </div>
                             )}
                           </div>
@@ -246,7 +246,7 @@ const Contents = () => {
                             </button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end" className="w-32 rounded-xl">
-                            <DropdownMenuItem onClick={() => handleEdit(affiliate)} className="gap-2 cursor-pointer text-slate-600">
+                            <DropdownMenuItem onClick={() => handleEdit(affiliate)} className="gap-2 cursor-pointer text-[var(--ib-mute)]">
                               <Edit size={14} /> Edit
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => handleDeleteClick(affiliate)} className="gap-2 text-rose-600 hover:text-rose-600! cursor-pointer">
@@ -308,7 +308,7 @@ const Contents = () => {
                       className={cn(
                         "relative inline-flex items-center px-4 py-2 text-sm font-semibold focus:z-20 focus:outline-offset-0 ring-1 ring-inset ring-gray-300",
                         page === i + 1
-                          ? "z-10 bg-indigo-600 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ring-indigo-600"
+                          ? "z-10 bg-[var(--ib-acc)] text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ib-acc)] ring-[var(--ib-acc)]"
                           : "text-gray-900 hover:bg-gray-50"
                       )}
                     >
@@ -346,7 +346,7 @@ const Contents = () => {
                 id="commission-rate"
                 type="number"
                 defaultValue={10}
-                className="block w-full rounded-xl border-none bg-slate-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:ring-1 focus:ring-purple-100 sm:text-sm"
+                className="block w-full rounded-xl border-none bg-[var(--ib-bg)] px-4 py-3 text-gray-900 placeholder-gray-400 focus:ring-1 focus:ring-[var(--ib-acc)]/20 sm:text-sm"
               />
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
                 <span className="text-gray-500 sm:text-sm font-bold">%</span>
@@ -368,7 +368,7 @@ const Contents = () => {
               id="cookie-duration"
               type="number"
               defaultValue={30}
-              className="mt-2 block w-full rounded-xl border-none bg-slate-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:ring-1 focus:ring-purple-100 sm:text-sm"
+              className="mt-2 block w-full rounded-xl border-none bg-[var(--ib-bg)] px-4 py-3 text-gray-900 placeholder-gray-400 focus:ring-1 focus:ring-[var(--ib-acc)]/20 sm:text-sm"
             />
             <p className="mt-2 text-sm text-gray-500">
               How long the affiliate link remains valid

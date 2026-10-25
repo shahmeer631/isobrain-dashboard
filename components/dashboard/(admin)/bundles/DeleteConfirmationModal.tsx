@@ -34,7 +34,7 @@ export function DeleteConfirmationModal({
           <AlertCircle className="w-10 h-10" />
         </div>
         
-        <p className="text-slate-500 font-medium">
+        <p className="text-[var(--ib-mute)] font-medium">
           {description}
         </p>
 
@@ -43,7 +43,7 @@ export function DeleteConfirmationModal({
             type="button"
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="w-full sm:flex-1 h-12 rounded-xl border-slate-200 font-bold hover:bg-slate-50 shadow-sm"
+            className="w-full sm:flex-1 h-12 rounded-xl border-[var(--ib-line)] font-bold hover:bg-[var(--ib-bg)] shadow-sm"
             disabled={isLoading}
           >
             Cancel

@@ -30,12 +30,12 @@ export function CertificateCard({
     day: "numeric",
   });
   return (
-    <div className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row min-h-[220px]">
+    <div className="ib-card ib-card-interactive group flex min-h-[220px] flex-col overflow-hidden md:flex-row">
       {/* Left Banner */}
-      <div className="bg-linear-to-br from-[#6B4BFF] to-[#8B4CFF] w-full md:w-72 p-8 flex flex-col items-center justify-center text-center text-white relative overflow-hidden shrink-0 group-hover:from-[#5a3ae6] group-hover:to-[#7030e6] transition-colors duration-500">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-10 -mt-10 pointer-events-none" />
-        <div className="mb-4 transform group-hover:scale-110 transition-transform duration-500">
-          <Award className="h-16 w-16 text-amber-400 drop-shadow-md" />
+      <div className="relative flex w-full shrink-0 flex-col items-center justify-center overflow-hidden bg-[var(--ib-acc)] p-8 text-center text-white md:w-72">
+        <div className="pointer-events-none absolute -mr-10 -mt-10 top-0 right-0 size-32 rounded-bl-full bg-white/5" />
+        <div className="mb-4 transition-transform duration-500 motion-safe:group-hover:scale-105">
+          <Award className="h-16 w-16 text-amber-300 drop-shadow-md" aria-hidden />
         </div>
         <h3 className="text-lg font-black tracking-tight mb-2 leading-tight">
           Certificate of Completion
@@ -64,7 +64,7 @@ export function CertificateCard({
           <div className="flex justify-between items-start gap-4">
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-1">
-                <h3 className="text-[18px] font-black tracking-tight text-slate-900 dark:text-white">
+                <h3 className="text-[18px] font-black tracking-tight text-[var(--ib-ink)] dark:text-white">
                   {certificate.courseName}
                 </h3>
                 {certificate.verified && (
@@ -73,7 +73,7 @@ export function CertificateCard({
                   </span>
                 )}
               </div>
-              <p className="text-sm font-bold text-slate-500 dark:text-slate-400">
+              <p className="text-sm font-bold text-[var(--ib-mute)] dark:text-[var(--ib-mute)]">
                 Instructor: {certificate.instructor}
               </p>
             </div>
@@ -82,27 +82,27 @@ export function CertificateCard({
           {/* Details List */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-xs">
-              <Calendar className="h-4 w-4 text-slate-400" />
-              <span className="text-slate-500 font-medium">Issued on:</span>
-              <span className="font-black text-slate-900 dark:text-white">
+              <Calendar className="h-4 w-4 text-[var(--ib-mute)]" />
+              <span className="text-[var(--ib-mute)] font-medium">Issued on:</span>
+              <span className="font-black text-[var(--ib-ink)] dark:text-white">
                 {formattedDate}
               </span>
             </div>
 
             <div className="flex items-center gap-2 text-xs">
-              <Award className="h-4 w-4 text-slate-400" />
-              <span className="text-slate-500 font-medium">
+              <Award className="h-4 w-4 text-[var(--ib-mute)]" />
+              <span className="text-[var(--ib-mute)] font-medium">
                 Certificate ID:
               </span>
-              <span className="font-black text-slate-900 dark:text-white">
+              <span className="font-black text-[var(--ib-ink)] dark:text-white">
                 {certificate.id}
               </span>
             </div>
 
             {/* <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs">
               <div className="flex items-center gap-2">
-                <Share2 className="h-4 w-4 text-slate-400" />
-                <span className="text-slate-500 font-medium">
+                <Share2 className="h-4 w-4 text-[var(--ib-mute)]" />
+                <span className="text-[var(--ib-mute)] font-medium">
                   Credential URL:
                 </span>
               </div>
@@ -117,7 +117,7 @@ export function CertificateCard({
         </div>
 
         {/* Bottom Actions & Tip */}
-        <div className="space-y-6 mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
+        <div className="space-y-6 mt-6 pt-6 border-t border-[var(--ib-line)] dark:border-[var(--ib-line)]">
           <div className="flex flex-wrap items-center gap-3">
             <Button
               onClick={() => onDownload(certificate.courseId as string)}
@@ -130,7 +130,7 @@ export function CertificateCard({
             {/* <Button
               variant="outline"
               onClick={() => onView(certificate.id)}
-              className="border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 font-bold text-xs h-10 px-4 "
+              className="border-[var(--ib-line)] dark:border-[var(--ib-line)] bg-white dark:bg-[var(--ib-dk)] text-[var(--ib-ink)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] font-bold text-xs h-10 px-4 "
             >
               <ExternalLink className="h-4 w-4 mr-2" />
               View Full Size
@@ -138,7 +138,7 @@ export function CertificateCard({
             <Button
               variant="outline"
               onClick={() => onShare(certificate.id)}
-              className="border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 font-bold text-xs h-10 px-4 "
+              className="border-[var(--ib-line)] dark:border-[var(--ib-line)] bg-white dark:bg-[var(--ib-dk)] text-[var(--ib-ink)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] font-bold text-xs h-10 px-4 "
             >
               <Share2 className="h-4 w-4 mr-2" />
               Share
@@ -148,8 +148,8 @@ export function CertificateCard({
           {/* Tip Box */}
           <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-xl p-3 flex items-start gap-2 border border-blue-100/50 dark:border-blue-800/50">
             <Lightbulb className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-tight font-medium">
-              <span className="font-bold text-slate-900 dark:text-white mr-1">
+            <p className="text-[11px] text-[var(--ib-mute)] dark:text-[var(--ib-mute)] leading-tight font-medium">
+              <span className="font-bold text-[var(--ib-ink)] dark:text-white mr-1">
                 Tip:
               </span>
               Add this certificate to your LinkedIn profile or share it with

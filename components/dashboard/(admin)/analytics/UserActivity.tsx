@@ -15,8 +15,8 @@ export function UserActivity({ activity }: UserActivityProps) {
   const maxCount = Math.max(...(activity?.map((a) => a.users) || [1]));
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-sm h-full">
-      <h3 className="text-[18px] font-bold text-slate-900 dark:text-white mb-8">
+    <div className="bg-white dark:bg-[var(--ib-dk)] rounded-3xl p-8 shadow-sm h-full">
+      <h3 className="text-[18px] font-bold text-[var(--ib-ink)] dark:text-white mb-8">
         User Activity
       </h3>
       <div className="space-y-6">
@@ -25,11 +25,11 @@ export function UserActivity({ activity }: UserActivityProps) {
           return (
             <div key={item.day} className="space-y-2">
               <div className="flex justify-between items-center text-[13px] font-bold">
-                <span className="text-slate-900 dark:text-slate-200">
+                <span className="text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                   {item.day}
                 </span>
-                <span className="text-slate-400">
-                  <span className="text-slate-900 dark:text-slate-200">
+                <span className="text-[var(--ib-mute)]">
+                  <span className="text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
                     {item.users.toLocaleString()}
                   </span>{" "}
                   users
@@ -37,8 +37,8 @@ export function UserActivity({ activity }: UserActivityProps) {
               </div>
               <Progress
                 value={percentage}
-                className="h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full"
-                indicatorClassName="bg-gradient-to-r from-purple-600 to-indigo-600"
+                className="h-2.5 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] rounded-full"
+                indicatorClassName="bg-[var(--ib-acc)]"
               />
             </div>
           );

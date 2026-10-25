@@ -89,7 +89,7 @@ export default function CoursesPage() {
   const renderSkeleton = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {[1, 2, 3, 4, 5, 6].map((i) => (
-        <div key={i} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+        <div key={i} className="bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-2xl p-6 shadow-sm">
           <div className="flex justify-between items-start mb-4">
             <div className="flex items-center gap-3">
               <Skeleton className="w-10 h-10 rounded-lg" />
@@ -135,8 +135,8 @@ export default function CoursesPage() {
           <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-full mb-4">
             <X className="w-8 h-8 text-red-600" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Error Loading Courses</h3>
-          <p className="text-slate-500 max-w-md">
+          <h3 className="text-lg font-bold text-[var(--ib-ink)] dark:text-white mb-2">Error Loading Courses</h3>
+          <p className="text-[var(--ib-mute)] max-w-md">
             We couldn&apos;t fetch the courses at this time. Please check your connection or try again later.
           </p>
         </div>
@@ -163,8 +163,8 @@ export default function CoursesPage() {
       />
 
       {/* ── Quick Course Titles Section (GET /courses/all) ── */}
-      <div className="mb-8 p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm">
-        <h3 className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+      <div className="mb-8 p-6 bg-white dark:bg-[var(--ib-dk)] border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-2xl shadow-sm">
+        <h3 className="text-[11px] font-bold text-[var(--ib-mute)] dark:text-[var(--ib-mute)] uppercase tracking-wider mb-4 flex items-center gap-2">
 
           Active Course Titles
         </h3>
@@ -180,12 +180,12 @@ export default function CoursesPage() {
             {(allCoursesData?.data || []).map((course, idx) => (
               <div
                 key={course.id}
-                className="group flex items-start p-3 bg-slate-50/50 dark:bg-slate-800/30  border border-slate-100 dark:border-slate-850 rounded-xl transition-all duration-205"
+                className="group flex items-start p-3 bg-[var(--ib-bg)]/50 dark:bg-[var(--ib-dk)]/30 border border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl transition-all duration-205"
               >
-                <span className="text-[12px] font-mono text-indigo-500 dark:text-indigo-400 font-bold mr-2.5 mt-0.5 shrink-0 select-none">
+                <span className="text-[12px] font-mono text-[var(--ib-acc)] dark:text-[var(--ib-acc)] font-bold mr-2.5 mt-0.5 shrink-0 select-none">
                   {String(idx + 1).padStart(2, '0')}.
                 </span>
-                <span className="text-[16px] font-semibold text-slate-700 dark:text-slate-300 transition-colors leading-relaxed">
+                <span className="text-[16px] font-semibold text-[var(--ib-ink)] dark:text-[var(--ib-mute)] transition-colors leading-relaxed">
                   {course.title}
                 </span>
               </div>
@@ -248,18 +248,18 @@ export default function CoursesPage() {
               statusConfig={{
                 Published: "bg-blue-600 hover:bg-blue-600 text-white",
                 Draft:
-                  "bg-slate-100 dark:bg-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300",
+                  "bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] hover:bg-[var(--ib-bg)] text-[var(--ib-ink)] dark:text-[var(--ib-mute)]",
                 Archived: "bg-red-50 dark:bg-red-900/20 text-red-600",
               }}
               footerExtra={
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-1.5">
                     <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    <span className="font-bold text-slate-900 dark:text-white text-[15px]">
+                    <span className="font-bold text-[var(--ib-ink)] dark:text-white text-[15px]">
                       4.8
                     </span>
                   </div>
-                  <p className="text-xs font-medium text-slate-400">
+                  <p className="text-xs font-medium text-[var(--ib-mute)]">
                     {new Date(course.updatedAt).toLocaleDateString()}
                   </p>
                 </div>
