@@ -2,9 +2,23 @@ import { createApi, fetchBaseQuery, BaseQueryFn, FetchArgs, FetchBaseQueryError 
 import { RootState } from "../store";
 import { toast } from "sonner";
 
+const PRODUCTION_API_URL = "https://api.isobrain.ai/api/v1";
+
+/** Never ship a localhost API URL in a production bundle (common .env.local mistake). */
+const resolveApiBaseUrl = () => {
+  const configured =
+    process.env.NEXT_PUBLIC_API_URL?.trim() || PRODUCTION_API_URL;
+  if (
+    process.env.NODE_ENV === "production" &&
+    /localhost|127\.0\.0\.1/i.test(configured)
+  ) {
+    return PRODUCTION_API_URL;
+  }
+  return configured;
+};
+
 const rawBaseQuery = fetchBaseQuery({
-  baseUrl:
-    process.env.NEXT_PUBLIC_API_URL || "https://api.isobrain.ai/api/v1",
+  baseUrl: resolveApiBaseUrl(),
   prepareHeaders: (headers, { getState }) => {
     // We can also extract the token directly from cookies if preferred,
     // but Redux state is standard for RTK Query headers.
