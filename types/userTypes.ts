@@ -18,6 +18,13 @@ export interface UserProfile {
   subscribed: string
   createdAt: string
   updatedAt: string
+  industry?: string | null
+  professionalRole?: string | null
+  targetStandardIds?: string[]
+  onboardingCompleted?: boolean | null
+  onboardingStep?: number | null
+  onboardingCompletedAt?: string | null
+  needsOnboarding?: boolean
 }
 
 export interface UserProfileResponse {

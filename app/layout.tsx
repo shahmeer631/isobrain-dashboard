@@ -10,6 +10,8 @@ import { cookies } from "next/headers";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +33,6 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased`}
         suppressHydrationWarning
-        style={{ fontSize: 14, lineHeight: 1.5 }}
       >
         <ThemeProvider
           attribute="class"

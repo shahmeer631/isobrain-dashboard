@@ -14,8 +14,7 @@ type BrandLogoProps = {
 
 /**
  * ISOBrain.AI mark for the dashboard sidebar.
- * Uses the brand squircle (white brain on accent blue) so the mark
- * is never clipped by a conflicting background or black PNG fill.
+ * Uses the same /Icon.png brain asset as the main website header.
  */
 export function BrandLogo({
   href = "/user",
@@ -34,17 +33,16 @@ export function BrandLogo({
     >
       <span
         className={cn(
-          "relative shrink-0 overflow-hidden rounded-[9px]",
-          "shadow-[0_1px_2px_rgba(14,20,36,0.08)]",
-          collapsed ? "size-9" : "size-8"
+          "relative shrink-0 overflow-hidden rounded-[7px]",
+          collapsed ? "size-9" : "size-[26px]"
         )}
       >
         <Image
-          src="/brand-mark.png"
+          src="/Icon.png"
           alt=""
           width={36}
           height={36}
-          className="size-full object-cover object-center"
+          className="size-full object-contain object-center"
           priority
         />
       </span>

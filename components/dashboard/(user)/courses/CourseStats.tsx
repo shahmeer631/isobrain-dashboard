@@ -32,7 +32,7 @@ const items: {
     value: (s) => s?.completed?.toString() || "0",
   },
   {
-    label: "Total hours",
+    label: "Learning time",
     icon: Clock,
     value: (s) => s?.totalHours || "0h",
   },

@@ -22,10 +22,18 @@ export default function CoursesPageClient() {
     if (q) setSearchQuery(q);
   }, [searchParams]);
 
+  const focusCourseId = searchParams.get("courseId");
+
   const filteredCourses = useMemo(() => {
     if (!myCoursesData?.data?.courses) return [];
 
     return myCoursesData.data.courses.filter((course) => {
+      if (focusCourseId && course.courseId === focusCourseId) {
+        return true;
+      }
+      if (focusCourseId) {
+        return false;
+      }
       const matchesSearch = course.title
         .toLowerCase()
         .includes(searchQuery.toLowerCase());
@@ -36,7 +44,13 @@ export default function CoursesPageClient() {
 
       return matchesSearch && matchesStatus && matchesCategory;
     });
-  }, [myCoursesData, searchQuery, activeStatus, activeCategory]);
+  }, [
+    myCoursesData,
+    searchQuery,
+    activeStatus,
+    activeCategory,
+    focusCourseId,
+  ]);
 
   return (
     <Container>

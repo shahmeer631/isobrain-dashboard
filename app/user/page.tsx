@@ -2,9 +2,10 @@
 
 import { UserStats } from "@/components/dashboard/(user)/home/UserStats";
 import { ContinueLearning } from "@/components/dashboard/(user)/home/ContinueLearning";
-import { RecentResources } from "@/components/dashboard/(user)/home/RecentResources";
-import { RecentAchievements } from "@/components/dashboard/(user)/home/RecentAchievements";
+import { RecentActivity } from "@/components/dashboard/(user)/home/RecentActivity";
+import { GamificationPanel } from "@/components/dashboard/(user)/home/GamificationPanel";
 import { MyCoursesTable } from "@/components/dashboard/(user)/home/MyCoursesTable";
+import { PersonalizedLearning } from "@/components/dashboard/(user)/home/PersonalizedLearning";
 import { useGetProfileQuery } from "@/lib/redux/features/user/userApi";
 import {
   useGetUserDashboardQuery,
@@ -24,8 +25,6 @@ const UserHomePage = () => {
   const user = profileData?.data;
   const stats = dashboardData?.data?.stats;
   const continueLearning = dashboardData?.data?.continueLearning || [];
-  const recentResources = dashboardData?.data?.recentResources || [];
-  const recentAchievements = dashboardData?.data?.recentAchievements || [];
   const courses = myCoursesData?.data?.courses || [];
 
   const firstName = user?.firstName || "Student";
@@ -63,18 +62,16 @@ const UserHomePage = () => {
       </div>
 
       <div className="ib-reveal ib-reveal-delay-2 mt-6">
+        <PersonalizedLearning />
+      </div>
+
+      <div className="ib-reveal ib-reveal-delay-3 mt-6">
         <MyCoursesTable courses={courses} isLoading={isCoursesLoading} />
       </div>
 
-      <div className="ib-reveal ib-reveal-delay-3 mt-6 grid grid-cols-1 gap-5 min-[981px]:grid-cols-2">
-        <RecentResources
-          resources={recentResources}
-          isLoading={isDashboardLoading}
-        />
-        <RecentAchievements
-          achievements={recentAchievements}
-          isLoading={isDashboardLoading}
-        />
+      <div className="ib-reveal ib-reveal-delay-4 mt-6 grid grid-cols-1 gap-5 min-[981px]:grid-cols-2">
+        <RecentActivity />
+        <GamificationPanel />
       </div>
     </div>
   );

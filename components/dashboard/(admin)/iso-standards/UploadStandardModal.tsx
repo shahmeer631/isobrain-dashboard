@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -32,6 +33,7 @@ import { cn } from "@/lib/utils";
 
 const uploadSchema = z.object({
   title: z.string().min(1, "Title is required"),
+  description: z.string().optional(),
   categoryId: z.string().min(1, "Category is required"),
   file: z.any().refine((file) => file instanceof File, "File is required"),
 });
@@ -59,6 +61,7 @@ export function UploadStandardModal({
     resolver: zodResolver(uploadSchema),
     defaultValues: {
       title: "",
+      description: "",
       categoryId: "",
     },
   });
@@ -86,6 +89,7 @@ export function UploadStandardModal({
       // 2. Create the ISO Standard with the file URL
       const payload = {
         title: data.title,
+        description: (data.description || "").trim() || null,
         categoryId: data.categoryId,
         fileUrl: uploadResponse.data.url,
         fileSize: parseFloat((data.file.size / (1024 * 1024)).toFixed(2)), // Size in MB
@@ -177,6 +181,26 @@ export function UploadStandardModal({
                   <Input
                     placeholder="e.g., Quality Management Systems"
                     className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
+                  Overview
+                </FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Write a short overview for this standard (shown on Library category pages)..."
+                    className="min-h-[110px] resize-y bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
                     {...field}
                   />
                 </FormControl>

@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -32,6 +33,7 @@ import { cn } from "@/lib/utils";
 
 const editSchema = z.object({
   title: z.string().min(1, "Title is required"),
+  description: z.string().optional(),
   categoryId: z.string().min(1, "Category is required"),
   status: z.enum(["ACTIVE", "DRAFT", "ARCHIVED"]),
   file: z.any().optional(),
@@ -63,6 +65,7 @@ export function EditStandardModal({
     resolver: zodResolver(editSchema),
     defaultValues: {
       title: "",
+      description: "",
       categoryId: "",
       status: "ACTIVE",
     },
@@ -72,6 +75,7 @@ export function EditStandardModal({
     if (standard && open) {
       form.reset({
         title: standard.title,
+        description: standard.description || "",
         categoryId: standard.categoryId,
         status: standard.status,
       });
@@ -112,6 +116,7 @@ export function EditStandardModal({
       // 2. Update the ISO Standard with the potentially new file URL and other fields as JSON
       const payload: Partial<ISOStandard> = {
         title: data.title,
+        description: (data.description || "").trim() || null,
         categoryId: data.categoryId,
         status: data.status,
         fileUrl,
@@ -185,6 +190,26 @@ export function EditStandardModal({
                   <Input
                     placeholder="e.g., Quality Management Systems"
                     className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
+                  Overview
+                </FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Write a short overview for this standard (shown on Library category pages)..."
+                    className="min-h-[110px] resize-y bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)] border-none rounded-xl text-[14px]"
                     {...field}
                   />
                 </FormControl>

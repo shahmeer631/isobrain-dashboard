@@ -1,8 +1,9 @@
 import React from "react";
-import { BookOpen, Award, TrendingUp, Clock } from "lucide-react";
+import { BookOpen, Award, TrendingUp, Clock, Sparkles } from "lucide-react";
 import { IUserDashboardStats } from "@/types/userDashboardTypes";
 import { UserStatsSkeleton } from "./UserDashboardSkeleton";
 import { GlanceStat } from "@/components/dashboard/design-system";
+import { useGetXpSummaryQuery } from "@/lib/redux/api/xpApi";
 
 interface UserStatsProps {
   stats?: IUserDashboardStats;
@@ -11,6 +12,9 @@ interface UserStatsProps {
 }
 
 export function UserStats({ stats, isLoading, compact = true }: UserStatsProps) {
+  const { data: xpData } = useGetXpSummaryQuery();
+  const xpTotal = xpData?.data?.xpTotal;
+
   if (isLoading) {
     return <UserStatsSkeleton />;
   }
@@ -32,9 +36,14 @@ export function UserStats({ stats, isLoading, compact = true }: UserStatsProps) 
       icon: TrendingUp,
     },
     {
-      label: "Total learning time",
+      label: "Learning time",
       value: stats?.totalLearningTime || "0h",
       icon: Clock,
+    },
+    {
+      label: "XP",
+      value: typeof xpTotal === "number" ? String(xpTotal) : "0",
+      icon: Sparkles,
     },
   ];
 

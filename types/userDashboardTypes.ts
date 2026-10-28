@@ -10,6 +10,10 @@ export interface IContinueLearningCourse {
   title: string;
   thumbnail: string;
   progress?: number; // Optional if available later
+  nextLessonId?: string | null;
+  nextLesson?: string | null;
+  /** Prefer server-provided href; falls back to courseId query on My Courses. */
+  href?: string;
 }
 
 export interface IRecentResource {

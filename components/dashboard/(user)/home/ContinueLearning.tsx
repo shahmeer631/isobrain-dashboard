@@ -53,6 +53,9 @@ export function ContinueLearning({
 
   const course = courses[0];
   const progress = course.progress || 0;
+  const resumeHref =
+    course.href ||
+    `/user/courses?courseId=${encodeURIComponent(course.courseId)}`;
 
   return (
     <div>
@@ -91,6 +94,11 @@ export function ContinueLearning({
             <h3 className="mt-3 mb-1 text-[18px] font-semibold leading-[1.35] tracking-[-0.015em] text-[var(--ib-ink)] min-[981px]:text-[19px]">
               {course.title}
             </h3>
+            {course.nextLesson ? (
+              <p className="mt-1 text-[13px] text-[var(--ib-mute)]">
+                Next: {course.nextLesson}
+              </p>
+            ) : null}
           </div>
 
           <div>
@@ -102,8 +110,8 @@ export function ContinueLearning({
             </div>
             <ProgressBar value={progress} minVisible={2} />
             <div className="mt-4 flex items-center gap-3.5">
-              <Link href="/user/courses" className="ib-btn">
-                Resume lesson →
+              <Link href={resumeHref} className="ib-btn">
+                Resume course →
               </Link>
             </div>
           </div>
@@ -115,7 +123,10 @@ export function ContinueLearning({
           {courses.slice(1).map((c) => (
             <Link
               key={c.courseId}
-              href="/user/courses"
+              href={
+                c.href ||
+                `/user/courses?courseId=${encodeURIComponent(c.courseId)}`
+              }
               className="ib-card flex items-center gap-4 p-3.5 transition-colors hover:bg-[var(--ib-accbg)]/40"
             >
               <div className="relative h-12 w-16 shrink-0 overflow-hidden rounded-lg bg-[var(--ib-bg)]">

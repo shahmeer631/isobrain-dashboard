@@ -9,6 +9,7 @@ export interface IISOCategory {
 export interface ISOStandard {
   id: string;
   title: string;
+  description?: string | null;
   fileUrl: string;
   fileSize: number;
   downloads: number;

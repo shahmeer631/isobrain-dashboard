@@ -47,7 +47,7 @@ export function ProgressStats({
       icon: Award,
     },
     {
-      label: "Total time",
+      label: "Learning time",
       value: totalTime,
       icon: Clock,
     },

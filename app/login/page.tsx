@@ -116,14 +116,14 @@ export default function LoginPage() {
 
           <div className="relative z-10">
             <div className="mb-10 text-center">
-              <div className="mb-6 inline-flex items-center justify-center overflow-hidden rounded-2xl shadow-[0_8px_24px_-12px_color-mix(in_srgb,var(--ib-acc)_45%,transparent)]">
+              <div className="mb-6 inline-flex items-center justify-center overflow-hidden rounded-2xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/brand-mark.png"
+                  src="/Icon.png"
                   alt="ISOBrain.AI"
                   width={64}
                   height={64}
-                  className="size-16 object-cover"
+                  className="size-16 object-contain"
                 />
               </div>
               <p className="mb-2 text-[13px] font-bold tracking-[-0.02em] text-[var(--ib-ink)]">
