@@ -40,6 +40,18 @@ export default function UserCertificatesPage() {
     ? `${profileData.data.firstName || ""} ${profileData.data.lastName || ""}`.trim()
     : "Student Name";
 
+  const isMasteryCertificate = (c: any) => {
+    const title = String(c.course?.title || "").toLowerCase();
+    const slug = String(c.course?.slug || "").toLowerCase();
+    const template = String(c.template?.name || "").toLowerCase();
+    return (
+      title.includes("mastery") ||
+      slug.includes("mastery") ||
+      slug.includes("certificate-of-competency") ||
+      template.includes("mastery")
+    );
+  };
+
   const mappedCertificates: any[] = Array.isArray(certsData?.data)
     ? certsData.data.map((c: any) => ({
         id: c.id,
@@ -50,8 +62,12 @@ export default function UserCertificatesPage() {
         template: c.template?.name || "Standard Template",
         verified: true,
         studentName: currentUserName,
+        kind: isMasteryCertificate(c) ? "mastery" : "academy",
       }))
     : [];
+
+  const masteryCertificates = mappedCertificates.filter((c) => c.kind === "mastery");
+  const academyCertificates = mappedCertificates.filter((c) => c.kind !== "mastery");
 
   // Handlers for certificate actions
   const handleDownload = async (id: string) => {
@@ -122,7 +138,7 @@ export default function UserCertificatesPage() {
           isLoading={isLoading}
         />
 
-        <div className="space-y-4">
+        <div className="space-y-8">
           {isLoading ? (
             [1, 2, 3].map((i) => <UserCertificateCardSkeleton key={i} />)
           ) : mappedCertificates.length === 0 ? (
@@ -132,15 +148,63 @@ export default function UserCertificatesPage() {
               </p>
             </div>
           ) : (
-            mappedCertificates.map((cert) => (
-              <CertificateCard
-                key={cert.id}
-                certificate={cert}
-                onDownload={handleDownload}
-                onShare={handleShare}
-                onView={handleView}
-              />
-            ))
+            <>
+              <section className="space-y-4">
+                <div>
+                  <h2 className="text-[18px] font-black tracking-tight text-[var(--ib-ink)]">
+                    Mastery Lab certificates
+                  </h2>
+                  <p className="mt-1 text-sm font-medium text-[var(--ib-mute)]">
+                    CPD Certificate of Competency earned from Mastery Lab assessments.
+                  </p>
+                </div>
+                {masteryCertificates.length === 0 ? (
+                  <div className="ib-card border-dashed py-10 text-center">
+                    <p className="font-semibold text-[var(--ib-mute)]">
+                      No Mastery Lab certificates yet. Pass an assessment to earn your CPD Certificate of Competency.
+                    </p>
+                  </div>
+                ) : (
+                  masteryCertificates.map((cert) => (
+                    <CertificateCard
+                      key={cert.id}
+                      certificate={cert}
+                      onDownload={handleDownload}
+                      onShare={handleShare}
+                      onView={handleView}
+                    />
+                  ))
+                )}
+              </section>
+
+              <section className="space-y-4">
+                <div>
+                  <h2 className="text-[18px] font-black tracking-tight text-[var(--ib-ink)]">
+                    Academy certificates
+                  </h2>
+                  <p className="mt-1 text-sm font-medium text-[var(--ib-mute)]">
+                    Course completion certificates from ISO Academy.
+                  </p>
+                </div>
+                {academyCertificates.length === 0 ? (
+                  <div className="ib-card border-dashed py-10 text-center">
+                    <p className="font-semibold text-[var(--ib-mute)]">
+                      No Academy certificates yet.
+                    </p>
+                  </div>
+                ) : (
+                  academyCertificates.map((cert) => (
+                    <CertificateCard
+                      key={cert.id}
+                      certificate={cert}
+                      onDownload={handleDownload}
+                      onShare={handleShare}
+                      onView={handleView}
+                    />
+                  ))
+                )}
+              </section>
+            </>
           )}
         </div>
 

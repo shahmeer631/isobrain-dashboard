@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ICertificate } from "@/types/userDashboardTypes";
 
 interface CertificateCardProps {
-  certificate: ICertificate;
+  certificate: ICertificate & { kind?: "mastery" | "academy" };
   onDownload: (id: string) => void;
   onShare: (id: string) => void;
   onView: (id: string) => void;
@@ -29,16 +29,23 @@ export function CertificateCard({
     month: "long",
     day: "numeric",
   });
+  const isMastery = certificate.kind === "mastery";
   return (
     <div className="ib-card ib-card-interactive group flex min-h-[220px] flex-col overflow-hidden md:flex-row">
       {/* Left Banner */}
-      <div className="relative flex w-full shrink-0 flex-col items-center justify-center overflow-hidden bg-[var(--ib-acc)] p-8 text-center text-white md:w-72">
+      <div
+        className={`relative flex w-full shrink-0 flex-col items-center justify-center overflow-hidden p-8 text-center text-white md:w-72 ${
+          isMastery
+            ? "bg-[linear-gradient(160deg,#0B1B4A_0%,#1B4DDB_55%,#C9A227_140%)]"
+            : "bg-[var(--ib-acc)]"
+        }`}
+      >
         <div className="pointer-events-none absolute -mr-10 -mt-10 top-0 right-0 size-32 rounded-bl-full bg-white/5" />
         <div className="mb-4 transition-transform duration-500 motion-safe:group-hover:scale-105">
           <Award className="h-16 w-16 text-amber-300 drop-shadow-md" aria-hidden />
         </div>
         <h3 className="text-lg font-black tracking-tight mb-2 leading-tight">
-          Certificate of Completion
+          {isMastery ? "CPD Certificate of Competency" : "Certificate of Completion"}
         </h3>
         <p className="text-[10px] uppercase tracking-widest font-bold opacity-80 mb-4">
           This certifies that
@@ -47,10 +54,10 @@ export function CertificateCard({
           {certificate.studentName || "Student Name"}
         </p>
         <p className="text-[10px] uppercase tracking-widest font-bold opacity-80 mb-2">
-          has successfully completed
+          {isMastery ? "has demonstrated competency in" : "has successfully completed"}
         </p>
         <p className="text-sm font-black mb-4 leading-tight">
-          {certificate.courseName}
+          {isMastery ? "ISO Mastery Lab" : certificate.courseName}
         </p>
         <p className="text-[9px] opacity-60 font-medium">
           Certificate ID: {certificate.id}
