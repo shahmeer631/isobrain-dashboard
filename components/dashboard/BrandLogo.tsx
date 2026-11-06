@@ -14,7 +14,7 @@ type BrandLogoProps = {
 
 /**
  * ISOBrain.AI mark for the dashboard sidebar.
- * Uses the same /Icon.png brain asset as the main website header.
+ * Uses the same /isobrain-logo.png asset as the main website.
  */
 export function BrandLogo({
   href = "/user",
@@ -25,33 +25,23 @@ export function BrandLogo({
     <Link
       href={href}
       className={cn(
-        "group flex items-center gap-2.5 rounded-xl outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[var(--ib-acc)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ib-side)]",
-        collapsed ? "justify-center" : "px-1",
+        "group flex items-center rounded-xl outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[var(--ib-acc)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ib-side)]",
+        collapsed ? "justify-center" : "px-0.5",
         className
       )}
       aria-label="ISOBrain.AI home"
     >
-      <span
+      <Image
+        src="/isobrain-logo.png"
+        alt="ISOBrain.AI"
+        width={collapsed ? 48 : 220}
+        height={collapsed ? 48 : 220}
         className={cn(
-          "relative shrink-0 overflow-hidden rounded-[7px]",
-          collapsed ? "size-9" : "size-[26px]"
+          "object-contain object-center",
+          collapsed ? "size-11 rounded-lg" : "h-[84px] w-auto max-w-full rounded-[12px]"
         )}
-      >
-        <Image
-          src="/Icon.png"
-          alt=""
-          width={36}
-          height={36}
-          className="size-full object-contain object-center"
-          priority
-        />
-      </span>
-      {!collapsed && (
-        <span className="truncate text-[15px] font-bold leading-none tracking-[-0.02em] text-[var(--ib-ink)]">
-          ISOBrain
-          <span className="text-[var(--ib-acc)]">.AI</span>
-        </span>
-      )}
+        priority
+      />
     </Link>
   );
 }
