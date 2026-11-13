@@ -17,9 +17,28 @@ import {
 } from "@/components/ui/select";
 import { useFormContext } from "react-hook-form";
 import { Globe, Clock } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/lib/i18n/client";
+import { isAppLocale, isRtlLocale, type AppLocale } from "@/lib/locales";
+import "@/lib/i18n/client";
 
 export function Preferences() {
   const { control } = useFormContext();
+  const { t } = useTranslation();
+
+  const applyLanguage = (code: string) => {
+    if (!isAppLocale(code)) return;
+    const lang = code as AppLocale;
+    void i18n.changeLanguage(lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isRtlLocale(lang) ? "rtl" : "ltr";
+    document.documentElement.setAttribute("data-locale", lang);
+    try {
+      localStorage.setItem("preferredLanguage", lang);
+    } catch {
+      /* ignore */
+    }
+  };
 
   return (
     <div className="ib-card p-6 sm:p-7">
@@ -39,9 +58,15 @@ export function Preferences() {
             <FormItem>
               <FormLabel className="flex items-center gap-2">
                 <Globe className="h-4 w-4 text-[var(--ib-mute)]" />
-                Language *
+                {t("prefs.language")} *
               </FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select
+                onValueChange={(value) => {
+                  field.onChange(value);
+                  applyLanguage(value);
+                }}
+                defaultValue={field.value}
+              >
                 <FormControl>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a language" />
@@ -50,13 +75,14 @@ export function Preferences() {
                 <SelectContent>
                   <SelectItem value="en">English</SelectItem>
                   <SelectItem value="es">Español</SelectItem>
+                  <SelectItem value="ar">العربية</SelectItem>
                   <SelectItem value="fr">Français</SelectItem>
-                  <SelectItem value="de">Deutsch</SelectItem>
-                  <SelectItem value="ja">日本語</SelectItem>
+                  <SelectItem value="it">Italiano</SelectItem>
+                  <SelectItem value="hi">हिन्दी</SelectItem>
                 </SelectContent>
               </Select>
               <FormDescription>
-                Select your preferred language for the platform
+                {t("prefs.languageHelp")}
               </FormDescription>
               <FormMessage />
             </FormItem>

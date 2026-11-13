@@ -78,14 +78,17 @@ export function GeneralSettings({
             <Label className="text-sm font-bold text-[var(--ib-ink)] dark:text-[var(--ib-mute)]">
               Language
             </Label>
-            <Select defaultValue="English">
+            <Select defaultValue="en">
               <SelectTrigger className="h-12 bg-[var(--ib-bg)] dark:bg-[var(--ib-dk)]/50 border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl focus:ring-[var(--ib-acc)] font-medium">
                 <SelectValue placeholder="Select language" />
               </SelectTrigger>
               <SelectContent className="bg-white dark:bg-[var(--ib-dk)] border-[var(--ib-line)] dark:border-[var(--ib-line)] rounded-xl">
-                <SelectItem value="English">English</SelectItem>
-                <SelectItem value="Spanish">Spanish</SelectItem>
-                <SelectItem value="French">French</SelectItem>
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="es">Español</SelectItem>
+                <SelectItem value="ar">العربية</SelectItem>
+                <SelectItem value="fr">Français</SelectItem>
+                <SelectItem value="it">Italiano</SelectItem>
+                <SelectItem value="hi">हिन्दी</SelectItem>
               </SelectContent>
             </Select>
           </div>

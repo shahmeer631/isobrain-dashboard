@@ -23,7 +23,7 @@ export default function DashboardShell({
     <div className="flex min-h-screen w-full bg-[var(--ib-bg)] font-sans text-[var(--ib-ink)] antialiased">
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 hidden border-r border-[var(--ib-line)] bg-[var(--ib-side)] transition-all duration-300 ease-in-out min-[981px]:block",
+          "fixed inset-y-0 start-0 z-40 hidden border-e border-[var(--ib-line)] bg-[var(--ib-side)] transition-all duration-300 ease-in-out min-[981px]:block",
           isCollapsed ? "w-[80px]" : "w-[240px]"
         )}
       >
@@ -32,8 +32,8 @@ export default function DashboardShell({
 
       <div
         className={cn(
-          "flex min-h-screen flex-1 flex-col transition-all duration-300 ease-in-out pl-0",
-          isCollapsed ? "min-[981px]:pl-[80px]" : "min-[981px]:pl-[240px]"
+          "flex min-h-screen flex-1 flex-col transition-all duration-300 ease-in-out ps-0",
+          isCollapsed ? "min-[981px]:ps-[80px]" : "min-[981px]:ps-[240px]"
         )}
       >
         <Header />

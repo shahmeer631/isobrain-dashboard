@@ -42,97 +42,100 @@ import { cn } from "@/lib/utils";
 import { BsLightning } from "react-icons/bs";
 import { TbReceiptDollar } from "react-icons/tb";
 import { BrandLogo } from "@/components/dashboard/BrandLogo";
+import { useTranslation } from "react-i18next";
+import "@/lib/i18n/client";
 
 type SidebarProps = React.HTMLAttributes<HTMLDivElement>;
 
 type NavItem = {
   icon: React.ElementType;
-  label: string;
+  labelKey: string;
   href: string;
 };
 
 type NavGroup = {
-  label: string;
+  labelKey: string;
   items: NavItem[];
 };
 
 const adminGroups: NavGroup[] = [
   {
-    label: "OVERVIEW",
-    items: [{ icon: Home, label: "Home", href: "/admin" }],
+    labelKey: "nav.overview",
+    items: [{ icon: Home, labelKey: "nav.home", href: "/admin" }],
   },
   {
-    label: "PRODUCTS",
+    labelKey: "nav.products",
     items: [
-      { icon: GraduationCap, label: "Courses", href: "/admin/courses" },
-      { icon: BookOpen, label: "ISO Standards", href: "/admin/iso-standards" },
-      { icon: Package, label: "Bundles", href: "/admin/bundles" },
-      { icon: LayoutList, label: "Categories", href: "/admin/categories" },
-      { icon: Video, label: "Video Library", href: "/admin/video-library" },
-      { icon: FileText, label: "Document Library", href: "/admin/document-library" },
+      { icon: GraduationCap, labelKey: "nav.courses", href: "/admin/courses" },
+      { icon: BookOpen, labelKey: "nav.isoStandards", href: "/admin/iso-standards" },
+      { icon: Package, labelKey: "nav.bundles", href: "/admin/bundles" },
+      { icon: LayoutList, labelKey: "nav.categories", href: "/admin/categories" },
+      { icon: Video, labelKey: "nav.videoLibrary", href: "/admin/video-library" },
+      { icon: FileText, labelKey: "nav.documentLibrary", href: "/admin/document-library" },
     ],
   },
   {
-    label: "COMMUNITY",
-    items: [{ icon: User, label: "Communities", href: "/admin/community" }],
+    labelKey: "nav.community",
+    items: [{ icon: User, labelKey: "nav.communities", href: "/admin/community" }],
   },
   {
-    label: "MARKETING",
+    labelKey: "nav.marketing",
     items: [
-      { icon: DollarSign, label: "Affiliate Program", href: "/admin/affiliate-program" },
+      { icon: DollarSign, labelKey: "nav.affiliate", href: "/admin/affiliate-program" },
     ],
   },
   {
-    label: "SUBSCRIPTIONS",
+    labelKey: "nav.subscriptions",
     items: [
-      { icon: CreditCard, label: "Plans", href: "/admin/plans" },
-      { icon: BsLightning, label: "Usage Units", href: "/admin/usage-units" },
-      { icon: TbReceiptDollar, label: "Transactions", href: "/admin/transactions" },
+      { icon: CreditCard, labelKey: "nav.plans", href: "/admin/plans" },
+      { icon: BsLightning, labelKey: "nav.usageUnits", href: "/admin/usage-units" },
+      { icon: TbReceiptDollar, labelKey: "nav.transactions", href: "/admin/transactions" },
     ],
   },
   {
-    label: "SALES",
+    labelKey: "nav.sales",
     items: [
-      { icon: ShoppingCart, label: "Orders", href: "/admin/orders" },
-      { icon: Gift, label: "Coupons & Discounts", href: "/admin/coupon-discount" },
+      { icon: ShoppingCart, labelKey: "nav.orders", href: "/admin/orders" },
+      { icon: Gift, labelKey: "nav.coupons", href: "/admin/coupon-discount" },
     ],
   },
   {
-    label: "USERS & GROUPS",
+    labelKey: "nav.usersGroups",
     items: [
-      { icon: Users, label: "User Management", href: "/admin/users" },
-      { icon: Folder, label: "User Groups", href: "/admin/groups" },
+      { icon: Users, labelKey: "nav.userManagement", href: "/admin/users" },
+      { icon: Folder, labelKey: "nav.userGroups", href: "/admin/groups" },
     ],
   },
   {
-    label: "ENGAGEMENT",
-    items: [{ icon: Award, label: "Certificates", href: "/admin/certificates" }],
+    labelKey: "nav.engagement",
+    items: [{ icon: Award, labelKey: "nav.certificates", href: "/admin/certificates" }],
   },
   {
-    label: "ANALYTICS",
+    labelKey: "nav.analytics",
     items: [
-      { icon: ChartColumn, label: "Analytics & Reports", href: "/admin/analytics-reports" },
+      { icon: ChartColumn, labelKey: "nav.analyticsReports", href: "/admin/analytics-reports" },
     ],
   },
   {
-    label: "SYSTEM",
-    items: [{ icon: Settings, label: "Settings", href: "/admin/setting" }],
+    labelKey: "nav.system",
+    items: [{ icon: Settings, labelKey: "nav.settings", href: "/admin/setting" }],
   },
 ];
 
 const userLearnItems: NavItem[] = [
-  { icon: Home, label: "Dashboard", href: "/user" },
-  { icon: GraduationCap, label: "My Courses", href: "/user/courses" },
-  { icon: TrendingUp, label: "Progress", href: "/user/progress" },
-  { icon: Award, label: "Certificates", href: "/user/certificates" },
+  { icon: Home, labelKey: "nav.dashboard", href: "/user" },
+  { icon: GraduationCap, labelKey: "nav.myCourses", href: "/user/courses" },
+  { icon: TrendingUp, labelKey: "nav.progress", href: "/user/progress" },
+  { icon: Award, labelKey: "nav.certificates", href: "/user/certificates" },
 ];
 
 const userAccountItems: NavItem[] = [
-  { icon: User, label: "Profile", href: "/user/profile" },
-  { icon: Settings, label: "Settings", href: "/user/settings" },
+  { icon: User, labelKey: "nav.profile", href: "/user/profile" },
+  { icon: Settings, labelKey: "nav.settings", href: "/user/settings" },
 ];
 
 export function Sidebar({ className }: SidebarProps) {
+  const { t } = useTranslation();
   const pathname = usePathname();
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -143,11 +146,11 @@ export function Sidebar({ className }: SidebarProps) {
   const collapsed = isCollapsed && !isMobile;
 
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(adminGroups.map((g) => [g.label, true]))
+    Object.fromEntries(adminGroups.map((g) => [g.labelKey, true]))
   );
 
-  const toggleGroup = (label: string) => {
-    setOpenGroups((prev) => ({ ...prev, [label]: !prev[label] }));
+  const toggleGroup = (labelKey: string) => {
+    setOpenGroups((prev) => ({ ...prev, [labelKey]: !prev[labelKey] }));
   };
 
   const isItemActive = (href: string) =>
@@ -190,7 +193,7 @@ export function Sidebar({ className }: SidebarProps) {
               (active ? "text-white" : "text-[var(--ib-mute)]")
           )}
         />
-        {!collapsed && <span className="truncate">{item.label}</span>}
+        {!collapsed && <span className="truncate">{t(item.labelKey)}</span>}
       </Link>
     );
 
@@ -200,9 +203,9 @@ export function Sidebar({ className }: SidebarProps) {
           <TooltipTrigger asChild>{linkEl}</TooltipTrigger>
           <TooltipContent
             side="right"
-            className="ml-2 border-transparent bg-[var(--ib-ink)] text-xs font-medium text-[var(--ib-on)]"
+            className="ms-2 border-transparent bg-[var(--ib-ink)] text-xs font-medium text-[var(--ib-on)]"
           >
-            {item.label}
+            {t(item.labelKey)}
           </TooltipContent>
         </Tooltip>
       );
@@ -214,7 +217,7 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <div
       className={cn(
-        "relative z-50 flex h-full flex-col border-r border-[var(--ib-line)] bg-[var(--ib-side)] text-[var(--ib-ink)] transition-all duration-300 ease-in-out",
+        "relative z-50 flex h-full flex-col border-e border-[var(--ib-line)] bg-[var(--ib-side)] text-[var(--ib-ink)] transition-all duration-300 ease-in-out",
         collapsed ? "w-[80px]" : "w-[240px]",
         className
       )}
@@ -224,12 +227,12 @@ export function Sidebar({ className }: SidebarProps) {
           onClick={toggleCollapse}
           variant="ghost"
           size="icon"
-          className="absolute -right-3 top-20 z-10 hidden h-6 w-6 rounded-full border border-[var(--ib-line)] bg-[var(--ib-card)] p-0 text-[var(--ib-mute)] hover:bg-[var(--ib-accbg)] hover:text-[var(--ib-ink)] min-[981px]:flex"
+          className="absolute -end-3 top-20 z-10 hidden h-6 w-6 rounded-full border border-[var(--ib-line)] bg-[var(--ib-card)] p-0 text-[var(--ib-mute)] hover:bg-[var(--ib-accbg)] hover:text-[var(--ib-ink)] min-[981px]:flex"
         >
           {collapsed ? (
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4 rtl:rotate-180" />
           ) : (
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4 rtl:rotate-180" />
           )}
         </Button>
       )}
@@ -252,15 +255,15 @@ export function Sidebar({ className }: SidebarProps) {
         <nav className="flex flex-col px-3.5">
           {isAdmin &&
             adminGroups.map((group) => {
-              const isOpen = openGroups[group.label] ?? true;
+              const isOpen = openGroups[group.labelKey] ?? true;
               const hasActiveItem = group.items.some((i) => isItemActive(i.href));
 
               return (
-                <div key={group.label} className="mb-1">
+                <div key={group.labelKey} className="mb-1">
                   {!collapsed && (
                     <button
                       type="button"
-                      onClick={() => toggleGroup(group.label)}
+                      onClick={() => toggleGroup(group.labelKey)}
                       className={cn(
                         "w-full flex items-center justify-between px-1 pt-4 pb-1.5 text-[10px] font-bold tracking-widest uppercase select-none cursor-pointer transition-colors",
                         hasActiveItem
@@ -268,7 +271,7 @@ export function Sidebar({ className }: SidebarProps) {
                           : "text-[var(--ib-mute)] hover:text-[var(--ib-ink)]"
                       )}
                     >
-                      <span>{group.label}</span>
+                      <span>{t(group.labelKey)}</span>
                       <ChevronDown
                         className={cn(
                           "h-3 w-3 transition-transform duration-200",
@@ -295,7 +298,7 @@ export function Sidebar({ className }: SidebarProps) {
 
           {!isAdmin && (
             <>
-              {!collapsed && <div className="ib-nav-label">Learn</div>}
+              {!collapsed && <div className="ib-nav-label">{t("nav.learn")}</div>}
               <div className="flex flex-col gap-0.5 mb-1">
                 {userLearnItems.map((item) => (
                   <NavLink key={item.href} item={item} variant="user" />
@@ -303,7 +306,7 @@ export function Sidebar({ className }: SidebarProps) {
               </div>
               {!collapsed && (
                 <div className="ib-nav-label" style={{ marginTop: 14 }}>
-                  Account
+                  {t("nav.account")}
                 </div>
               )}
               <div className="flex flex-col gap-0.5">
@@ -324,13 +327,13 @@ export function Sidebar({ className }: SidebarProps) {
                 variant="ghost"
                 onClick={() => setShowLogoutModal(true)}
                 className="mx-auto h-11 w-11 justify-center rounded-[9px] px-0 py-2 text-[var(--ib-mute)] hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-950/40 dark:hover:text-rose-400"
-                aria-label="Log out"
+                aria-label={t("nav.logout")}
               >
                 <LogOut className="h-[18px] w-[18px] shrink-0" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent side="right" className="ml-2 text-xs font-medium">
-              Log out
+            <TooltipContent side="right" className="ms-2 text-xs font-medium">
+              {t("nav.logout")}
             </TooltipContent>
           </Tooltip>
         ) : (
@@ -340,7 +343,7 @@ export function Sidebar({ className }: SidebarProps) {
             className="flex w-full items-center gap-3 rounded-[9px] px-3 py-2.5 text-[13.5px] font-medium text-[var(--ib-mute)] transition-colors hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-950/40 dark:hover:text-rose-400"
           >
             <LogOut className="h-[18px] w-[18px] shrink-0" />
-            <span>Log out</span>
+            <span>{t("nav.logout")}</span>
           </button>
         )}
 

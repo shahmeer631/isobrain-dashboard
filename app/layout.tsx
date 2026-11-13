@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StoreProvider from "@/lib/redux/Provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import LocaleProvider from "@/components/providers/LocaleProvider";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -54,8 +55,10 @@ export default async function RootLayout({
           storageKey="isobrain-dashboard-theme"
         >
           <StoreProvider token={token}>
-            {children}
-            <Toaster position="top-right" richColors />
+            <LocaleProvider>
+              {children}
+              <Toaster position="top-right" richColors />
+            </LocaleProvider>
           </StoreProvider>
         </ThemeProvider>
       </body>
