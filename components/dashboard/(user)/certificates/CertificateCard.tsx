@@ -106,7 +106,7 @@ export function CertificateCard({
               </span>
             </div>
 
-            {/* <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs">
               <div className="flex items-center gap-2">
                 <Share2 className="h-4 w-4 text-[var(--ib-mute)]" />
                 <span className="text-[var(--ib-mute)] font-medium">
@@ -114,12 +114,14 @@ export function CertificateCard({
                 </span>
               </div>
               <a
-                href="#"
-                className="font-bold text-blue-500 hover:text-blue-600 truncate max-w-[200px] sm:max-w-none ml-6 sm:ml-0"
+                href={`/certificates/${certificate.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-6 max-w-[220px] truncate font-bold text-[var(--ib-acc)] hover:opacity-80 sm:ml-0 sm:max-w-none"
               >
-                #
+                /certificates/{certificate.id}
               </a>
-            </div> */}
+            </div>
           </div>
         </div>
 
@@ -134,13 +136,13 @@ export function CertificateCard({
               <Download className="h-4 w-4 mr-2" />
               Download PDF
             </Button>
-            {/* <Button
+            <Button
               variant="outline"
               onClick={() => onView(certificate.id)}
               className="border-[var(--ib-line)] dark:border-[var(--ib-line)] bg-white dark:bg-[var(--ib-dk)] text-[var(--ib-ink)] dark:text-[var(--ib-mute)] hover:bg-[var(--ib-bg)] font-bold text-xs h-10 px-4 "
             >
               <ExternalLink className="h-4 w-4 mr-2" />
-              View Full Size
+              View
             </Button>
             <Button
               variant="outline"
@@ -149,7 +151,7 @@ export function CertificateCard({
             >
               <Share2 className="h-4 w-4 mr-2" />
               Share
-            </Button> */}
+            </Button>
           </div>
 
           {/* Tip Box */}

@@ -100,14 +100,36 @@ export default function UserCertificatesPage() {
     }
   };
 
-  const handleShare = (id: string) => {
-    console.log(`Sharing certificate: ${id}`);
-    // Implement actual sharing logic here
+  const handleShare = async (id: string) => {
+    const shareUrl =
+      typeof window !== "undefined"
+        ? `${window.location.origin}/certificates/${id}`
+        : `/certificates/${id}`;
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "ISOBrain Certificate",
+          text: "View my ISOBrain competency certificate",
+          url: shareUrl,
+        });
+        return;
+      }
+      await navigator.clipboard.writeText(shareUrl);
+      toast.success("Share link copied to clipboard");
+    } catch {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        toast.success("Share link copied to clipboard");
+      } catch {
+        toast.error("Could not share certificate");
+      }
+    }
   };
 
   const handleView = (id: string) => {
-    console.log(`Viewing certificate: ${id}`);
-    // Implement actual view logic here
+    if (typeof window !== "undefined") {
+      window.open(`/certificates/${id}`, "_blank", "noopener,noreferrer");
+    }
   };
 
   const handleCreateProfile = (data: PublicProfileData) => {
