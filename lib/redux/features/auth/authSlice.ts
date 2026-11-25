@@ -12,6 +12,34 @@ const initialState: AuthState = {
   isAuthenticated: false,
 }
 
+/** Localhost is HTTP — `secure: true` cookies often won't set/clear correctly. */
+function accessTokenCookieOptions(): Cookies.CookieAttributes {
+  const secure =
+    typeof window !== "undefined" && window.location.protocol === "https:";
+  return {
+    path: "/",
+    sameSite: "lax",
+    ...(secure ? { secure: true } : {}),
+  };
+}
+
+function clearAccessTokenCookie() {
+  const opts = accessTokenCookieOptions();
+  Cookies.remove("accessToken", opts);
+  // Also clear legacy variants (older secure/strict sets) so middleware stops seeing them
+  Cookies.remove("accessToken", { path: "/" });
+  Cookies.remove("accessToken", {
+    path: "/",
+    secure: true,
+    sameSite: "strict",
+  });
+  Cookies.remove("accessToken", {
+    path: "/",
+    secure: true,
+    sameSite: "lax",
+  });
+}
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -22,12 +50,16 @@ export const authSlice = createSlice({
     ) => {
       state.token = action.payload.accessToken
       state.isAuthenticated = true
-      Cookies.set('accessToken', action.payload.accessToken, { secure: true, sameSite: 'strict' })
+      Cookies.set(
+        "accessToken",
+        action.payload.accessToken,
+        accessTokenCookieOptions(),
+      )
     },
     logout: (state) => {
       state.token = null
       state.isAuthenticated = false
-      Cookies.remove('accessToken')
+      clearAccessTokenCookie()
     },
   },
   extraReducers: (builder) => {
@@ -38,7 +70,11 @@ export const authSlice = createSlice({
         if (payload.success && payload.data?.accessToken) {
           state.token = payload.data.accessToken
           state.isAuthenticated = true
-          Cookies.set('accessToken', payload.data.accessToken, { secure: true, sameSite: 'strict' })
+          Cookies.set(
+            "accessToken",
+            payload.data.accessToken,
+            accessTokenCookieOptions(),
+          )
         }
       }
     )

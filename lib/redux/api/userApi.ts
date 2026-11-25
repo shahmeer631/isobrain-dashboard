@@ -32,13 +32,41 @@ export interface BillingOverview {
     currentPlan: {
       name: string;
       price: number;
-      learningUnits: number;
-      usedUnits: number;
-      availablePoints: number;
-      expiresAt: string;
+      learningUnits?: number;
+      usedUnits?: number;
+      availablePoints?: number;
+      expiresAt: string | null;
       isActive: boolean;
-    };
-    availablePoints: number;
+      source?: "subscription" | "lifetime";
+      isLifetime?: boolean;
+      lifetimeTier?: string | null;
+    } | null;
+    availablePoints?: number;
+    effectiveAccess?: unknown;
+    lifetimeAccess?: {
+      tier: string;
+      status: string;
+      purchaseType: string;
+      purchasedAt: string | null;
+      entitlementActivatedAt: string | null;
+      amount: number;
+      currency: string;
+      promotionId: string;
+      receiptRef: string;
+      planName: string | null;
+      isPermanent: boolean;
+    } | null;
+    lifetimePurchases?: Array<{
+      id: string;
+      tier: string;
+      status: string;
+      amount: number;
+      currency: string;
+      purchasedAt: string | null;
+      entitlementActivatedAt: string | null;
+      receiptRef: string;
+      isActive: boolean;
+    }>;
     orderHistory: {
       invoiceId: string;
       date: string;
@@ -46,6 +74,8 @@ export interface BillingOverview {
       amount: number;
       status: string;
       paymentId: string;
+      purchaseType?: string;
+      receiptRef?: string;
     }[];
   };
 }

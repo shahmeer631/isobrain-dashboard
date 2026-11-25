@@ -88,6 +88,7 @@ const adminGroups: NavGroup[] = [
     labelKey: "nav.subscriptions",
     items: [
       { icon: CreditCard, labelKey: "nav.plans", href: "/admin/plans" },
+      { icon: Gift, labelKey: "nav.lifetimeDeal", href: "/admin/lifetime-deal" },
       { icon: BsLightning, labelKey: "nav.usageUnits", href: "/admin/usage-units" },
       { icon: TbReceiptDollar, labelKey: "nav.transactions", href: "/admin/transactions" },
     ],
@@ -352,8 +353,8 @@ export function Sidebar({ className }: SidebarProps) {
           onOpenChange={setShowLogoutModal}
           onConfirm={() => {
             dispatch(logout());
-            router.push("/login");
             setShowLogoutModal(false);
+            router.replace("/login");
           }}
         />
       </div>

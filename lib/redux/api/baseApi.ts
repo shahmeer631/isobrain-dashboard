@@ -106,6 +106,7 @@ export const baseApi = createApi({
     "Certificates",
     "UserDashboard",
     "Personalization",
+    "LifetimeDealAdmin",
   ],
   endpoints: () => ({}),
 });

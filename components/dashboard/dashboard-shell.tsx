@@ -32,15 +32,15 @@ export default function DashboardShell({
 
       <div
         className={cn(
-          "flex min-h-screen flex-1 flex-col transition-all duration-300 ease-in-out ps-0",
+          "flex min-h-screen min-w-0 flex-1 flex-col transition-all duration-300 ease-in-out ps-0",
           isCollapsed ? "min-[981px]:ps-[80px]" : "min-[981px]:ps-[240px]"
         )}
       >
         <Header />
 
         {/* HTML reference: .pg padding 32px desktop / 20px ≤980px */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-[var(--ib-bg)] p-5 [scrollbar-gutter:stable] min-[981px]:p-8">
-          <div className="ib-reveal mx-auto max-w-[1280px] space-y-6 motion-reduce:animate-none">
+        <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto bg-[var(--ib-bg)] p-5 [scrollbar-gutter:stable] min-[981px]:p-8">
+          <div className="ib-reveal mx-auto w-full max-w-[1280px] min-w-0 space-y-6 motion-reduce:animate-none">
             {children}
 
             {(stats || enrollments || topCourses) && (

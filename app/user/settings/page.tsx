@@ -6,6 +6,7 @@ import Container from "@/components/ui/container";
 import { ChangePassword } from "@/components/dashboard/(user)/settings/ChangePassword";
 import { BillingInformation } from "@/components/dashboard/(user)/settings/BillingInformation";
 import { PaymentMethods } from "@/components/dashboard/(user)/settings/PaymentMethods";
+import { LifetimeAccessCard } from "@/components/dashboard/(user)/settings/LifetimeAccessCard";
 
 export default function UserSettingsPage() {
   return (
@@ -18,6 +19,7 @@ export default function UserSettingsPage() {
 
         <div className="grid max-w-4xl grid-cols-1 gap-5">
           <ChangePassword />
+          <LifetimeAccessCard />
           <BillingInformation />
           <PaymentMethods />
           {/* Preserved dormant sections — PaymentPlans, OrderHistory */}

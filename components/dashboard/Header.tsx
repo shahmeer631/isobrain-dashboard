@@ -277,8 +277,8 @@ export function Header() {
           onOpenChange={setShowLogoutModal}
           onConfirm={() => {
             dispatch(logout());
-            router.push("/login");
             setShowLogoutModal(false);
+            router.replace("/login");
           }}
         />
       </div>
