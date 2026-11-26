@@ -44,6 +44,8 @@ export const userDashboardApi = baseApi.injectEndpoints({
         method: "GET",
         responseHandler: (response) => response.blob(),
       }),
+      // Blob responses are for immediate download — don't keep them in cache
+      keepUnusedDataFor: 0,
     }),
   }),
 });
